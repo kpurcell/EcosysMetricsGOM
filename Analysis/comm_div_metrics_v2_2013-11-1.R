@@ -49,8 +49,9 @@ info.dat<-merge(jkc.fish, specinfo.dat, by="BIO_BGS")
 
 shrcom.agg<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/DiversityMetrics/metrics_v2/offshore_6011.csv")
 
-hypox.area=read.table("C:/Users/kevin.purcell/Documents/NOAA_SpatialEffort_MS/analysis/area_of_hypoxia_NR.csv", sep=",",header=T)
+hypox.area=read.table("C:/Users/kevin.purcell/Documents/NOAA_SpatialEffort_MS/analysis/hypoxia_metrics.csv", sep=",",header=T)
 colnames(hypox.area)[1]<-'YR'
+
 
 
 #####

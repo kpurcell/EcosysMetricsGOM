@@ -63,7 +63,7 @@ In the northwestern Gulf fishing effort from the commercial shrimp fishery is wi
 ### W statistics (ABC curves) (Fishing disturbance)
 
 ### Diversity metrics:
-A number of recent studies have examined the correlation between metrics of community composition and diversity against a wide array of disturbances under the framework of ecosystem based management.  We chose a variety of these metrics to examine the temporal patterns of change within the nwGOM and to provide a framework for association???
+A number of recent studies have examined the correlation between metrics of community composition and diversity against a wide array of disturbances under the framework of ecosystem based management [@Fulton2005which; Link citations etc]+6.  We chose a variety of these metrics to examine the temporal patterns of change within the nwGOM and to provide a framework for association???
 
 Diversity metrics time series, normalization and loess smooth parameters
 
