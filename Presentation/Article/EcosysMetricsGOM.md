@@ -56,20 +56,48 @@ To evaluate annual patterns of abundance with respect to bycatch status we class
 The proportion of pelagic relative to demersal biomass in fishery landings is considered a metric sensitive to eutrophication (Caddy 1993, de Leiva Moreno et al 2000, Hodorp et al. 2010).  Conceptually, the P:D ratio is derived from the differential response of fishery stocks to increased nutrients within a system (Caddy et al. 1998 via Hondorp).  More specifically in partially enclosed systems eutrophication will tend to degrade benthic habitat resulting in decreased demersal landings and elevated pelagic-demersal ratios (Hondorp et al 2010).  Previous studies have found positive correlations between P:D ratio and chlorophyll-a concentrations within systems in both in Europe and the Mediterranean (Caddy 2000, de Leiva Moreno et al 2000).  Additionally, a recent study by Hondorp et al (2010) examined landings composition and water quality data for 22 different ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al (2010) reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  To evaluate the effect of annual hypoxia on community dynamics we examined temporal and spatial dynamics in P:D ratio within the northwestern Gulf.  Biomass data for the 64 sampled biomass time series were classified as either pelagic or demersal based on species specific habitat occupancy.  The annual P:D ratios were calculated as the quotient of the annual aggregated pelagic and demersal biomasses for all survey stations summed across both the Louisiana and Texas shelves.  We also calculated the P:D ratio as a shelfwide metric including all stations for the entire northwestern Gulf.  
 
 ### Abundance Biomass Comparison (ABC) curves:
-The application of Abundance Biomass Comparison (ABC) curves to the study of disturbance within an ecosystem has an established history within marine benthic systems (Warwick 1987), especially with respect to pollution driven perturbations (XXXX).  The theoretical basis of ABC analysis is derived from principles of intermediate disturbance hypothesis (Connell 1970) and r- and k-selection theory (Pianka 1970) and has been previously reviewed (Warwick and Clarke 1994, Yemane et al. 2005).  Recently, the application of ABC cures analysis has been applied to the examination of fishing pressure and its impacts on fish assemblages (Bianchi et al 2001, Blanchard et al. 2004, DeMartini et al. 2008, Jouffre and Inejih 2005, Kaiser et al. 2000, Yemane et al. 2005).  Specifically, ABC analysis involves the comparison of two superimposed k-dominance, or cumulative ranked, curves for both abundance and biomass within a system (Clarke 1990).  The difference between the curves is calculated as the Warwick statistic (W) with negative values representing relatively disturbed systems (Warwick 1986, Yemane et al. 2005).  
+The application of Abundance Biomass Comparison (ABC) curves to the study of disturbance within an ecosystem has an established history within marine benthic systems [@warwick1986an]), especially with respect to pollution driven perturbations [@warwick1987detection;@warwick1994relearning].  The theoretical basis of ABC analysis is derived from principles of intermediate disturbance hypothesis (Connell 1970) and r- and k-selection theory [@Pianka1970on] and has been previously reviewed (Warwick and Clarke 1994, Yemane et al. 2005).  Recently, the application of ABC cures analysis has been applied to the examination of fishing pressure and its impacts on fish assemblages (Bianchi et al 2001, Blanchard et al. 2004, DeMartini et al. 2008, Jouffre and Inejih 2005, Kaiser et al. 2000, @yemane2005exploring).  Specifically, ABC analysis involves the comparison of two superimposed k-dominance, or cumulative ranked, curves for both abundance and biomass within a system (Clarke 1990).  The difference between the curves is calculated as the Warwick statistic (*W*) with negative values indicating a biomass curve that lies below the abundance curve, and represents relatively disturbed systems (Warwick 1986, @yemane2005exploring). 
 
-In the northwestern Gulf fishing effort from the commercial shrimp fishery is widely distributed across both the Louisiana and Texas coastal shelves.  To evaluate the impact of this effort on patterns of dominance we used SEAMAP survey data on both the abundance and biomass of our previously described 64 taxonomic groups and aggregated them spatially based on their location on either the Louisiana or Texas shelf.  The value of this spatial comparison lies in the difference between the perturbation mechanisms operating on the respective coastal shelves.  While fishing effort is a consistent feature across the two coastal shelves, hypoxia is predominately a condition found in Louisiana coastal waters with limited exceptions in the northern most waters of the Texas coastal shelf (Citations).  Dominance curves were generated for each year of survey data (1987-2011) for both the Louisiana and Texas regions using the Dominance plot routines in the software package PRIMER v6 (Warwhick ??).  The difference between the two dominance curves is represented by the Warwick statistic (W) and is
+In the northwestern Gulf fishing effort from the commercial shrimp fishery is widely distributed across both the Louisiana and Texas coastal shelves (Perhaps a supp figure).  To evaluate the impact of this effort on demersal fish assembledges we used SEAMAP survey data on both the abundance and biomass of our previously described 64 taxonomic groups and aggregated them spatially based on their location on either the Louisiana or Texas shelf.  The value of this spatial comparison lies in the difference between the perturbation mechanisms operating on the respective coastal shelves.  While fishing effort is a consistent feature across the two coastal shelves, hypoxia is predominately a condition found in Louisiana coastal waters with limited exceptions in the northern most waters of the Texas coastal shelf (Rabalais, Bianchi see SpatialEff_MS citations for the same statement).  Dominance curves were generated for each year of survey data (1987-2011) for both the Louisiana and Texas regions using the Dominance plot routines in the software package PRIMER v6 (Warwhick ??), and *W* statistics were derived from these curves for each year for the Louisiana and Texas shelves, repectively.  
 
-### W statistics (ABC curves) (Fishing disturbance)
 
 ### Diversity metrics:
-A number of recent studies have examined the correlation between metrics of community composition and diversity against a wide array of disturbances under the framework of ecosystem based management [@Fulton2005which; Link citations etc]+6.  We chose a variety of these metrics to examine the temporal patterns of change within the nwGOM and to provide a framework for association???
+A number of recent studies have examined the correlation between metrics of community composition and diversity against a wide array of disturbances under the framework of ecosystem based management [@Fulton2005which; Link citations etc].  We chose a variety of these metrics to examine the temporal patterns of change within the nwGOM and to provide a framework for association???
 
 Diversity metrics time series, normalization and loess smooth parameters
 
 We calculated time-series for a number of diversity metrics including Margalef's d (cit), Pielou's eveness, Shannon and Simpson diversity indicies and two of Hill's numbers N1 and N2 to better evaluate patterns of temporal variation in the diversity of the nwGOM community.  These metrics were chosen based on previous studies which indicated their associations with patterns of fishing or community disturbance Marglef's d, Pielou's eveness, both Shannon and simpson's diversity indices and two of Hill's numbers (N1,N2).  Many of these indicators 
 
+We calculated breakpoints for each diversity metric time series using the same methods outlined above, using a broken-stick methods with search years 1990-20?? forcing only a single break.  
+
+
+
 ## Results
+### Review of biomass table descriptive stuff point to table 1
+### Review of 4 panel graphic with abun biomass and our two driver, discuss break points
+
+### Discuss mosaic plot and trends in biomass.  contrast the four catch types
+* highlight the changes in fishery targest relative to others
+* discuss the differences between bycatch species and species no present in bycatch
+### Diversity Metric Trends
+* Show over all behavior of the curves
+* discuss seasonal variations
+
+### P:D ratio
+* Describe overall trends
+* Highlight regional comparisons
+* Highlight temporal variation
+
+### W stats
+* Describe results
+* highlight regional differences
+* describe temporal trends
+
+### Breakpoint analysis
+* Introduce table
+* highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
+
+### GAM Models???
 
 
 
