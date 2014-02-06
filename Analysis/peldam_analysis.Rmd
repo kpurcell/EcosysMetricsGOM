@@ -1,0 +1,392 @@
+# Pelagic to Dermersal Biomass Analysis
+
+**K.M. Purcell**  
+Beaufort Laboratory  
+National Marine Fisheries Service   
+Beaufort, NC, USA  
+
+[kevin@kevin.purcell.com](mailto:kevin@kevin-purcell.com)
+```{r setup, echo=FALSE, message=FALSE}
+#Clear the junk
+graphics.off()
+rm(list=ls(all=TRUE))
+
+library(knitcitations)
+```
+
+This analysis script for calculating Pelagic to demersal ration from SEAMAP based on weight independent trawl survey.
+
+```{r dataPrep, echo=FALSE, message=FALSE, error=FALSE}
+
+
+###Data Import and limiting source files########
+starec.dat <- read.csv("C:/Users/kevin.purcell/Documents/seamap_2013/STAREC.csv")
+
+#create a yr and month variable
+starec.dat$date<-starec.dat$MO_DAY_YR
+starec.dat$date<-as.Date(starec.dat$date, "%m/%d/%Y")
+starec.dat$month<-format(starec.dat$date, format="%m")
+#make a YR field
+starec.dat$YR<-format(starec.dat$date, format="%Y")
+starec.dat$YR<-as.numeric(starec.dat$YR)
+starec.dat$month<-as.numeric(starec.dat$month)
+
+starec.dat <- starec.dat[,c(1:7, 14:17, 24:33, 36:40, 42:51)]  #ditch the columns that screw stuff up.
+starec.dat$STAT_ZONE[starec.dat$STAT_ZONE==(-9)]=NA
+starec.dat<- subset(starec.dat, starec.dat$STAT_ZONE!='NA') #ditch NAs for min fish
+starec.dat<- subset(starec.dat, starec.dat$STAT_ZONE>1&starec.dat$STAT_ZONE<=21)
+
+
+loc.dat<-data.frame(starec.dat$STATIONID, starec.dat$STAT_ZONE)
+colnames(loc.dat)[1]<-'STATIONID'
+colnames(loc.dat)[2]<-'sz'
+
+season.dat<-data.frame(starec.dat$STATION, starec.dat$month)
+colnames(season.dat)[1]<-'STATIONID'
+colnames(season.dat)[2]<-'month'
+
+
+# envrec.dat <- read.csv("C:/Users/kevin.purcell/Documents/seamap_2013/ENVREC.csv")
+# names(envrec.dat)
+# envrec.dat <- envrec.dat[,c(1:31)]
+
+invrec.dat <- read.csv("C:/Users/kevin.purcell/Documents/seamap_2013/INVREC.csv")
+
+invrec.dat <- invrec.dat[,c(1:9,11,13:27)]
+
+bgsrec.dat<- read.csv("C:/Users/kevin.purcell/Documents/seamap_2013/BGSREC.csv")
+
+specinfo.dat<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/spec_info_summary.csv")
+colnames(specinfo.dat)[1]<-'BIO_BGS'
+
+# This is the fish we want to focus on
+jkc.fish<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")  #list of species of importance
+
+#info.dat<-merge(jkc.fish, specinfo.dat, by="BIO_BGS")
+#write.table(bgsrec.dat2, "C:/Users/kevin.purcell/Documents/comm_analysis/peldem_analysis/info_check.csv",sep=",",row.names=F,col.names=T,quote=F)
+
+#####
+# Take the bgs record and merge with jkc.fish to narrow to only species of interest
+bgsrec.dat2<-merge(bgsrec.dat, jkc.fish, by="BIO_BGS") #merge with the list of keepers
+bgsrec.dat2<-merge(bgsrec.dat2, specinfo.dat, by="BIO_BGS") #tags each bsg record as p or d
+bgsrec.dat2<-merge(bgsrec.dat2, invrec.dat, by=intersect(names(bgsrec.dat2), names(invrec.dat)))
+bgsrec.dat2<-merge(bgsrec.dat2, starec.dat, by=intersect(names(bgsrec.dat2), names(starec.dat)))
+
+
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$hab!="")
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$hab!="pd")
+
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD!='NA') #ditch NAs for spd
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD<30) # ditch the vessel speed marked as 30
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD>0)
+#relabel min_fish -9 to NA
+bgsrec.dat2$MIN_FISH[bgsrec.dat2$MIN_FISH==(-9)]=NA
+bgsrec.dat2<- subset(bgsrec.dat2, bgsrec.dat2$MIN_FISH!='NA') #ditch NAs for min fish
+bgsrec.dat2<- subset(bgsrec.dat2, bgsrec.dat2$MIN_FISH<100)
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$GEAR_SIZE==40)
+
+#Temporal limit
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$YR>=1987&bgsrec.dat2$YR<=2011)
+
+#calculate median tow time
+st.tow<-median(bgsrec.dat2$MIN_FISH)
+
+#Limit stat zones 
+bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$STAT_ZONE>=1&bgsrec.dat2$STAT_ZONE<=21)
+
+#calculate effort vector for each catch entry
+bgsrec.dat2$effort<-(bgsrec.dat2$MIN_FISH*bgsrec.dat2$VESSEL_SPD)
+#names(bgsrec.dat2)
+bgsrec.dat2$wt_per_min<-(bgsrec.dat2$SELECT_BGS/bgsrec.dat2$MIN_FISH)
+bgsrec.dat2$ST_SELECT_BGS<-(bgsrec.dat2$wt_per_min*st.tow)
+
+#aggregate by sum cntexp and effort to the station level
+cpue.dat<-aggregate(cbind(ST_SELECT_BGS, effort) ~ STATIONID + YR, data=bgsrec.dat2, FUN=sum)
+colnames(cpue.dat)[3]<-'Sbiomass'
+colnames(cpue.dat)[4]<-'Seffort'
+#calculate the cpue for the station level for whole sation
+cpue.dat$Scpue<-(cpue.dat$Sbiomass/cpue.dat$Seffort)
+
+
+#aggregate by sum cntexp and effort for p and d in different data frames
+dem.dat<-subset(bgsrec.dat2, bgsrec.dat2$hab=='d')
+dem.dat<-aggregate(cbind(ST_SELECT_BGS, effort) ~ STATIONID + YR, data=dem.dat, FUN=sum)
+
+pel.dat<-subset(bgsrec.dat2, bgsrec.dat2$hab=='p')
+pel.dat<-aggregate(cbind(ST_SELECT_BGS, effort) ~ STATIONID + YR, data=pel.dat, FUN=sum)
+
+
+#calculate cpue at station for pelagic and demersal
+pel.dat$cpue<-pel.dat$ST_SELECT_BGS/pel.dat$effort
+dem.dat$cpue<-dem.dat$ST_SELECT_BGS/dem.dat$effort
+
+#merge pcpud dcpue and total cpue into a data frame by station by year
+# names(cpue.dat)
+# names(dem.dat)
+# names(pel.dat)
+colnames(dem.dat)[5]<-'Dcpue'
+colnames(dem.dat)[3]<-'Dbiomass'
+colnames(dem.dat)[4]<-'Deffort'
+colnames(pel.dat)[5]<-'Pcpue'
+colnames(pel.dat)[4]<-'Peffort'
+colnames(pel.dat)[3]<-'Pbiomass'
+
+
+#summary(pel.dat)
+```
+
+
+
+
+```{r pdCalc, echo=FALSE, message=FALSE, error=FALSE}
+# boxplot(pel.dat$Pbiomass~pel.dat$YR,
+#         ylab="Pelagic biomass")
+# 
+# stem(pel.dat$Pbiomass)
+# 
+# summary(dem.dat)
+# boxplot(dem.dat$Dbiomass~dem.dat$YR,
+#         ylab="Demersal biomass")
+# stem(dem.dat$Dbiomass)
+
+
+cpue.dat<-merge(cpue.dat, dem.dat, by=intersect(names(cpue.dat), names(dem.dat)), all.x=T)
+cpue.dat<-merge(cpue.dat, pel.dat, by=intersect(names(cpue.dat), names(pel.dat)), all.x=T)
+
+#make NAs zeros
+cpue.dat[is.na(cpue.dat)] <- 0 
+
+#summary(cpue.dat)
+cpue.dat<-merge(cpue.dat, loc.dat, by="STATIONID", all.x=T)
+cpue.dat<-merge(cpue.dat, season.dat, by="STATIONID", all.x=T)
+
+cpue.dat.sum<-subset(cpue.dat, cpue.dat$month>=5&cpue.dat$month<=8)
+cpue.dat.fall<-subset(cpue.dat, cpue.dat$month>=9&cpue.dat$month<=12)
+
+cpue.la<-subset(cpue.dat, cpue.dat$sz>=13&cpue.dat$sz<=17)
+cpue.la.sum<-subset(cpue.la, cpue.la$month>=5&cpue.la$month<=8)
+cpue.la.fall<-subset(cpue.la, cpue.la$month>=9&cpue.la$month<=12)
+
+cpue.tx<-subset(cpue.dat, cpue.dat$sz>=18&cpue.dat$sz<=21)
+cpue.tx.sum<-subset(cpue.tx, cpue.tx$month>=5&cpue.tx$month<=8)
+cpue.tx.fall<-subset(cpue.tx, cpue.tx$month>=9&cpue.tx$month<=12)
+
+
+cpue.dat2<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.dat, FUN=sum)
+cpue.dat2.sum<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.dat.sum, FUN=sum)
+cpue.dat2.fall<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.dat.fall, FUN=sum)
+
+cpue.la2<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.la, FUN=sum)
+cpue.tx2<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.tx, FUN=sum)
+cpue.la2.sum<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.la.sum, FUN=sum)
+cpue.la2.fall<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.la.fall, FUN=sum)
+cpue.tx2.sum<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.tx.sum, FUN=sum)
+cpue.tx2.fall<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR, data=cpue.tx.fall, FUN=sum)
+
+
+# cpue.dat3<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR + month, data=cpue.dat, FUN=sum)
+# cpue.la3<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR + month, data=cpue.la, FUN=sum)
+# cpue.tx3<-aggregate(cbind(Sbiomass, Dbiomass, Pbiomass) ~ YR + month, data=cpue.tx, FUN=sum)
+
+#calculate the P/D ratio by station
+cpue.dat2$pd<-(cpue.dat2$Pbiomass/cpue.dat2$Dbiomass)
+cpue.la2$pd<-(cpue.la2$Pbiomass/cpue.la2$Dbiomass)
+cpue.tx2$pd<-(cpue.tx2$Pbiomass/cpue.tx2$Dbiomass)
+cpue.dat2.sum$pd<-(cpue.dat2.sum$Pbiomass/cpue.dat2.sum$Dbiomass)
+cpue.dat2.fall$pd<-(cpue.dat2.fall$Pbiomass/cpue.dat2.fall$Dbiomass)
+cpue.la2.sum$pd<-(cpue.la2.sum$Pbiomass/cpue.la2.sum$Dbiomass)
+cpue.la2.fall$pd<-(cpue.la2.fall$Pbiomass/cpue.la2.fall$Dbiomass)
+cpue.tx2.sum$pd<-(cpue.tx2.sum$Pbiomass/cpue.tx2.sum$Dbiomass)
+cpue.tx2.fall$pd<-(cpue.tx2.fall$Pbiomass/cpue.tx2.fall$Dbiomass)
+
+#write.table(cpue.dat2, file="C:/Users/kevin.purcell/Documents/comm_analysis/peldem_analysis/EcoAss_peldem2.csv",
+#          sep=",", row.names=F)
+```
+
+
+
+```{r overviewPlot, echo=FALSE, fig.align='center'}
+# Whole Year Graphic ###
+par(mfrow=c(3,2))
+plot(cpue.dat2$pd ~ cpue.dat2$YR, type="b",
+     xlab="Year",
+     ylab="P/D Ratio",
+     main="GOM P/D Ratio")
+lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
+
+plot(cpue.dat2$Dbiomass ~ cpue.dat2$YR, type="b",
+     xlab="Year",
+     ylab="Demersal Biomass (kg)",
+     main="Demersal Biomass")
+
+plot(cpue.dat2$Pbiomass ~ cpue.dat2$YR, type="b",
+     xlab="Year",
+     ylab="Pelagic Biomass (kg)",
+     main="Pelagic Biomass")
+
+plot((cpue.dat2$Dbiomass/cpue.dat2$Sbiomass) ~ cpue.dat2$YR, type="b",
+     xlab="Year",
+     ylab="% Demersal Biomass",
+     main="Proportion Demersal Biomass")
+
+plot((cpue.dat2$Pbiomass/cpue.dat2$Sbiomass) ~ cpue.dat2$YR, type="b",
+     xlab="Year",
+     ylab="% Pelagic Biomass",
+     main="Proportion Pelagic Biomass")
+```
+
+
+```{r Figure4, echo=FALSE, fig.align='center'}
+#windows(height=7, width=7)
+plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
+     xlab="Year",
+     ylab="P/D Ratio",
+     ylim= c(0.05,0.70))
+points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
+points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
+lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
+lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
+lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
+#grid(col="black")
+#legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+```
+
+```{r figOut, echo=FALSE, message=FALSE}
+png(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\Figures\\figure4.png")
+
+#windows(height=7, width=7)
+plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
+     xlab="Year",
+     ylab="P/D Ratio",
+     ylim= c(0.05,0.50))
+points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
+points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
+lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
+lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
+lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
+#grid(col="black")
+#legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+dev.off()
+```
+
+
+
+
+
+```{r, echo=FALSE}
+# plot(cpue.dat2$Dbiomass ~ cpue.dat2$YR, type="b",
+#      xlab="Year",
+#      ylab="Demersal Biomass (kg)",
+#      main="Demersal Biomass")
+# 
+# plot(cpue.dat2$Pbiomass ~ cpue.dat2$YR, type="b",
+#      xlab="Year",
+#      ylab="Pelagic Biomass (kg)",
+#      main="Pelagic Biomass")
+# 
+# plot((cpue.dat2$Dbiomass/cpue.dat2$Sbiomass) ~ cpue.dat2$YR, type="b",
+#      xlab="Year",
+#      ylab="% Demersal Biomass",
+#      main="Proportion Demersal Biomass")
+# 
+# plot((cpue.dat2$Pbiomass/cpue.dat2$Sbiomass) ~ cpue.dat2$YR, type="b",
+#      xlab="Year",
+#      ylab="% Pelagic Biomass",
+#      main="Proportion Pelagic Biomass")
+```
+
+
+```{r, echo=FALSE}
+# ################################
+# ### Look at Seasonal Trends  ###
+# ################################
+# #Summer
+# par(mfrow=c(3,2))
+# plot(cpue.dat2.sum$pd ~ cpue.dat2.sum$YR, type="b",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      main="GOM Summer P/D Ratio")
+# lines(lowess(cpue.la2.sum$pd ~ cpue.la2.sum$YR), lty=1)
+# 
+# 
+# plot(cpue.dat2.sum$pd ~ cpue.la2.sum$YR, type="p",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      ylim= c(0.05,0.50),
+#      main="GOM vs LA & TX Summer P/D Ratio")
+# points(cpue.la2.sum$pd ~ cpue.la2.sum$YR, type="p", pch=2)
+# points(cpue.tx2.sum$pd ~ cpue.tx2.sum$YR, type="p", pch=3)
+# lines(lowess(cpue.dat2.sum$pd ~ cpue.dat2.sum$YR), lty=1)
+# lines(lowess(cpue.la2.sum$pd ~ cpue.la2.sum$YR), lty=2)
+# lines(lowess(cpue.tx2.sum$pd ~ cpue.tx2.sum$YR), lty=4)
+# legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+# 
+# plot(cpue.dat2.sum$Dbiomass ~ cpue.dat2.sum$YR, type="b",
+#      xlab="Year",
+#      ylab="Demersal Biomass (kg)",
+#      main="Demersal Summer Biomass")
+# 
+# plot(cpue.dat2.sum$Pbiomass ~ cpue.dat2.sum$YR, type="b",
+#      xlab="Year",
+#      ylab="Pelagic Biomass (kg)",
+#      main="Pelagic Summer Biomass")
+# 
+# plot((cpue.dat2.sum$Dbiomass/cpue.dat2.sum$Sbiomass) ~ cpue.dat2.sum$YR, type="b",
+#      xlab="Year",
+#      ylab="% Demersal Biomass",
+#      ylim=c(0,1),
+#      main="Proportion of Summer Demersal Biomass")
+# 
+# plot((cpue.dat2.sum$Pbiomass/cpue.dat2.sum$Sbiomass) ~ cpue.dat2.sum$YR, type="b",
+#      xlab="Year",
+#      ylab="% Pelagic Biomass",
+#      ylim=c(0,1),
+#      main="Proportion of Summer Pelagic Biomass")
+# 
+# 
+# #Fall
+# par(mfrow=c(3,2))
+# plot(cpue.dat2.fall$pd ~ cpue.dat2.fall$YR, type="b",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      main="GOM Fall P/D Ratio")
+# lines(lowess(cpue.la2.fall$pd ~ cpue.la2.fall$YR), lty=1)
+# 
+# 
+# plot(cpue.dat2.fall$pd ~ cpue.la2.fall$YR, type="p",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      ylim= c(0.05,0.50),
+#      main="GOM vs LA & TX Fall P/D Ratio")
+# points(cpue.la2.fall$pd ~ cpue.la2.fall$YR, type="p", pch=2)
+# points(cpue.tx2.fall$pd ~ cpue.tx2.fall$YR, type="p", pch=3)
+# lines(lowess(cpue.dat2.fall$pd ~ cpue.dat2.fall$YR), lty=1)
+# lines(lowess(cpue.la2.fall$pd ~ cpue.la2.fall$YR), lty=2)
+# lines(lowess(cpue.tx2.fall$pd ~ cpue.tx2.fall$YR), lty=4)
+# legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+# 
+# plot(cpue.dat2.fall$Dbiomass ~ cpue.dat2.fall$YR, type="b",
+#      xlab="Year",
+#      ylab="Demersal Biomass (kg)",
+#      main="Demersal Fall Biomass")
+# 
+# plot(cpue.dat2.fall$Pbiomass ~ cpue.dat2.fall$YR, type="b",
+#      xlab="Year",
+#      ylab="Pelagic Biomass (kg)",
+#      main="Pelagic Fall Biomass")
+# 
+# plot((cpue.dat2.fall$Dbiomass/cpue.dat2.fall$Sbiomass) ~ cpue.dat2.fall$YR, type="b",
+#      xlab="Year",
+#      ylab="% Demersal Biomass",
+#      ylim=c(0,1),
+#      main="Proportion of Fall Demersal Biomass")
+# 
+# plot((cpue.dat2.fall$Pbiomass/cpue.dat2.fall$Sbiomass) ~ cpue.dat2.fall$YR, type="b",
+#      xlab="Year",
+#      ylab="% Pelagic Biomass",
+#      ylim=c(0,1),
+#      main="Proportion of Fall Pelagic Biomass")
+
+# look at proportional biomass estimates
+```
+
