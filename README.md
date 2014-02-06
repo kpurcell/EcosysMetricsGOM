@@ -14,7 +14,7 @@
   * Created to regions (LA, TX)
   * created two seasons (Sum, Fall)
   * aggregated cnts to create four data frames
-  * created a function to calculate diversity metrics and create a dataframe
+  * created a function to calculate diversity metrics and create a '''data.frame()'''
   * ran function on all four data sets
   * updated the figure script for to examine patters for LA and TX and fall and summer
   
