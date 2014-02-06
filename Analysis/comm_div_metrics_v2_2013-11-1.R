@@ -11,6 +11,7 @@ library(vegan)
 library(doBy)
 library(gplots)
 library(segmented)
+library(pander)
 ###Data Import and limiting source files########
 starec.dat <- read.csv("C:/Users/kevin.purcell/Documents/seamap_2013/STAREC.csv")
 
@@ -96,6 +97,12 @@ bgsrec.dat2$taxid<-paste(bgsrec.dat2$Genus, bgsrec.dat2$Species, sep=".")
 
 complete.dat<-bgsrec.dat2
 #====================================================================
+library(pander)
+# Complete table
+cnt.tab<-aggregate(ST_CNTEXP ~ TAXONOMIC + common_name, data=complete.dat, FUN=sum)
+bio.tab<-aggregate(ST_SELECT_BGS ~ TAXONOMIC , data=complete.dat, FUN=sum)
+complete.tab<-merge(cnt.tab, bio.tab, by.x="TAXONOMIC")
+test<-pandoc.table(complete.tab)
 
 # Create seperate dataframes for Regions and seasons
 sum.dat<-subset(complete.dat, complete.dat$month>=6&complete.dat$month<=8)
