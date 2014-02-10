@@ -73,8 +73,13 @@ In the northwestern Gulf fishing effort from the commercial shrimp fishery is wi
 
 ## Results
 ### Review of biomass table descriptive stuff point to table 1
-### Review of 4 panel graphic with abun biomass and our two driver, discuss break points
+  
+### Review of 4 panel graphic with abun biomass and our two driver, discuss break points  
+  Examination of the temporal trends in biomass and abundance within our 64 taxonomic entities showed their highest values early in the survey, 1992 for biomass (Figure 1A) and 1987 for abundance (Figure 1B), with the lowest time-series values occuring in 2000 for both measures.  Both biomass and abundance display positive trends since 2000, with values in 2011 representing 75% and 56% of the highest recorded values for biomass and abudance, respectively.  Time-series values for our two ecosystem drivers, fishing effort and hypoxia, displayed contrasting temporal trends with fishing effort showing decline and hypoxia showing an overal increase across the period of observation (1987-2011).  Fishing effort was highest in 1987 at a value of 2.4 x 10^5^ and was relatively stable at values around 2.0 x 10^5^ until 2000 when we begin to observe declining shrimping effort with a precipitous decline in 2003 that culminates in a minimum value of 6.0 x 10^4^ in 2010, an approximately 75% reduction in fishing effort over 7 years (Figure 1C).  The area of hypoxia, a value reported annually by the summer LUMCON cruise, showed lower values early in the time-series with the average trend stabilizing at approximately 160,000 km^2^ in 1993 and remaining realtively stable but with considerble variability throughout the rest of the time-series.  
 
+  Both ecosystem drivers displayed broken stick shape curves that suggested the ability to fit two distinct linear models to each time series.  We conducted a breakpoint analysis for both ecosystem drivers and detrimed that fishery effort was best modeled with a single break point in 2003 (model statistics) while area of hypoxia was best modeled with a break point in 1996 (model stats).    
+  
+  
 ### Discuss mosaic plot and trends in biomass.  contrast the four catch types
 * highlight the changes in fishery targest relative to others
 * discuss the differences between bycatch species and species no present in bycatch
