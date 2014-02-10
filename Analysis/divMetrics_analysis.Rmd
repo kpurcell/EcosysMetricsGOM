@@ -277,6 +277,7 @@ fall.tx.shan<-lowess(fall.tx.agg$shan~fall.tx.agg$YR)
 fall.tx.simp<-lowess(fall.tx.agg$simp~fall.tx.agg$YR)
 fall.tx.N1<-lowess(fall.tx.agg$N1~fall.tx.agg$YR)
 fall.tx.N2<-lowess(fall.tx.agg$N2~fall.tx.agg$YR)
+```
 
 
 
@@ -288,13 +289,12 @@ fall.tx.N2<-lowess(fall.tx.agg$N2~fall.tx.agg$YR)
 
 
 
-
-
+```{r fig1, echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
 ####
 ####
 names(shrcom.agg2)
 shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)
-shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1983)
+shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1987)
 
 shrcom<-data.frame(shrcom.agg2$effort, shrcom.agg2$yr)
 colnames(shrcom)[1]<-'y'
@@ -306,8 +306,48 @@ shrcom.seg.mod<-segmented(shrcom.mod, seg.Z=~x, psi=c(1985))
 summary(shrcom.seg.mod)
 plot(shrcom.seg.mod)
 
+names(complete.dat)
+biomass.dat<-aggregate(cpue~YR, data=complete.dat, FUN=mean)
+abundance.dat<-aggregate(catch_cpue~YR, data=complete.dat, FUN=mean)
 
 
+
+
+### Figure 1 code
+par(mar=c(4,4,1,1)+0.2,mfrow=c(2,2))
+plot(biomass.dat$cpue~biomass.dat$YR,
+     ylab="Biomass CPUE",
+     xlab="")
+#grid(col="black")
+lines(lowess(biomass.dat$cpue~biomass.dat$YR, f=.5))
+text(2011.3, .046, "A", cex=1,font=2)
+
+plot(abundance.dat$catch_cpue~abundance.dat$YR,
+     ylab="Abundance CPUE",
+     xlab="")
+#grid(col="black")
+lines(lowess(abundance.dat$catch_cpue~abundance.dat$YR, f=.5))
+text(2011.3, 2.33, "B", cex=1,font=2)
+
+plot(shrcom.agg2$effort~shrcom.agg2$yr,
+     ylab="Daysfished",
+     xlab="")
+#grid(col="black")
+lines(lowess(shrcom.agg2$effort~shrcom.agg2$yr, f=.5))
+text(2011.3, 235500, "C", cex=1,font=2)
+
+plot(hypox.area$areaNR~hypox.area$YR,
+     ylab=expression(paste("Area of Hypoxia"~ (km^{2}))),
+     xlab="")
+#grid(col="black")
+lines(lowess(hypox.area$areaNR~hypox.area$YR, f=.5))
+text(2011.3, 21620, "D", cex=1,font=2)
+```
+
+
+
+
+```{r}
 breaks <- shrcom.agg2$yr[which(shrcom.agg2$yr >= 1990 & shrcom.agg2$yr <= 2010)]
 
 mse <- numeric(length(breaks))
@@ -970,5 +1010,16 @@ segmented.mod<-segmented(lin.mod, seg.Z=~x, psi=1999)
 plot(y ~ x, data=sum.la.S, pch=16) 
 plot(segmented.mod$fitted.values~segmented.mod$coefficients)
 ```
+
+## GAM Models
+
+This might need to be a seperate analysis.  Also just found some citations to species time curves (```citep("10.1146/annurev.ecolsys.110308.120159","10.1890/05-0067","10.1046/j.1461-0248.2003.00497.x","10.1890/05-0067")``` which could be an interesting way to determine the stability of the ecosystem and if we are seeing changes before and after large distrubtions in the ecosystem.  Perhaps I should revisit the Lorenz Curves (univariate:Gini index) from (```citep("10.1139/f03-076")```) as a parameter but that uses catch, abundance, and distributional area so I am not sure that I can make the connections with the give resolution of data.  
+
+Considering developing a set of GAM models to examine the relationship between hypoxia, effort and the specified diversity metrics.  
+
+metric ~ s(year) + s(year, by=area.hypoxia) + s(year, by=fishing effort)
+
+
+make a data set:
 
 
