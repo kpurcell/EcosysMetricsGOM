@@ -56,48 +56,8 @@ summary(hypox.area)
 ```
 
 
-```{r dataLimiting, echo=FALSE,warning=FALSE,message=FALSE}
-#####
-# Take the bgs record and merge with jkc.fish to narrow to only species of interest
-bgsrec.dat2<-merge(bgsrec.dat, jkc.fish, by="BIO_BGS") #merge with the list of keepers
-bgsrec.dat2<-merge(bgsrec.dat2, specinfo.dat, by="BIO_BGS") #tags each bsg record as p or d
-bgsrec.dat2<-merge(bgsrec.dat2, invrec.dat, by=intersect(names(bgsrec.dat2), names(invrec.dat)))
-bgsrec.dat2<-merge(bgsrec.dat2, starec.dat, by=intersect(names(bgsrec.dat2), names(starec.dat)))
-#table<-merge(jkc.fish, specinfo.dat, by="BIO_BGS")
-#write.table(table,"spec_list_review.csv",sep=",",row.names=T,col.names=T,quote=F) #changed this to row.names TRUE
-
-
-
-bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD!='NA') #ditch NAs for spd
-bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD<30) # ditch the vessel speed marked as 30
-bgsrec.dat2<-subset(bgsrec.dat2, bgsrec.dat2$VESSEL_SPD>0)
-
-# might want to standardize to a standard tow duration 
-
-#relabel min_fish -9 to NA
-bgsrec.dat2$MIN_FISH[bgsrec.dat2$MIN_FISH==(-9)]=NA
-bgsrec.dat2<- subset(bgsrec.dat2, bgsrec.dat2$MIN_FISH!='NA') #ditch NAs for min fish
-
-#calculate median tow time
-st.tow<-median(bgsrec.dat2$MIN_FISH)
-
-#calculate effort vector for each catch entry
-bgsrec.dat2$effort<-(bgsrec.dat2$MIN_FISH*bgsrec.dat2$VESSEL_SPD)
-
-bgsrec.dat2$wt_per_min<-(bgsrec.dat2$SELECT_BGS/bgsrec.dat2$MIN_FISH)
-bgsrec.dat2$c_per_min<-(bgsrec.dat2$CNTEXP/bgsrec.dat2$MIN_FISH)
-bgsrec.dat2$ST_SELECT_BGS<-(bgsrec.dat2$wt_per_min*st.tow)
-bgsrec.dat2$ST_CNTEXP<-(bgsrec.dat2$c_per_min*st.tow)
-#calculate effort vector for each catch entry
-bgsrec.dat2$cpue<-bgsrec.dat2$ST_SELECT_BGS/bgsrec.dat2$effort
-
-bgsrec.dat2$catch_cpue<-bgsrec.dat2$ST_CNTEXP/bgsrec.dat2$effort
-names(bgsrec.dat2)
-length(unique(bgsrec.dat2$BIO_BGS))
-
-bgsrec.dat2$taxid<-paste(bgsrec.dat2$Genus, bgsrec.dat2$Species, sep=".")
-
-complete.dat<-bgsrec.dat2
+```{r dataMerge, echo=FALSE,warning=FALSE,message=FALSE}
+source("C:\Users\Kevin.Purcell\Documents\GitHub\EcosysMetricsGOM\Data\GatherSource\mergeDiversityData.R")
 ```
 
 
@@ -114,7 +74,7 @@ fall.la.dat<-subset(fall.dat, fall.dat$STAT_ZONE>=13&fall.dat$STAT_ZONE<=17)
 fall.tx.dat<-subset(fall.dat, fall.dat$STAT_ZONE>=18&fall.dat$STAT_ZONE<=21)
 
 
-
+## REFOMAT data.frames for diversity analysis
 # Summer Louisiana Timeseries
 sum.la.tab<-aggregate(ST_CNTEXP ~ YR + TAXONOMIC, data=sum.la.dat, FUN=sum)
 sum.la.tab<-reshape(sum.la.tab, idvar="YR", timevar="TAXONOMIC", direction="wide")
@@ -153,27 +113,25 @@ Data was then limited to the summer (```r min(sum.dat$month)``` - ```r max(sum.d
 A function ```divMetrics()``` was written to calcuate all the diversity metrics of interest for each of the region and seasonal data sets and returen a data frame of values.
 
 ```{r divFunction}
-# Create a function to calc divesity indicies
-divMetrics<- function(x){
-  N<-rowSums(x) # total individuals caught per station
-  shan<- diversity(x, index="shannon") #shannon
-  simp<-diversity(x, index="simpson") #simpson
-  J<- shan/log(specnumber(x))
-  S<-specnumber(x)
-  d<-(S-1)/log(N)
-  N1<-exp(shan)
-  N2<-D2<-(1/simp)
-  data.frame(YR,S,d,J,shan,simp,N1,N2)
-}
+source("C:\Users\Kevin.Purcell\Documents\GitHub\EcosysMetricsGOM\functions\divMetrics.R")
+
 ```
 
 
 
 ```{r divData, echo=TRUE,warning=FALSE,message=FALSE}
 sum.la.agg<-divMetrics(sum.la.tab)
+sum.la.agg$mod<-"sum.la"
+
 sum.tx.agg<-divMetrics(sum.tx.tab)
+sum.tx.agg$mod<-"sum.tx"
+
 fall.la.agg<-divMetrics(fall.la.tab)
+fall.la.agg$mod<-"fall.la"
+
 fall.tx.agg<-divMetrics(fall.tx.tab)
+fall.tx.agg$mod<-"fall.tx"
+
 
 
 # source("C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R")
@@ -212,12 +170,7 @@ sum.la.S.seg.mod<-segmented(sum.la.S.mod, seg.Z=~x, psi=c(1995))
   
   
 ## Segmented package analysis
-
-
-
-
-
-
+# Create a df for each lowess smooth
 sum.tx.S<-lowess(sum.tx.agg$S~sum.tx.agg$YR)
 sum.tx.d<-lowess(sum.tx.agg$d~sum.tx.agg$YR)
 sum.tx.J<-lowess(sum.tx.agg$J~sum.tx.agg$YR)
@@ -256,6 +209,7 @@ fall.tx.N2<-lowess(fall.tx.agg$N2~fall.tx.agg$YR)
 ```{r fig1, echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
 ####
 ####
+
 names(shrcom.agg2)
 shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)
 shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1987)
@@ -274,49 +228,25 @@ names(complete.dat)
 biomass.dat<-aggregate(cpue~YR, data=complete.dat, FUN=mean)
 abundance.dat<-aggregate(catch_cpue~YR, data=complete.dat, FUN=mean)
 
+# source to figure 1 code
+source("C:\Users\Kevin.Purcell\Documents\GitHub\EcosysMetricsGOM\Analysis\ResultsFigures\figure1.R")
 
-
-fig1.plot<-function(){
-    ### Figure 1 code
-    par(mar=c(4,4,1,1)+0.2,mfrow=c(2,2))
-    plot(biomass.dat$cpue~biomass.dat$YR,
-         ylab="Biomass CPUE",
-         xlab="")
-    #grid(col="black")
-    lines(lowess(biomass.dat$cpue~biomass.dat$YR, f=.5))
-    text(2011.3, .046, "A", cex=1,font=2)
-    
-    plot(abundance.dat$catch_cpue~abundance.dat$YR,
-         ylab="Abundance CPUE",
-         xlab="")
-    #grid(col="black")
-    lines(lowess(abundance.dat$catch_cpue~abundance.dat$YR, f=.5))
-    text(2011.3, 2.33, "B", cex=1,font=2)
-    
-    plot(shrcom.agg2$effort~shrcom.agg2$yr,
-         ylab="Daysfished",
-         xlab="")
-    #grid(col="black")
-    lines(lowess(shrcom.agg2$effort~shrcom.agg2$yr, f=.5))
-    text(2011.3, 235500, "C", cex=1,font=2)
-    
-    plot(hypox.area$areaNR~hypox.area$YR,
-         ylab=expression(paste("Area of Hypoxia"~ (km^{2}))),
-         xlab="")
-    #grid(col="black")
-    lines(lowess(hypox.area$areaNR~hypox.area$YR, f=.5))
-    text(2011.3, 21620, "D", cex=1,font=2)
-}
 ```
 
 ```{r}
 # load the break point function
-source("C:\Users\Kevin.Purcell\Documents\GitHub\EcosysMetricsGOM\functions\breakpts.R")
-breakpt.fun(fall.la.agg,1,2)
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\breakpts.R")
+breakpt.fun(sum.la.agg,1,4) # summer LA J
+breakpt.fun(sum.la.agg,1,5) # summery LA d
+breakpt.fun(sum.la.agg,1,6)
+breakpt.fun(sum.la.agg,1,7)
+breakpt.fun(sum.la.agg,1,8)
 
 
-
-
+breakpt.fun(biomass.dat,1,2)
+breakpt.fun(abundance.dat,1,2)
+breakpt.fun(shrcom.agg2,1,2)
+breakpt.fun(hypox.area, 1,2)
 ```
 
 
