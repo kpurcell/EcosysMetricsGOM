@@ -4,11 +4,13 @@
 # updated: 2014-2-11
 
 breakpt.fun <- function(df,t,v){
-  stat<-colnames(df)[v]
+  stat<-colnames(df)[v]  #create a variable naming the diversity metric being examined
+  mod<-df[1,9] #pull the region and season for the data
+  
   y<-df[[v]]
   x<-df[[t]]
   
-  breaks <- x[which(x >= 1995 & x <= 2005)]
+  breaks <- x[which(x >= 1995 & x <= 2010)]
   
   mse <- numeric(length(breaks))
   for(i in 1:length(breaks)){
@@ -17,8 +19,9 @@ breakpt.fun <- function(df,t,v){
   }
   mse <- as.numeric(mse)
   
-  z<-breaks[which(mse==min(mse))]
-  print(z) #Print break point year
+  z<-breaks[which(mse==min(mse))] #creates a varible = break point
+  
+  print(paste("Break point =", z, sep=" ")) #Print break point year
   
   par(mfrow=c(1,2))  #create a visual for the analysis
   plot(y ~ x, pch=16,
@@ -30,5 +33,13 @@ breakpt.fun <- function(df,t,v){
   
   
   piecewise2 <- lm(y ~ x*(x < z) + x*(x > z))
-  summary(piecewise2)
+  
+  print(summary(piecewise2))
+  
+  alpha<-z
+  p.Val<-anova(piecewise2)$'Pr(>F)'[1]
+  r.Sqr<-summary(piecewise2)$r.squared
+  new.DF<-data.frame(mod, stat, alpha, p.Val, r.Sqr)
+  #paste(mod,stat,sep="_")<<-new.DF
+  assign(paste(mod,stat,sep="_"),new.DF, envir=globalenv())
 }
