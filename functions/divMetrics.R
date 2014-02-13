@@ -4,7 +4,7 @@
 # dependencies: Vegan package
 
 divMetrics<- function(x){
-  browser()
+  #browser()
   N<-rowSums(x) # total individuals caught per station
   shan<- diversity(x, index="shannon") #shannon
   simp<-diversity(x, index="simpson") #simpson
