@@ -3,9 +3,11 @@
 # KM Purcell
 # updated: 2014-2-11
 
-breakpt.fun <- function(df,t,v){
-  stat<-colnames(df)[v]  #create a variable naming the diversity metric being examined
-  mod<-df[1,9] #pull the region and season for the data
+breakpt.fun <- function(df,t,v,C,R){
+  stats<-c("S", "d",	"J",	"shan",	"simp",	"N1",	"N2")  #bull shit to help make a data.fram for a dynamic table
+  mods<-c("sum.la", "sum.tx", "fall.la", "fall.tx")
+  stat<-stats[C]  #create a variable naming the diversity metric being examined
+  mod<-mods[R] #pull the region and season for the data
   
   y<-df[[v]]
   x<-df[[t]]
@@ -36,7 +38,7 @@ breakpt.fun <- function(df,t,v){
   
   print(summary(piecewise2))
   
-  alpha<-z
+  alpha<-print(z)
   p.Val<-anova(piecewise2)$'Pr(>F)'[1]
   r.Sqr<-summary(piecewise2)$r.squared
   new.DF<-data.frame(mod, stat, alpha, p.Val, r.Sqr)
