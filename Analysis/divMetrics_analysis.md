@@ -138,43 +138,15 @@ source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions
 
 # calculate diversity metrics
 sum.la.agg <- divMetrics(sum.la.tab)
-```
-
-```
-## Called from: divMetrics(sum.la.tab)
-```
-
-```r
 sum.la.agg$mod <- "sum.la"
 
 sum.tx.agg <- divMetrics(sum.tx.tab)
-```
-
-```
-## Called from: divMetrics(sum.tx.tab)
-```
-
-```r
 sum.tx.agg$mod <- "sum.tx"
 
 fall.la.agg <- divMetrics(fall.la.tab)
-```
-
-```
-## Called from: divMetrics(fall.la.tab)
-```
-
-```r
 fall.la.agg$mod <- "fall.la"
 
 fall.tx.agg <- divMetrics(fall.tx.tab)
-```
-
-```
-## Called from: divMetrics(fall.tx.tab)
-```
-
-```r
 fall.tx.agg$mod <- "fall.tx"
 
 # source('C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R')
@@ -253,11 +225,11 @@ Data frames were created for each of the region/seasonal data sets.
 ```r
 # load the break point function
 source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\breakpts.R")
-breakpt.fun(sum.la.agg, 1, 4)  # summer LA J
+breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ```
 
 ```
-## [1] "Break point = 2005"
+## [1] "Break point = 1997"
 ```
 
 <img src="figure/unnamed-chunk-51.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -268,29 +240,33 @@ breakpt.fun(sum.la.agg, 1, 4)  # summer LA J
 ## lm(formula = y ~ x * (x < z) + x * (x > z))
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.10744 -0.03882  0.00751  0.03030  0.09609 
+##     Min      1Q  Median      3Q     Max 
+## -0.2087 -0.0828  0.0000  0.0696  0.1965 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##              Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  12.79459   30.55453    0.42     0.68
-## x            -0.00609    0.01524   -0.40     0.69
-## x < zTRUE   -16.49029   31.09632   -0.53     0.60
-## x > zTRUE    -0.02757    0.08710   -0.32     0.75
-## x:x < zTRUE   0.00831    0.01551    0.54     0.60
-## x:x > zTRUE        NA         NA      NA       NA
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 138.80433   15.82700    8.77  2.7e-08 ***
+## x            -0.03928    0.00793   -4.96  7.6e-05 ***
+## x < zTRUE   468.78085   30.61719   15.31  1.6e-12 ***
+## x > zTRUE     0.01130    0.13727    0.08     0.94    
+## x:x < zTRUE  -0.23482    0.01536  -15.29  1.7e-12 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.0637 on 20 degrees of freedom
-## Multiple R-squared:  0.681,	Adjusted R-squared:  0.617 
-## F-statistic: 10.6 on 4 and 20 DF,  p-value: 8.65e-05
+## Residual standard error: 0.12 on 20 degrees of freedom
+## Multiple R-squared:  0.987,	Adjusted R-squared:  0.985 
+## F-statistic:  388 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1997
 ```
 
 ```r
-breakpt.fun(sum.la.agg, 1, 5)  # summer LA d
+breakpt.fun(sum.la.d, 1, 2, 2, 1)
 ```
 
 ```
-## [1] "Break point = 2005"
+## [1] "Break point = 2004"
 ```
 
 <img src="figure/unnamed-chunk-52.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -301,29 +277,33 @@ breakpt.fun(sum.la.agg, 1, 5)  # summer LA d
 ## lm(formula = y ~ x * (x < z) + x * (x > z))
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -0.4298 -0.1652  0.0121  0.1448  0.3775 
+##       Min        1Q    Median        3Q       Max 
+## -0.011051 -0.005065  0.000077  0.003440  0.013328 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  70.8938   124.5009    0.57     0.58
-## x            -0.0342     0.0621   -0.55     0.59
-## x < zTRUE   -81.9512   126.7085   -0.65     0.53
-## x > zTRUE    -0.0934     0.3549   -0.26     0.80
-## x:x < zTRUE   0.0412     0.0632    0.65     0.52
-## x:x > zTRUE       NA         NA      NA       NA
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  52.46578    3.03764    17.3  1.7e-13 ***
+## x            -0.02371    0.00152   -15.6  1.1e-12 ***
+## x < zTRUE   -59.16847    3.13924   -18.9  3.3e-14 ***
+## x > zTRUE     0.00312    0.01050     0.3     0.77    
+## x:x < zTRUE   0.02953    0.00157    18.9  3.3e-14 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.26 on 20 degrees of freedom
-## Multiple R-squared:  0.688,	Adjusted R-squared:  0.626 
-## F-statistic:   11 on 4 and 20 DF,  p-value: 6.8e-05
+## Residual standard error: 0.00802 on 20 degrees of freedom
+## Multiple R-squared:  0.972,	Adjusted R-squared:  0.967 
+## F-statistic:  176 on 4 and 20 DF,  p-value: 2.73e-15
+## 
+## [1] 2004
 ```
 
 ```r
-breakpt.fun(sum.la.agg, 1, 6)
+breakpt.fun(sum.la.J, 1, 2, 3, 1)
 ```
 
 ```
-## [1] "Break point = 2005"
+## [1] "Break point = 2000"
 ```
 
 <img src="figure/unnamed-chunk-53.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -335,28 +315,32 @@ breakpt.fun(sum.la.agg, 1, 6)
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -0.12194 -0.02296  0.00043  0.03081  0.09987 
+## -0.01356 -0.00387  0.00130  0.00475  0.01319 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##              Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  19.37752   28.03406    0.69     0.50
-## x            -0.00928    0.01398   -0.66     0.51
-## x < zTRUE   -22.83786   28.53116   -0.80     0.43
-## x > zTRUE    -0.01124    0.07991   -0.14     0.89
-## x:x < zTRUE   0.01147    0.01423    0.81     0.43
-## x:x > zTRUE        NA         NA      NA       NA
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  4.54e+01   1.49e+00   30.44   <2e-16 ***
+## x           -2.23e-02   7.46e-04  -29.97   <2e-16 ***
+## x < zTRUE   -4.89e+01   1.89e+00  -25.93   <2e-16 ***
+## x > zTRUE    2.19e-02   9.31e-03    2.35    0.029 *  
+## x:x < zTRUE  2.45e-02   9.45e-04   25.91   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.0585 on 20 degrees of freedom
-## Multiple R-squared:  0.71,	Adjusted R-squared:  0.652 
-## F-statistic: 12.2 on 4 and 20 DF,  p-value: 3.45e-05
+## Residual standard error: 0.00782 on 20 degrees of freedom
+## Multiple R-squared:  0.992,	Adjusted R-squared:  0.99 
+## F-statistic:  588 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
 ```
 
 ```r
-breakpt.fun(sum.la.agg, 1, 7)
+breakpt.fun(sum.la.shan, 1, 2, 4, 1)
 ```
 
 ```
-## [1] "Break point = 2005"
+## [1] "Break point = 2000"
 ```
 
 <img src="figure/unnamed-chunk-54.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -367,29 +351,33 @@ breakpt.fun(sum.la.agg, 1, 7)
 ## lm(formula = y ~ x * (x < z) + x * (x > z))
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -6.460 -3.300  0.177  1.721  7.623 
+##     Min      1Q  Median      3Q     Max 
+## -0.0551 -0.0159  0.0052  0.0191  0.0540 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  551.610   1900.370    0.29     0.77
-## x             -0.270      0.948   -0.28     0.78
-## x < zTRUE   -718.122   1934.068   -0.37     0.71
-## x > zTRUE     -0.684      5.417   -0.13     0.90
-## x:x < zTRUE    0.363      0.965    0.38     0.71
-## x:x > zTRUE       NA         NA      NA       NA
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.85e+02   6.07e+00   30.47   <2e-16 ***
+## x           -9.11e-02   3.04e-03  -30.00   <2e-16 ***
+## x < zTRUE   -1.95e+02   7.68e+00  -25.36   <2e-16 ***
+## x > zTRUE    8.99e-02   3.79e-02    2.37    0.028 *  
+## x:x < zTRUE  9.74e-02   3.85e-03   25.34   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 3.96 on 20 degrees of freedom
-## Multiple R-squared:  0.63,	Adjusted R-squared:  0.556 
-## F-statistic: 8.51 on 4 and 20 DF,  p-value: 0.000352
+## Residual standard error: 0.0318 on 20 degrees of freedom
+## Multiple R-squared:  0.992,	Adjusted R-squared:  0.99 
+## F-statistic:  605 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
 ```
 
 ```r
-breakpt.fun(sum.la.agg, 1, 8)
+breakpt.fun(sum.la.simp, 1, 2, 5, 1)
 ```
 
 ```
-## [1] "Break point = 2007"
+## [1] "Break point = 2000"
 ```
 
 <img src="figure/unnamed-chunk-55.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -400,34 +388,111 @@ breakpt.fun(sum.la.agg, 1, 8)
 ## lm(formula = y ~ x * (x < z) + x * (x > z))
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -0.2300 -0.0437 -0.0129  0.0209  0.2485 
+##       Min        1Q    Median        3Q       Max 
+## -0.014546 -0.002844  0.000792  0.003493  0.012267 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##              Estimate Std. Error t value Pr(>|t|)  
-## (Intercept)  165.8358    91.6550    1.81    0.085 .
-## x             -0.0819     0.0457   -1.79    0.088 .
-## x < zTRUE   -168.3691    91.9954   -1.83    0.082 .
-## x > zTRUE      0.2650     0.1615    1.64    0.116  
-## x:x < zTRUE    0.0838     0.0458    1.83    0.083 .
-## x:x > zTRUE        NA         NA      NA       NA  
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  4.32e+01   1.38e+00   31.36   <2e-16 ***
+## x           -2.12e-02   6.89e-04  -30.71   <2e-16 ***
+## x < zTRUE   -4.84e+01   1.74e+00  -27.74   <2e-16 ***
+## x > zTRUE    1.91e-02   8.61e-03    2.22    0.038 *  
+## x:x < zTRUE  2.42e-02   8.73e-04   27.72   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.102 on 20 degrees of freedom
-## Multiple R-squared:  0.699,	Adjusted R-squared:  0.639 
-## F-statistic: 11.6 on 4 and 20 DF,  p-value: 4.81e-05
+## Residual standard error: 0.00723 on 20 degrees of freedom
+## Multiple R-squared:  0.992,	Adjusted R-squared:  0.99 
+## F-statistic:  608 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(sum.la.N1, 1, 2, 6, 1)
+```
+
+```
+## [1] "Break point = 2000"
+```
+
+<img src="figure/unnamed-chunk-56.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.9063 -0.2637  0.0726  0.2281  0.9303 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  2.27e+03   9.67e+01   23.52  4.8e-16 ***
+## x           -1.13e+00   4.83e-02  -23.33  5.6e-16 ***
+## x < zTRUE   -2.42e+03   1.22e+02  -19.75  1.4e-14 ***
+## x > zTRUE    9.40e-01   6.04e-01    1.56     0.14    
+## x:x < zTRUE  1.21e+00   6.12e-02   19.74  1.4e-14 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.507 on 20 degrees of freedom
+## Multiple R-squared:  0.988,	Adjusted R-squared:  0.985 
+## F-statistic:  401 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(sum.la.N2, 1, 2, 7, 1)
+```
+
+```
+## [1] "Break point = 1999"
+```
+
+<img src="figure/unnamed-chunk-57.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.013111 -0.002105 -0.000636  0.002151  0.016357 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -3.65e+01   1.21e+00  -30.12   <2e-16 ***
+## x            1.88e-02   6.07e-04   31.03   <2e-16 ***
+## x < zTRUE    4.76e+01   1.71e+00   27.80   <2e-16 ***
+## x > zTRUE   -1.52e-02   8.52e-03   -1.79    0.089 .  
+## x:x < zTRUE -2.38e-02   8.58e-04  -27.77   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00725 on 20 degrees of freedom
+## Multiple R-squared:  0.991,	Adjusted R-squared:  0.989 
+## F-statistic:  563 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1999
 ```
 
 ```r
 
-
-breakpt.fun(biomass.dat, 1, 2)
+breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ```
 
 ```
-## [1] "Break point = 2005"
+## [1] "Break point = 1998"
 ```
+
+<img src="figure/unnamed-chunk-58.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```
 ## 
@@ -436,35 +501,518 @@ breakpt.fun(biomass.dat, 1, 2)
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -0.00687 -0.00282  0.00000  0.00116  0.00862 
+## -0.03809 -0.00884  0.00052  0.00843  0.03670 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##              Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  0.352686   2.113016    0.17     0.87
-## x           -0.000161   0.001054   -0.15     0.88
-## x < zTRUE    2.384648   2.150484    1.11     0.28
-## x > zTRUE    0.006983   0.006023    1.16     0.26
-## x:x < zTRUE -0.001194   0.001073   -1.11     0.28
-## x:x > zTRUE        NA         NA      NA       NA
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 146.01373    2.78686   52.39   <2e-16 ***
+## x            -0.04353    0.00139  -31.21   <2e-16 ***
+## x < zTRUE   206.91379    4.53202   45.66   <2e-16 ***
+## x > zTRUE    -0.02005    0.02183   -0.92     0.37    
+## x:x < zTRUE  -0.10355    0.00227  -45.57   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.00441 on 20 degrees of freedom
-## Multiple R-squared:  0.712,	Adjusted R-squared:  0.654 
-## F-statistic: 12.4 on 4 and 20 DF,  p-value: 3.18e-05
+## Residual standard error: 0.0188 on 20 degrees of freedom
+## Multiple R-squared:  0.999,	Adjusted R-squared:  0.999 
+## F-statistic: 8.37e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1998
 ```
-
-```
-## Error: arguments imply differing number of rows: 0, 1
-```
-
-<img src="figure/unnamed-chunk-56.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```r
-breakpt.fun(abundance.dat, 1, 2)
+breakpt.fun(sum.tx.d, 1, 2, 2, 2)
+```
+
+```
+## [1] "Break point = 2003"
+```
+
+<img src="figure/unnamed-chunk-59.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.006154 -0.001201  0.000044  0.000807  0.006214 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  5.23e+01   8.86e-01    59.0   <2e-16 ***
+## x           -2.38e-02   4.43e-04   -53.7   <2e-16 ***
+## x < zTRUE   -4.35e+01   9.39e-01   -46.3   <2e-16 ***
+## x > zTRUE    5.81e-03   3.64e-03     1.6     0.13    
+## x:x < zTRUE  2.17e-02   4.69e-04    46.3   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00287 on 20 degrees of freedom
+## Multiple R-squared:  0.999,	Adjusted R-squared:  0.998 
+## F-statistic: 3.5e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2003
+```
+
+```r
+breakpt.fun(sum.tx.J, 1, 2, 3, 2)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-510.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.003376 -0.001166  0.000160  0.000544  0.003982 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  2.09e+01   4.80e-01   43.62   <2e-16 ***
+## x           -1.01e-02   2.40e-04  -42.14   <2e-16 ***
+## x < zTRUE   -2.48e+01   5.28e-01  -46.92   <2e-16 ***
+## x > zTRUE    5.62e-03   2.29e-03    2.45    0.024 *  
+## x:x < zTRUE  1.24e-02   2.64e-04   46.91   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00186 on 20 degrees of freedom
+## Multiple R-squared:  0.996,	Adjusted R-squared:  0.995 
+## F-statistic: 1.13e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+breakpt.fun(sum.tx.shan, 1, 2, 4, 2)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-511.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.014626 -0.006525  0.000575  0.002302  0.018463 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  85.68678    2.38451    35.9   <2e-16 ***
+## x            -0.04135    0.00119   -34.7   <2e-16 ***
+## x < zTRUE   -99.17417    2.62575   -37.8   <2e-16 ***
+## x > zTRUE     0.02396    0.01140     2.1    0.049 *  
+## x:x < zTRUE   0.04955    0.00131    37.8   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00923 on 20 degrees of freedom
+## Multiple R-squared:  0.993,	Adjusted R-squared:  0.992 
+## F-statistic:  758 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+breakpt.fun(sum.tx.simp, 1, 2, 5, 2)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-512.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.003238 -0.000759  0.000113  0.000454  0.002791 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.48e+01   3.78e-01   39.11   <2e-16 ***
+## x           -6.94e-03   1.89e-04  -36.73   <2e-16 ***
+## x < zTRUE   -1.62e+01   4.17e-01  -38.92   <2e-16 ***
+## x > zTRUE    4.15e-03   1.81e-03    2.29    0.033 *  
+## x:x < zTRUE  8.10e-03   2.08e-04   38.91   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00146 on 20 degrees of freedom
+## Multiple R-squared:  0.995,	Adjusted R-squared:  0.994 
+## F-statistic:  946 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+breakpt.fun(sum.tx.N1, 1, 2, 6, 2)
+```
+
+```
+## [1] "Break point = 2001"
+```
+
+<img src="figure/unnamed-chunk-513.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.24256 -0.07537 -0.00119  0.06315  0.14894 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.32e+03   2.27e+01   58.32  < 2e-16 ***
+## x           -6.51e-01   1.13e-02  -57.50  < 2e-16 ***
+## x < zTRUE   -1.86e+03   2.64e+01  -70.42  < 2e-16 ***
+## x > zTRUE    5.85e-01   1.25e-01    4.69  0.00014 ***
+## x:x < zTRUE  9.31e-01   1.32e-02   70.37  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.103 on 20 degrees of freedom
+## Multiple R-squared:  0.997,	Adjusted R-squared:  0.996 
+## F-statistic: 1.65e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2001
+```
+
+```r
+breakpt.fun(sum.tx.N2, 1, 2, 7, 2)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-514.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.003539 -0.000616 -0.000150  0.000978  0.004087 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -1.63e+01   4.83e-01  -33.85   <2e-16 ***
+## x            8.72e-03   2.41e-04   36.15   <2e-16 ***
+## x < zTRUE    2.06e+01   5.32e-01   38.77   <2e-16 ***
+## x > zTRUE   -5.51e-03   2.31e-03   -2.38    0.027 *  
+## x:x < zTRUE -1.03e-02   2.66e-04  -38.76   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00187 on 20 degrees of freedom
+## Multiple R-squared:  0.994,	Adjusted R-squared:  0.993 
+## F-statistic:  890 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+
+breakpt.fun(fall.la.S, 1, 2, 1, 3)
+```
+
+```
+## [1] "Break point = 2001"
+```
+
+<img src="figure/unnamed-chunk-515.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -0.340 -0.140  0.000  0.109  0.514 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 1039.0838    51.4600   20.19  9.0e-15 ***
+## x             -0.4891     0.0257  -19.02  2.8e-14 ***
+## x < zTRUE   -362.9926    60.0104   -6.05  6.5e-06 ***
+## x > zTRUE      0.5450     0.2829    1.93    0.068 .  
+## x:x < zTRUE    0.1810     0.0300    6.03  6.8e-06 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.234 on 20 degrees of freedom
+## Multiple R-squared:  0.991,	Adjusted R-squared:  0.989 
+## F-statistic:  561 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2001
+```
+
+```r
+breakpt.fun(fall.la.d, 1, 2, 2, 3)
+```
+
+```
+## [1] "Break point = 2000"
+```
+
+<img src="figure/unnamed-chunk-516.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.04087 -0.01268  0.00229  0.01341  0.04198 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  8.84e+01   4.40e+00   20.07  1.0e-14 ***
+## x           -4.17e-02   2.20e-03  -18.93  3.1e-14 ***
+## x < zTRUE   -1.00e+02   5.57e+00  -18.02  7.8e-14 ***
+## x > zTRUE    4.70e-02   2.75e-02    1.71      0.1    
+## x:x < zTRUE  5.02e-02   2.79e-03   18.01  7.9e-14 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.0231 on 20 degrees of freedom
+## Multiple R-squared:  0.977,	Adjusted R-squared:  0.973 
+## F-statistic:  214 on 4 and 20 DF,  p-value: 4.08e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(fall.la.J, 1, 2, 3, 3)
+```
+
+```
+## [1] "Break point = 2004"
+```
+
+<img src="figure/unnamed-chunk-517.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.01729 -0.00210  0.00000  0.00569  0.01277 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  56.06952    3.32428   16.87  2.7e-13 ***
+## x            -0.02769    0.00166  -16.69  3.3e-13 ***
+## x < zTRUE   -39.94514    3.43547  -11.63  2.4e-10 ***
+## x > zTRUE     0.00285    0.01149    0.25     0.81    
+## x:x < zTRUE   0.01994    0.00171   11.63  2.4e-10 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00878 on 20 degrees of freedom
+## Multiple R-squared:  0.993,	Adjusted R-squared:  0.992 
+## F-statistic:  714 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2004
+```
+
+```r
+breakpt.fun(fall.la.shan, 1, 2, 4, 3)
+```
+
+```
+## [1] "Break point = 2004"
+```
+
+<img src="figure/unnamed-chunk-518.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.08249 -0.00873  0.00000  0.02532  0.07013 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  2.37e+02   1.66e+01   14.33  5.6e-12 ***
+## x           -1.17e-01   8.26e-03  -14.19  6.7e-12 ***
+## x < zTRUE   -1.60e+02   1.71e+01   -9.33  9.9e-09 ***
+## x > zTRUE    1.22e-02   5.72e-02    0.21     0.83    
+## x:x < zTRUE  7.97e-02   8.54e-03    9.33  1.0e-08 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.0437 on 20 degrees of freedom
+## Multiple R-squared:  0.991,	Adjusted R-squared:  0.989 
+## F-statistic:  562 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2004
+```
+
+```r
+breakpt.fun(fall.la.simp, 1, 2, 5, 3)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-519.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.004914 -0.001521  0.000531  0.002161  0.004027 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  6.14e+01   7.28e-01   84.31  < 2e-16 ***
+## x           -3.03e-02   3.64e-04  -83.22  < 2e-16 ***
+## x < zTRUE   -5.04e+01   8.01e-01  -62.95  < 2e-16 ***
+## x > zTRUE    1.42e-02   3.48e-03    4.08  0.00059 ***
+## x:x < zTRUE  2.52e-02   4.01e-04   62.92  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00282 on 20 degrees of freedom
+## Multiple R-squared:  0.999,	Adjusted R-squared:  0.999 
+## F-statistic: 8.5e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+breakpt.fun(fall.la.N1, 1, 2, 6, 3)
+```
+
+```
+## [1] "Break point = 2000"
+```
+
+<img src="figure/unnamed-chunk-520.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -0.763 -0.290  0.000  0.345  1.119 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 1908.4031    98.0560   19.46  1.8e-14 ***
+## x             -0.9473     0.0490  -19.32  2.1e-14 ***
+## x < zTRUE   -676.4883   124.0383   -5.45  2.4e-05 ***
+## x > zTRUE      1.4057     0.6124    2.30    0.033 *  
+## x:x < zTRUE    0.3375     0.0621    5.43  2.6e-05 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.514 on 20 degrees of freedom
+## Multiple R-squared:  0.989,	Adjusted R-squared:  0.986 
+## F-statistic:  432 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(fall.la.N2, 1, 2, 7, 3)
+```
+
+```
+## [1] "Break point = 2002"
+```
+
+<img src="figure/unnamed-chunk-521.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.00825 -0.00532 -0.00218  0.00267  0.02231 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -1.57e+02   2.20e+00   -71.2  < 2e-16 ***
+## x            7.90e-02   1.10e-03    71.8  < 2e-16 ***
+## x < zTRUE    1.42e+02   2.43e+00    58.4  < 2e-16 ***
+## x > zTRUE   -4.11e-02   1.05e-02    -3.9  0.00089 ***
+## x:x < zTRUE -7.08e-02   1.21e-03   -58.4  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00853 on 20 degrees of freedom
+## Multiple R-squared:  0.999,	Adjusted R-squared:  0.999 
+## F-statistic: 5.8e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2002
+```
+
+```r
+
+breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ```
 
 ```
 ## [1] "Break point = 1997"
 ```
+
+<img src="figure/unnamed-chunk-522.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```
 ## 
@@ -473,111 +1021,338 @@ breakpt.fun(abundance.dat, 1, 2)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.4656 -0.1095 -0.0251  0.1092  0.3865 
+## -0.0951 -0.0355  0.0000  0.0120  0.2131 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##             Estimate Std. Error t value Pr(>|t|)   
-## (Intercept) -48.1375    28.0486   -1.72   0.1016   
-## x             0.0246     0.0140    1.76   0.0946 . 
-## x < zTRUE   199.6125    54.2598    3.68   0.0015 **
-## x > zTRUE    -0.0538     0.2433   -0.22   0.8272   
-## x:x < zTRUE  -0.0998     0.0272   -3.67   0.0015 **
-## x:x > zTRUE       NA         NA      NA       NA   
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 206.98817    9.96283   20.78  5.2e-15 ***
+## x            -0.07386    0.00499  -14.81  3.1e-12 ***
+## x < zTRUE   821.86405   19.27300   42.64  < 2e-16 ***
+## x > zTRUE    -0.18429    0.08641   -2.13    0.046 *  
+## x:x < zTRUE  -0.41178    0.00967  -42.58  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.212 on 20 degrees of freedom
-## Multiple R-squared:  0.729,	Adjusted R-squared:  0.674 
-## F-statistic: 13.4 on 4 and 20 DF,  p-value: 1.8e-05
+## Residual standard error: 0.0752 on 20 degrees of freedom
+## Multiple R-squared:  0.998,	Adjusted R-squared:  0.998 
+## F-statistic: 3.17e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1997
 ```
-
-```
-## Error: arguments imply differing number of rows: 0, 1
-```
-
-<img src="figure/unnamed-chunk-57.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```r
-breakpt.fun(shrcom.agg2, 1, 2)
-```
-
-```
-## [1] "Break point = 2005"
-```
-
-```
-## 
-## Call:
-## lm(formula = y ~ x * (x < z) + x * (x > z))
-## 
-## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -30017  -9932   1612   9004  24173 
-## 
-## Coefficients: (1 not defined because of singularities)
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  8930439    7084605    1.26     0.22
-## x              -4403       3534   -1.25     0.23
-## x < zTRUE   -2935449    7210229   -0.41     0.69
-## x > zTRUE     -14914      20195   -0.74     0.47
-## x:x < zTRUE     1499       3597    0.42     0.68
-## x:x > zTRUE       NA         NA      NA       NA
-## 
-## Residual standard error: 14800 on 20 degrees of freedom
-## Multiple R-squared:  0.95,	Adjusted R-squared:  0.94 
-## F-statistic: 95.3 on 4 and 20 DF,  p-value: 9.95e-13
-```
-
-```
-## Error: arguments imply differing number of rows: 0, 1
-```
-
-<img src="figure/unnamed-chunk-58.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
-
-```r
-breakpt.fun(hypox.area, 1, 2)
+breakpt.fun(fall.tx.d, 1, 2, 2, 4)
 ```
 
 ```
 ## [1] "Break point = 2000"
 ```
 
+<img src="figure/unnamed-chunk-523.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
 ```
 ## 
 ## Call:
 ## lm(formula = y ~ x * (x < z) + x * (x > z))
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-##  -8764  -1548    967   3501   5232 
+##      Min       1Q   Median       3Q      Max 
+## -0.00932 -0.00526 -0.00188  0.00398  0.01642 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##              Estimate Std. Error t value Pr(>|t|)  
-## (Intercept)  1.07e+05   8.58e+05    0.13    0.902  
-## x           -5.15e+01   4.29e+02   -0.12    0.906  
-## x < zTRUE   -1.89e+06   1.02e+06   -1.86    0.076 .
-## x > zTRUE    1.25e+04   5.36e+03    2.33    0.030 *
-## x:x < zTRUE  9.55e+02   5.09e+02    1.88    0.075 .
-## x:x > zTRUE        NA         NA      NA       NA  
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 13.609056   1.390151    9.79  4.5e-09 ***
+## x           -0.004334   0.000695   -6.23  4.3e-06 ***
+## x < zTRUE   69.544968   1.758505   39.55  < 2e-16 ***
+## x > zTRUE   -0.024759   0.008681   -2.85   0.0099 ** 
+## x:x < zTRUE -0.034791   0.000880  -39.52  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 4500 on 21 degrees of freedom
-##   (1 observation deleted due to missingness)
-## Multiple R-squared:  0.492,	Adjusted R-squared:  0.395 
-## F-statistic: 5.09 on 4 and 21 DF,  p-value: 0.00501
+## Residual standard error: 0.00729 on 20 degrees of freedom
+## Multiple R-squared:  0.999,	Adjusted R-squared:  0.998 
+## F-statistic: 3.7e+03 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(fall.tx.J, 1, 2, 3, 4)
 ```
 
 ```
-## Error: arguments imply differing number of rows: 0, 1
+## [1] "Break point = 1998"
 ```
 
-<img src="figure/unnamed-chunk-59.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-524.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.006648 -0.001974  0.000177  0.002909  0.004718 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.44e+01   5.32e-01   27.06  < 2e-16 ***
+## x           -6.84e-03   2.66e-04  -25.69  < 2e-16 ***
+## x < zTRUE   -1.87e+01   8.65e-01  -21.57  2.5e-15 ***
+## x > zTRUE    9.83e-03   4.17e-03    2.36    0.029 *  
+## x:x < zTRUE  9.35e-03   4.34e-04   21.54  2.6e-15 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00359 on 20 degrees of freedom
+## Multiple R-squared:  0.985,	Adjusted R-squared:  0.982 
+## F-statistic:  324 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1998
+```
+
+```r
+breakpt.fun(fall.tx.shan, 1, 2, 4, 4)
+```
+
+```
+## [1] "Break point = 2000"
+```
+
+<img src="figure/unnamed-chunk-525.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.023259 -0.001571 -0.000402  0.004831  0.013694 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  6.48e+01   1.97e+00    32.9  < 2e-16 ***
+## x           -3.09e-02   9.85e-04   -31.4  < 2e-16 ***
+## x < zTRUE   -5.62e+01   2.49e+00   -22.6  1.1e-15 ***
+## x > zTRUE    2.83e-02   1.23e-02     2.3    0.032 *  
+## x:x < zTRUE  2.81e-02   1.25e-03    22.5  1.1e-15 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.0103 on 20 degrees of freedom
+## Multiple R-squared:  0.994,	Adjusted R-squared:  0.993 
+## F-statistic:  885 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 2000
+```
+
+```r
+breakpt.fun(fall.tx.simp, 1, 2, 5, 4)
+```
+
+```
+## [1] "Break point = 1995"
+```
+
+<img src="figure/unnamed-chunk-526.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.00419 -0.00153  0.00000  0.00122  0.00456 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  5.96e+00   2.59e-01   23.07  7.0e-16 ***
+## x           -2.55e-03   1.30e-04  -19.67  1.5e-14 ***
+## x < zTRUE   -1.83e+01   7.78e-01  -23.49  4.9e-16 ***
+## x > zTRUE    6.09e-03   2.70e-03    2.26    0.035 *  
+## x:x < zTRUE  9.17e-03   3.91e-04   23.46  5.0e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00239 on 20 degrees of freedom
+## Multiple R-squared:  0.975,	Adjusted R-squared:  0.97 
+## F-statistic:  196 on 4 and 20 DF,  p-value: 9.53e-16
+## 
+## [1] 1995
+```
+
+```r
+breakpt.fun(fall.tx.N1, 1, 2, 6, 4)
+```
+
+```
+## [1] "Break point = 1996"
+```
+
+<img src="figure/unnamed-chunk-527.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.5010 -0.1445  0.0234  0.2033  0.4440 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  9.23e+02   3.31e+01    27.9  < 2e-16 ***
+## x           -4.52e-01   1.66e-02   -27.3  < 2e-16 ***
+## x < zTRUE   -1.88e+03   7.85e+01   -24.0  3.3e-16 ***
+## x > zTRUE    7.87e-01   3.15e-01     2.5    0.021 *  
+## x:x < zTRUE  9.44e-01   3.94e-02    23.9  3.4e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.277 on 20 degrees of freedom
+## Multiple R-squared:  0.983,	Adjusted R-squared:  0.98 
+## F-statistic:  291 on 4 and 20 DF,  p-value: <2e-16
+## 
+## [1] 1996
+```
+
+```r
+breakpt.fun(fall.tx.N2, 1, 2, 7, 4)
+```
+
+```
+## [1] "Break point = 1995"
+```
+
+<img src="figure/unnamed-chunk-528.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.006213 -0.001835 -0.000039  0.002110  0.005576 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -5.334009   0.355776   -15.0  2.4e-12 ***
+## x            0.003246   0.000178    18.2  6.5e-14 ***
+## x < zTRUE   22.796655   1.070767    21.3  3.3e-15 ***
+## x > zTRUE   -0.007786   0.003713    -2.1    0.049 *  
+## x:x < zTRUE -0.011433   0.000538   -21.3  3.4e-15 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.00329 on 20 degrees of freedom
+## Multiple R-squared:  0.97,	Adjusted R-squared:  0.964 
+## F-statistic:  161 on 4 and 20 DF,  p-value: 6.39e-15
+## 
+## [1] 1995
+```
 
 ```r
 
-
+breakpt.tab <- rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, 
+    sum.la_N1, sum.la_N2, sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, 
+    sum.tx_N1, sum.tx_N2, fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, 
+    fall.la_N1, fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
+    fall.tx_N1, fall.tx_N2)
 # bind the model output tables
+rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2, 
+    sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2, 
+    fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, 
+    fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
+    fall.tx_N1, fall.tx_N2)
+```
+
+
+## Breakpoint Table
+----------------------------------------
+  mod    stat   alpha    p.Val    r.Sqr 
+------- ------ ------- --------- -------
+sum.la    S     1997   1.31e-19  0.9873 
+
+sum.la    d     2004   0.0002485 0.9724 
+
+sum.la    J     2000   1.341e-20 0.9916 
+
+sum.la   shan   2000   7.232e-21 0.9918 
+
+sum.la   simp   2000   1.671e-20 0.9918 
+
+sum.la    N1    2000   3.197e-19 0.9877 
+
+sum.la    N2    1999   4.741e-20 0.9912 
+
+sum.tx    S     1998   2.187e-33 0.9994 
+
+sum.tx    d     2003   1.004e-28 0.9986 
+
+sum.tx    J     2002   3.282e-20 0.9956 
+
+sum.tx   shan   2002   6.121e-19 0.9935 
+
+sum.tx   simp   2002   8.883e-21 0.9947 
+
+sum.tx    N1    2001   4.224e-17  0.997 
+
+sum.tx    N2    2002   3.067e-20 0.9944 
+
+fall.la   S     2001   6.789e-22 0.9912 
+
+fall.la   d     2000   1.263e-15 0.9772 
+
+fall.la   J     2004   1.212e-22  0.993 
+
+fall.la  shan   2004   1.069e-21 0.9912 
+
+fall.la  simp   2002   4.636e-33 0.9994 
+
+fall.la   N1    2000   1.017e-20 0.9886 
+
+fall.la   N2    2002   3.683e-31 0.9991 
+
+fall.tx   S     1997   9.455e-29 0.9984 
+
+fall.tx   d     2000   1.233e-29 0.9987 
+
+fall.tx   J     1998   1.403e-17 0.9848 
+
+fall.tx  shan   2000   3.028e-23 0.9944 
+
+fall.tx  simp   1995   0.003069  0.9752 
+
+fall.tx   N1    1996   2.83e-15  0.9831 
+
+fall.tx   N2    1995   0.0005285  0.97  
+----------------------------------------
+
+Table: Piecewise Regression Results
+ 
+
+
+
+
+
+
+```r
+breakpt.fun(biomass.dat, 1, 2)
+breakpt.fun(abundance.dat, 1, 2)
+breakpt.fun(shrcom.agg2, 1, 2)
+breakpt.fun(hypox.area, 1, 2)
 ```
 
 
@@ -599,18 +1374,7 @@ plot(segmented.mod$fitted.values ~ segmented.mod$coefficients)
 
 ## GAM Models
 
-This might need to be a seperate analysis.  Also just found some citations to species time curves (``
-
-```
-
-Error in base::parse(text = code, srcfile = NULL) : 
-  2:0: unexpected end of input
-1: citep("10.1146/annurev.ecolsys.110308.120159"
-   ^
-
-```
-
-``,``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )``,``(<a href="http://dx.doi.org/10.1046/j.1461-0248.2003.00497.x">Adler & Lauenroth, 2003</a> )``,``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )``) which could be an interesting way to determine the stability of the ecosystem and if we are seeing changes before and after large distrubtions in the ecosystem.  Perhaps I should revisit the Lorenz Curves (univariate:Gini index) from (``(<a href="http://dx.doi.org/10.1139/f03-076">Swain & Wade, 2003</a> )``) as a parameter but that uses catch, abundance, and distributional area so I am not sure that I can make the connections with the give resolution of data.  
+This might need to be a seperate analysis.  Also just found some citations to species time curves ``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )``,``(<a href="http://dx.doi.org/10.1046/j.1461-0248.2003.00497.x">Adler & Lauenroth, 2003</a> )``,``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )`` which could be an interesting way to determine the stability of the ecosystem and if we are seeing changes before and after large distrubtions in the ecosystem.  Perhaps I should revisit the Lorenz Curves (univariate:Gini index) from ``(<a href="http://dx.doi.org/10.1139/f03-076">Swain & Wade, 2003</a> )`` as a parameter but that uses catch, abundance, and distributional area so I am not sure that I can make the connections with the give resolution of data.  
 
 Considering developing a set of GAM models to examine the relationship between hypoxia, effort and the specified diversity metrics.  
 

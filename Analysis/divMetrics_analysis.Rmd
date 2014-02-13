@@ -141,37 +141,37 @@ Data frames were created for each of the region/seasonal data sets.
 ```{r lowessCalcs, echo=FALSE, message=FALSE, warning=FALSE} 
 ### Piecewise regression
 # Create a df for each lowess smooth
-sum.la.S<-as.data.frame(lowess(sum.la.agg$S~sum.la.agg$YR))
-sum.la.d<-as.data.frame(lowess(sum.la.agg$d~sum.la.agg$YR))
-sum.la.J<-lowess(sum.la.agg$J~sum.la.agg$YR))
-sum.la.shan<-as.data.frame(lowess(sum.la.agg$shan~sum.la.agg$YR))
-sum.la.simp<-as.data.frame(lowess(sum.la.agg$simp~sum.la.agg$YR))
-sum.la.N1<-as.data.frame(lowess(sum.la.agg$N1~sum.la.agg$YR))
-sum.la.N2<-as.data.frame(lowess(sum.la.agg$N2~sum.la.agg$YR))  
+sum.la.S<-as.data.frame(lowess(sum.la.agg$S~sum.la.agg$YR));sum.la.S$mod<-"sum.la"
+sum.la.d<-as.data.frame(lowess(sum.la.agg$d~sum.la.agg$YR));sum.la.d$mod<-"sum.la"
+sum.la.J<-as.data.frame(lowess(sum.la.agg$J~sum.la.agg$YR));sum.la.J$mod<-"sum.la"
+sum.la.shan<-as.data.frame(lowess(sum.la.agg$shan~sum.la.agg$YR));sum.la.shan$mod<-"sum.la"
+sum.la.simp<-as.data.frame(lowess(sum.la.agg$simp~sum.la.agg$YR));sum.la.simp$mod<-"sum.la"
+sum.la.N1<-as.data.frame(lowess(sum.la.agg$N1~sum.la.agg$YR));sum.la.N1$mod<-"sum.la"
+sum.la.N2<-as.data.frame(lowess(sum.la.agg$N2~sum.la.agg$YR));sum.la.N2$mod<-"sum.la"
  
-sum.tx.S<-as.data.frame(lowess(sum.tx.agg$S~sum.tx.agg$YR))
-sum.tx.d<-as.data.frame(lowess(sum.tx.agg$d~sum.tx.agg$YR))
-sum.tx.J<-as.data.frame(lowess(sum.tx.agg$J~sum.tx.agg$YR))
-sum.tx.shan<-as.data.frame(lowess(sum.tx.agg$shan~sum.tx.agg$YR))
-sum.tx.simp<-as.data.frame(lowess(sum.tx.agg$simp~sum.tx.agg$YR))
-sum.tx.N1<-as.data.frame(lowess(sum.tx.agg$N1~sum.tx.agg$YR))
-sum.tx.N2<-as.data.frame(lowess(sum.tx.agg$N2~sum.tx.agg$YR))
+sum.tx.S<-as.data.frame(lowess(sum.tx.agg$S~sum.tx.agg$YR));sum.tx.S$mod<-"sum.tx"
+sum.tx.d<-as.data.frame(lowess(sum.tx.agg$d~sum.tx.agg$YR));sum.tx.d$mod<-"sum.tx"
+sum.tx.J<-as.data.frame(lowess(sum.tx.agg$J~sum.tx.agg$YR));sum.tx.J$mod<-"sum.tx"
+sum.tx.shan<-as.data.frame(lowess(sum.tx.agg$shan~sum.tx.agg$YR));sum.tx.shan$mod<-"sum.tx"
+sum.tx.simp<-as.data.frame(lowess(sum.tx.agg$simp~sum.tx.agg$YR));sum.tx.simp$mod<-"sum.tx"
+sum.tx.N1<-as.data.frame(lowess(sum.tx.agg$N1~sum.tx.agg$YR));sum.tx.S$N1<-"sum.tx"
+sum.tx.N2<-as.data.frame(lowess(sum.tx.agg$N2~sum.tx.agg$YR));sum.tx.S$N2<-"sum.tx"
 
-fall.la.S<-as.data.frame(lowess(fall.la.agg$S~fall.la.agg$YR))
-fall.la.d<-as.data.frame(lowess(fall.la.agg$d~fall.la.agg$YR))
-fall.la.J<-as.data.frame(lowess(fall.la.agg$J~fall.la.agg$YR))
-fall.la.shan<-as.data.frame(lowess(fall.la.agg$shan~fall.la.agg$YR))
-fall.la.simp<-as.data.frame(lowess(fall.la.agg$simp~fall.la.agg$YR))
-fall.la.N1<-as.data.frame(lowess(fall.la.agg$N1~fall.la.agg$YR))
-fall.la.N2<-as.data.frame(lowess(fall.la.agg$N2~fall.la.agg$YR))
+fall.la.S<-as.data.frame(lowess(fall.la.agg$S~fall.la.agg$YR));fall.la.S$mod<-"fall.la"
+fall.la.d<-as.data.frame(lowess(fall.la.agg$d~fall.la.agg$YR));fall.la.d$mod<-"fall.la"
+fall.la.J<-as.data.frame(lowess(fall.la.agg$J~fall.la.agg$YR));fall.la.J$mod<-"fall.la"
+fall.la.shan<-as.data.frame(lowess(fall.la.agg$shan~fall.la.agg$YR));fall.la.shan$mod<-"fall.la"
+fall.la.simp<-as.data.frame(lowess(fall.la.agg$simp~fall.la.agg$YR));fall.la.simp$mod<-"fall.la"
+fall.la.N1<-as.data.frame(lowess(fall.la.agg$N1~fall.la.agg$YR));fall.la.N1$mod<-"fall.la"
+fall.la.N2<-as.data.frame(lowess(fall.la.agg$N2~fall.la.agg$YR));fall.la.N2$mod<-"fall.la"
 
-fall.tx.S<-as.data.frame(lowess(fall.tx.agg$S~fall.tx.agg$YR))
-fall.tx.d<-as.data.frame(lowess(fall.tx.agg$d~fall.tx.agg$YR))
-fall.tx.J<-as.data.frame(lowess(fall.tx.agg$J~fall.tx.agg$YR))
-fall.tx.shan<-as.data.frame(lowess(fall.tx.agg$shan~fall.tx.agg$YR))
-fall.tx.simp<-as.data.frame(lowess(fall.tx.agg$simp~fall.tx.agg$YR))
-fall.tx.N1<-as.data.frame(lowess(fall.tx.agg$N1~fall.tx.agg$YR))
-fall.tx.N2<-as.data.frame(lowess(fall.tx.agg$N2~fall.tx.agg$YR))
+fall.tx.S<-as.data.frame(lowess(fall.tx.agg$S~fall.tx.agg$YR));fall.tx.S$mod<-"fall.tx"
+fall.tx.d<-as.data.frame(lowess(fall.tx.agg$d~fall.tx.agg$YR));fall.tx.d$mod<-"fall.tx"
+fall.tx.J<-as.data.frame(lowess(fall.tx.agg$J~fall.tx.agg$YR));fall.tx.J$mod<-"fall.tx"
+fall.tx.shan<-as.data.frame(lowess(fall.tx.agg$shan~fall.tx.agg$YR));fall.tx.shan$mod<-"fall.tx"
+fall.tx.simp<-as.data.frame(lowess(fall.tx.agg$simp~fall.tx.agg$YR));fall.tx.simp$mod<-"fall.tx"
+fall.tx.N1<-as.data.frame(lowess(fall.tx.agg$N1~fall.tx.agg$YR));fall.tx.N1$mod<-"fall.tx"
+fall.tx.N2<-as.data.frame(lowess(fall.tx.agg$N2~fall.tx.agg$YR));fall.tx.N2$mod<-"fall.tx"
 
 ```
 
@@ -216,20 +216,122 @@ source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Analysis\
 ```{r, fig.align='center', fig.height=6, fig.width=8}
 # load the break point function
 source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\breakpts.R")
-breakpt.fun(sum.la.agg,1,4) # summer LA J
-breakpt.fun(sum.la.agg,1,5) # summer LA d
-breakpt.fun(sum.la.agg,1,6)
-breakpt.fun(sum.la.agg,1,7)
-breakpt.fun(sum.la.agg,1,8)
+breakpt.fun(sum.la.S,1,2,1,1)
+breakpt.fun(sum.la.d,1,2,2,1) 
+breakpt.fun(sum.la.J,1,2,3,1) 
+breakpt.fun(sum.la.shan,1,2,4,1) 
+breakpt.fun(sum.la.simp,1,2,5,1) 
+breakpt.fun(sum.la.N1,1,2,6,1) 
+breakpt.fun(sum.la.N2,1,2,7,1) 
+
+breakpt.fun(sum.tx.S,1,2,1,2)
+breakpt.fun(sum.tx.d,1,2,2,2) 
+breakpt.fun(sum.tx.J,1,2,3,2) 
+breakpt.fun(sum.tx.shan,1,2,4,2) 
+breakpt.fun(sum.tx.simp,1,2,5,2) 
+breakpt.fun(sum.tx.N1,1,2,6,2) 
+breakpt.fun(sum.tx.N2,1,2,7,2) 
+
+breakpt.fun(fall.la.S,1,2,1,3)
+breakpt.fun(fall.la.d,1,2,2,3) 
+breakpt.fun(fall.la.J,1,2,3,3) 
+breakpt.fun(fall.la.shan,1,2,4,3) 
+breakpt.fun(fall.la.simp,1,2,5,3) 
+breakpt.fun(fall.la.N1,1,2,6,3) 
+breakpt.fun(fall.la.N2,1,2,7,3) 
+
+breakpt.fun(fall.tx.S,1,2,1,4)
+breakpt.fun(fall.tx.d,1,2,2,4) 
+breakpt.fun(fall.tx.J,1,2,3,4) 
+breakpt.fun(fall.tx.shan,1,2,4,4) 
+breakpt.fun(fall.tx.simp,1,2,5,4) 
+breakpt.fun(fall.tx.N1,1,2,6,4) 
+breakpt.fun(fall.tx.N2,1,2,7,4) 
+
+breakpt.tab<-rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
+#bind the model output tables
+rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
+```
+
+## Breakpoint Table
+----------------------------------------
+  mod    stat   alpha    p.Val    r.Sqr 
+------- ------ ------- --------- -------
+sum.la    S     1997   1.31e-19  0.9873 
+
+sum.la    d     2004   0.0002485 0.9724 
+
+sum.la    J     2000   1.341e-20 0.9916 
+
+sum.la   shan   2000   7.232e-21 0.9918 
+
+sum.la   simp   2000   1.671e-20 0.9918 
+
+sum.la    N1    2000   3.197e-19 0.9877 
+
+sum.la    N2    1999   4.741e-20 0.9912 
+
+sum.tx    S     1998   2.187e-33 0.9994 
+
+sum.tx    d     2003   1.004e-28 0.9986 
+
+sum.tx    J     2002   3.282e-20 0.9956 
+
+sum.tx   shan   2002   6.121e-19 0.9935 
+
+sum.tx   simp   2002   8.883e-21 0.9947 
+
+sum.tx    N1    2001   4.224e-17  0.997 
+
+sum.tx    N2    2002   3.067e-20 0.9944 
+
+fall.la   S     2001   6.789e-22 0.9912 
+
+fall.la   d     2000   1.263e-15 0.9772 
+
+fall.la   J     2004   1.212e-22  0.993 
+
+fall.la  shan   2004   1.069e-21 0.9912 
+
+fall.la  simp   2002   4.636e-33 0.9994 
+
+fall.la   N1    2000   1.017e-20 0.9886 
+
+fall.la   N2    2002   3.683e-31 0.9991 
+
+fall.tx   S     1997   9.455e-29 0.9984 
+
+fall.tx   d     2000   1.233e-29 0.9987 
+
+fall.tx   J     1998   1.403e-17 0.9848 
+
+fall.tx  shan   2000   3.028e-23 0.9944 
+
+fall.tx  simp   1995   0.003069  0.9752 
+
+fall.tx   N1    1996   2.83e-15  0.9831 
+
+fall.tx   N2    1995   0.0005285  0.97  
+----------------------------------------
+
+Table: Piecewise Regression Results
+ 
 
 
+
+
+
+```{r, eval=FALSE}
 breakpt.fun(biomass.dat,1,2)
 breakpt.fun(abundance.dat,1,2)
 breakpt.fun(shrcom.agg2,1,2)
 breakpt.fun(hypox.area, 1,2)
-
-
-#bind the model output tables
 ```
 
 
@@ -246,15 +348,6 @@ plot(y ~ x, data=sum.la.S, pch=16)
 plot(segmented.mod$fitted.values~segmented.mod$coefficients)
 ```
 
-## GAM Models
 
-This might need to be a seperate analysis.  Also just found some citations to species time curves ```r citep("10.1890/05-0067")```,```r citep("10.1046/j.1461-0248.2003.00497.x")```,```r citep("10.1890/05-0067")``` which could be an interesting way to determine the stability of the ecosystem and if we are seeing changes before and after large distrubtions in the ecosystem.  Perhaps I should revisit the Lorenz Curves (univariate:Gini index) from ```r citep("10.1139/f03-076")``` as a parameter but that uses catch, abundance, and distributional area so I am not sure that I can make the connections with the give resolution of data.  
-
-Considering developing a set of GAM models to examine the relationship between hypoxia, effort and the specified diversity metrics.  
-
-metric ~ s(year) + s(year, by=area.hypoxia) + s(year, by=fishing effort)
-
-
-make a data set:
 
 
