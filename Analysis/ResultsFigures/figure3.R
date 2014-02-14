@@ -8,34 +8,7 @@ sum.tx.agg2<-divNorm(sum.tx.agg)
 fall.la.agg2<-divNorm(fall.la.agg)
 fall.tx.agg2<-divNorm(fall.tx.agg)
 
-
-
-
-#create new df with yr by values.std
-sum.dat2<-subset(complete.dat, complete.dat$month>=6&complete.dat$month<=8)
-sum.la.dat2<-subset(sum.dat, sum.dat$STAT_ZONE>=13&sum.dat$STAT_ZONE<=17)
-sum.tx.dat2<-subset(sum.dat, sum.dat$STAT_ZONE>=18&sum.dat$STAT_ZONE<=21)
-
-sum.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR , 
-                   data=sum.dat, FUN=c(mean,sd))
-sum.la.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR ,
-                      data=sum.la.dat, FUN=c(mean,sd))
-sum.tx.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR ,
-                      data=sum.tx.dat, FUN=c(mean,sd))
-
-fall.dat2<-subset(complete.dat, complete.dat$month>=9&complete.dat$month<=11)
-fall.la.dat2<-subset(fall.dat, fall.dat$STAT_ZONE>=13&fall.dat$STAT_ZONE<=17)
-fall.tx.dat2<-subset(fall.dat, fall.dat$STAT_ZONE>=18&fall.dat$STAT_ZONE<=21)
-
-fall.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR ,
-                    data=fall.dat, FUN=c(mean,sd))
-fall.la.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR ,
-                       data=fall.la.dat, FUN=c(mean,sd))
-fall.tx.agg2=summaryBy(S.norm + N.norm + d.norm+J.norm+shan.norm+simp.norm+N1.norm+N2.norm ~ YR ,
-                       data=fall.tx.dat, FUN=c(mean,sd))
-
 #plot
-#par(mfrow=c(2,4),pty="s")
 #la summer
 par(mfrow=c(2,2))
 plot(sum.la.agg2$S.norm~sum.la.agg2$YR, pch="",
