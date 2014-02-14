@@ -85,10 +85,6 @@ Both ecosystem drivers displayed broken stick shape curves that suggested the ab
 
 To better understand to role of individual species or groups to the overall temporal variability of biomass within the northern Gulf we calculated a biomass time-series each of our 64 taxonomic entities.  Our individual times-series were grouped into four groups reflecting their relationship to the Gulf shirmp fishery.  This allows us to examine the variability of fishery target species relative to bycatch and species with which the fishery has little contact.  Of the four groups observed fishery targets consisted of XX% of survey biomass, with bycatch (XX) rare bycatch () and non-bycatch ().???  Our comparison found that for the three target species *P. aztecus*, *P. setiferus*, and *P. duorarum* biomass values were relatively low until 2003 (Figure 2A) at which point biomass values begin to increase for each of the three species.  The time-series for high-incidence bycatch species display an general pattern of decline with considerable inter-annual variability among the 16 taxonomic entities (Figure 2B).  The lowest biomass values for this group occur in the late 1990s until the early-2000s at which time many of the species in this group show patterns of increasing biomass.  The biomass time-series for both low-incidence bycatch (Figure 2C) and non-bycatch (Figure 2D) species show very similar patterns of overall reduction in biomass throughout the period of observation.  With only a few notable exceptions(e.g. *Larimus fasciatus*, *Amusium papyraceum*) most species considered in these two final categories show little sign of increasing biomass over the observed period.  
 
-### Diversity Metric Trends
-* Show over all behavior of the curves
-* discuss seasonal variations
-
 ### P:D ratio
 * Describe overall trends
 * Highlight regional comparisons
@@ -99,12 +95,13 @@ To better understand to role of individual species or groups to the overall temp
 * highlight regional differences
 * describe temporal trends
 
+### Diversity Metric Trends
+* Show over all behavior of the curves
+* discuss seasonal variations
+
 ### Breakpoint analysis
 * Introduce table
 * highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
-
-### GAM Models???
-
 
 
 ## Discussion
