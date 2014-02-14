@@ -188,6 +188,59 @@ fall.tx.N2<-as.data.frame(lowess(fall.tx.agg$N2~fall.tx.agg$YR));fall.tx.N2$mod<
 ```{r fig1, echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
 ####
 ####
+#### Old code as reference
+####
+# names(shrcom.agg)
+# shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)
+# shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1983)
+# plot(shrcom.agg2$effort~shrcom.agg2$yr)
+# grid(col="black")
+# lines(lowess(shrcom.agg2$effort~shrcom.agg2$yr))
+# 
+# breaks <- shrcom.agg2$yr[which(shrcom.agg2$yr >= 1990 & shrcom.agg2$yr <= 2010)]
+# 
+# mse <- numeric(length(breaks))
+# for(i in 1:length(breaks)){
+#   piecewise1 <- lm(effort ~ yr*(yr < breaks[i]) + yr*(yr>=breaks[i]), data=shrcom.agg2)
+#   mse[i] <- summary(piecewise1)[6]
+# }
+# 
+# mse <- as.numeric(mse)
+# plot(mse~breaks)
+# 
+# breaks[which(mse==min(mse))]
+# 
+# eff.mod <- lm(effort ~ yr*(yr < 2003) + yr*(yr > 2003), data=shrcom.agg2)
+# summary(eff.mod)
+# 
+# ###
+# ###
+# names(hypox.area)
+# 
+# plot(hypox.area$area.hypoxic~hypox.area$YR)
+# grid(col="black")
+# lines(lowess(hypox.area$area.hypoxic~hypox.area$YR))
+# 
+# hypox.lo<-lowess(hypox.area$area.hypoxic~hypox.area$YR)
+# 
+# attach(hypox.lo)
+# plot(y ~ x, pch=16)                
+# breaks <- x[which(x >= 1995 & x <= 2005)]
+# 
+# mse <- numeric(length(breaks))
+# for(i in 1:length(breaks)){
+#   piecewise1 <- lm(y ~ x*(x < breaks[i]) + x*(x>=breaks[i]))
+#   mse[i] <- summary(piecewise1)[6]
+# }
+# mse <- as.numeric(mse)
+# plot(mse~breaks)
+# 
+# breaks[which(mse==min(mse))]
+# 
+# piecewise2 <- lm(y ~ x*(x < 1996) + x*(x > 1996))
+# summary(piecewise2)
+# detach(hypox.lo)
+
 
 names(shrcom.agg2)
 shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)

@@ -8,6 +8,8 @@ sum.tx.agg2<-divNorm(sum.tx.agg)
 fall.la.agg2<-divNorm(fall.la.agg)
 fall.tx.agg2<-divNorm(fall.tx.agg)
 
+# pdf(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\figure1.pdf")   
+
 #plot
 #la summer
 par(mfrow=c(2,2))
@@ -81,3 +83,5 @@ grid(col="lightgrey")
 # abline(v=1996,col=9,lty=2) #hypoxia
 # rect(1998,0,2005,2, density=20, col="grey",
 #      angle=-30, border="transparent") 
+
+#dev.off()
