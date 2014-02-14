@@ -177,72 +177,8 @@ fall.tx.N2<-as.data.frame(lowess(fall.tx.agg$N2~fall.tx.agg$YR));fall.tx.N2$mod<
 
 
 
-
-
-
-
-
-
-
-
 ```{r fig1, echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
-####
-####
-#### Old code as reference
-####
-# names(shrcom.agg)
-# shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)
-# shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1983)
-# plot(shrcom.agg2$effort~shrcom.agg2$yr)
-# grid(col="black")
-# lines(lowess(shrcom.agg2$effort~shrcom.agg2$yr))
-# 
-# breaks <- shrcom.agg2$yr[which(shrcom.agg2$yr >= 1990 & shrcom.agg2$yr <= 2010)]
-# 
-# mse <- numeric(length(breaks))
-# for(i in 1:length(breaks)){
-#   piecewise1 <- lm(effort ~ yr*(yr < breaks[i]) + yr*(yr>=breaks[i]), data=shrcom.agg2)
-#   mse[i] <- summary(piecewise1)[6]
-# }
-# 
-# mse <- as.numeric(mse)
-# plot(mse~breaks)
-# 
-# breaks[which(mse==min(mse))]
-# 
-# eff.mod <- lm(effort ~ yr*(yr < 2003) + yr*(yr > 2003), data=shrcom.agg2)
-# summary(eff.mod)
-# 
-# ###
-# ###
-# names(hypox.area)
-# 
-# plot(hypox.area$area.hypoxic~hypox.area$YR)
-# grid(col="black")
-# lines(lowess(hypox.area$area.hypoxic~hypox.area$YR))
-# 
-# hypox.lo<-lowess(hypox.area$area.hypoxic~hypox.area$YR)
-# 
-# attach(hypox.lo)
-# plot(y ~ x, pch=16)                
-# breaks <- x[which(x >= 1995 & x <= 2005)]
-# 
-# mse <- numeric(length(breaks))
-# for(i in 1:length(breaks)){
-#   piecewise1 <- lm(y ~ x*(x < breaks[i]) + x*(x>=breaks[i]))
-#   mse[i] <- summary(piecewise1)[6]
-# }
-# mse <- as.numeric(mse)
-# plot(mse~breaks)
-# 
-# breaks[which(mse==min(mse))]
-# 
-# piecewise2 <- lm(y ~ x*(x < 1996) + x*(x > 1996))
-# summary(piecewise2)
-# detach(hypox.lo)
 
-
-names(shrcom.agg2)
 shrcom.agg2<-aggregate(effort~ yr, data=shrcom.agg, FUN=sum)
 shrcom.agg2<-subset(shrcom.agg2, shrcom.agg2$yr>=1987)
 
@@ -250,15 +186,21 @@ shrcom<-data.frame(shrcom.agg2$effort, shrcom.agg2$yr)
 colnames(shrcom)[1]<-'y'
 colnames(shrcom)[2]<-'x'
 
-plot(shrcom$x,shrcom$y, pch=16)
-shrcom.mod<-lm(shrcom$y~shrcom$x)
-shrcom.seg.mod<-segmented(shrcom.mod, seg.Z=~x, psi=c(1985))
-summary(shrcom.seg.mod)
-plot(shrcom.seg.mod)
-
-names(complete.dat)
 biomass.dat<-aggregate(cpue~YR, data=complete.dat, FUN=mean)
 abundance.dat<-aggregate(catch_cpue~YR, data=complete.dat, FUN=mean)
+
+biomass.sm<-as.data.frame(lowess(biomass.dat$cpue~biomass.dat$YR))
+
+
+
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\oldBreakpt.R")
+
+
+oldBreakpt(biomass.dat,1,2)
+oldBreakpt(abundance.dat,1,2)
+oldBreakpt(shrcom.agg2,1,2)
+oldBreakpt(hypox.area,1,2)
+
 
 # source to figure 1 code
 # 4 panel plot of Abundance-Biomass time-series and Hypoxia and Effort time-series
@@ -310,96 +252,19 @@ rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
                    sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
                    fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
                    fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
+
+#pandoc.table(breakpt.tab)
 ```
 
-## Breakpoint Table
-----------------------------------------
-  mod    stat   alpha    p.Val    r.Sqr 
-------- ------ ------- --------- -------
-sum.la    S     1997   1.31e-19  0.9873 
 
-sum.la    d     2004   0.0002485 0.9724 
-
-sum.la    J     2000   1.341e-20 0.9916 
-
-sum.la   shan   2000   7.232e-21 0.9918 
-
-sum.la   simp   2000   1.671e-20 0.9918 
-
-sum.la    N1    2000   3.197e-19 0.9877 
-
-sum.la    N2    1999   4.741e-20 0.9912 
-
-sum.tx    S     1998   2.187e-33 0.9994 
-
-sum.tx    d     2003   1.004e-28 0.9986 
-
-sum.tx    J     2002   3.282e-20 0.9956 
-
-sum.tx   shan   2002   6.121e-19 0.9935 
-
-sum.tx   simp   2002   8.883e-21 0.9947 
-
-sum.tx    N1    2001   4.224e-17  0.997 
-
-sum.tx    N2    2002   3.067e-20 0.9944 
-
-fall.la   S     2001   6.789e-22 0.9912 
-
-fall.la   d     2000   1.263e-15 0.9772 
-
-fall.la   J     2004   1.212e-22  0.993 
-
-fall.la  shan   2004   1.069e-21 0.9912 
-
-fall.la  simp   2002   4.636e-33 0.9994 
-
-fall.la   N1    2000   1.017e-20 0.9886 
-
-fall.la   N2    2002   3.683e-31 0.9991 
-
-fall.tx   S     1997   9.455e-29 0.9984 
-
-fall.tx   d     2000   1.233e-29 0.9987 
-
-fall.tx   J     1998   1.403e-17 0.9848 
-
-fall.tx  shan   2000   3.028e-23 0.9944 
-
-fall.tx  simp   1995   0.003069  0.9752 
-
-fall.tx   N1    1996   2.83e-15  0.9831 
-
-fall.tx   N2    1995   0.0005285  0.97  
-----------------------------------------
-
-Table: Piecewise Regression Results
  
 
 
 
 
 
-```{r, eval=FALSE}
-breakpt.fun(biomass.dat,1,2)
-breakpt.fun(abundance.dat,1,2)
-breakpt.fun(shrcom.agg2,1,2)
-breakpt.fun(hypox.area, 1,2)
-```
 
 
-
-```{r, eval=FALSE}
-#package methods
-
-library(segmented)
-
-lin.mod<-lm(y~x, data=sum.la.S)
-segmented.mod<-segmented(lin.mod, seg.Z=~x, psi=1999)
-
-plot(y ~ x, data=sum.la.S, pch=16) 
-plot(segmented.mod$fitted.values~segmented.mod$coefficients)
-```
 
 
 
