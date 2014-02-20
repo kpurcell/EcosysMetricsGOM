@@ -90,12 +90,17 @@ To better understand to role of individual species or groups to the overall temp
 ### Diversity Metric Trends
 Differences in the abundance and biomass of the taxonomic groups examined indicates the possibility of changes in community structure that could be resulting from changing environmental forces in the northern Gulf ecosystem.  We examined 4 metrics of community structure and diversity for both the Louisiana and Texas coastal shelf during the summer and fall seasons.  We observed an overall decrease for all metrics in each region and season combination during the examined time series (Figure 3).  The rate of decrease for each metric is greater post-2000 in all region season combinations with the exception of the Texas shelf during the fall months (9-12) where the decreasing trends seemd to begin earlier (1995-2000) (Figure 3D).  
 
-Annual community metrics for the Louisiana shelf displayed contrasting patterns of temporal variation for during the early period of the time series (1987-1995).  Specifically, we observed increasing trends for metrics during the summer months on the Louisiana shelf, peaking ~1995 and begining to decline with abrubt declines between 2000-2004 (Figure 3A).  By contrast, the Louisiana shelf during the fall showed decreasing measures of community structure early in the survey (1987-1995) after which there was period of stability (1995-2000) following which we observe abrupt declines similar to that seen in the summer months (Figure 3B).  While community metrics for the Texas shelf did display an overall decrease during the observed time series, the magnitude of change was considerably smaller than observed for the Louisina shelf (Figure 3C,D).  In the summer months on the Texas shelf we observed a subtle pattern of increase for all metrics, with the possible exception of species richness which remained relatively stable (Figure 3C).  This increasing trend peaks in 2000 afterwhich they decline throughout the observed period (Figure 3C). During the fall months the Texas shelf displayed greater interannual variation for each metric and while there were increases in observed metrics during individual years, average trends showed only limited increases early in the time series and then the common pattern of decrease in the latter years (Figure 3D). Species richness, displayed a decreasing trend during the early portion of the time series (1987-2000) after which it stabilized, this was unique in comparson to all other region and season combinations (Figure 3D).  
+Annual community metrics for the Louisiana shelf displayed contrasting patterns of temporal variation for during the early period of the time series (1987-1995).  Specifically, we observed increasing trends for metrics during the summer months on the Louisiana shelf, peaking ~1995 and begining to decline with abrubt declines between 2000-2004 (Figure 3A).  By contrast, the Louisiana shelf during the fall showed decreasing measures of community structure early in the survey (1987-1995) after which there was period of stability (1995-2000) following which we observe abrupt declines similar to that seen in the summer months (Figure 3B).  While community metrics for the Texas shelf did display an overall decrease during the observed time series, the magnitude of change was considerably smaller than observed for the Louisina shelf (Figure 3C,D).  In the summer months on the Texas shelf we observed a subtle pattern of increase for all metrics, with the possible exception of species richness which remained relatively stable (Figure 3C).  This increasing trend peaks in 2000 afterwhich they decline throughout the observed period (Figure 3C). During the fall months the Texas shelf displayed greater interannual variation for each metric and while there were increases in observed metrics during individual years, average trends showed only limited increases early in the time series and then the common pattern of decrease in the latter years (Figure 3D). Species richness, displayed a decreasing trend during the early portion of the time series (1987-2000) after which it stabilized, this was unique in comparson to all other region and season combinations (Figure 3D). 
 
-### Pelagic to Demersal ratio
+### Breakpoint analysis
+* Introduce table
+* highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
+
+
+### Pelagic to demersal biomass ratio
 * Describe overall trends
-* Highlight regional comparisons
-* Highlight temporal variation
+The ratio of pelagic to demersal biomass for the northwestern Gulf showed an overall decrease during the 25 year time series (Figure 4) with a high of 0.30 (1987) to a low value of 0.09 (2008). We observed a distinct seperation in P:D ratio values between regions, with Texas showing consistently higher P:D values (0.13-0.62) relative to Louisiana (0.04-0.24) and therefore greater proportions of pelagice biomass across the entire time series in the Texas region (Figure 4).  Inter-annual variability is greater overall on the Texas shelf (variance = 0.016) in comparison to P:D values for the Louisiana coast (variance = 0.003).  The average rate of change was similar between regions prior to 1994 after which time the Texas shelf shows a temporay increase (1995-2000) which was followed by an increased rate of decline.  The difference between regional P:D ratios shows a decreasing trend during the 25 year time period observed, with the differnce between regions in 2011 only ~10% of the greatest difference (0.50) in 1996 (Figure 4).  The greater similarity between the P:D time series for the northwestern Gulf and the Louisiana shelf reflects the dominance of the Louisiana shelf (62.4%) in the overall biomass for the entire survey.  
+ 
 
 ### W stats
 * Describe results
@@ -104,9 +109,7 @@ Annual community metrics for the Louisiana shelf displayed contrasting patterns 
 
 
 
-### Breakpoint analysis
-* Introduce table
-* highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
+
 
 
 ## Discussion
