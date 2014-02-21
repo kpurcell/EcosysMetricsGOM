@@ -98,7 +98,6 @@ Annual community metrics for the Louisiana shelf displayed contrasting patterns 
 
 
 ### Pelagic to demersal biomass ratio
-* Describe overall trends
 The ratio of pelagic to demersal biomass for the northwestern Gulf showed an overall decrease during the 25 year time series (Figure 4) with a high of 0.30 (1987) to a low value of 0.09 (2008). We observed a distinct seperation in P:D ratio values between regions, with Texas showing consistently higher P:D values (0.13-0.62) relative to Louisiana (0.04-0.24) and therefore greater proportions of pelagice biomass across the entire time series in the Texas region (Figure 4).  Inter-annual variability is greater overall on the Texas shelf (variance = 0.016) in comparison to P:D values for the Louisiana coast (variance = 0.003).  The average rate of change was similar between regions prior to 1994 after which time the Texas shelf shows a temporay increase (1995-2000) which was followed by an increased rate of decline.  The difference between regional P:D ratios shows a decreasing trend during the 25 year time period observed, with the differnce between regions in 2011 only ~10% of the greatest difference (0.50) in 1996 (Figure 4).  The greater similarity between the P:D time series for the northwestern Gulf and the Louisiana shelf reflects the dominance of the Louisiana shelf (62.4%) in the overall biomass for the entire survey.  
  
 
