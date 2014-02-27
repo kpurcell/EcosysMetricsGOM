@@ -70,11 +70,6 @@ The application of Abundance Biomass Comparison (ABC) curves to the study of dis
 
 In the northwestern Gulf fishing effort from the commercial shrimp fishery is widely distributed across both the Louisiana and Texas coastal shelves (Perhaps a supp figure).  To evaluate the impact of this effort on demersal fish assembledges we used SEAMAP survey data on both the abundance and biomass of our previously described 64 taxonomic groups and aggregated them spatially based on their location on either the Louisiana or Texas shelf.  The value of this spatial comparison lies in the difference between the perturbation mechanisms operating on the respective coastal shelves.  While fishing effort is a consistent feature across the two coastal shelves, hypoxia is predominately a condition found in Louisiana coastal waters with limited exceptions in the northern most waters of the Texas coastal shelf (Rabalais, Bianchi see SpatialEff_MS citations for the same statement).  Dominance curves were generated for each year of survey data (1987-2011) for both the Louisiana and Texas regions using the Dominance plot routines in the software package PRIMER v6 (Warwhick ??), and *W* statistics were derived from these curves for each year for the Louisiana and Texas shelves, repectively.  
 
-
-
-
-
-
 ## Results
 ### Review of biomass table descriptive stuff point to table 1
   
