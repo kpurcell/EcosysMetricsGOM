@@ -17,7 +17,10 @@ RH: Fish imports eutrophication effects community dynamics
 Paragraph One
 Introduce some large theoretical frame work for ecosystem response to disturbance.  Not hysteresis but improvement or maturation something.  
 
-Effort trends and the relationship with global shrimp imports
+Effort trends and the relationship with global shrimp imports!!!
+As I write th results this paragraph is becoming increasingly important. 
+
+
 
 Paragraph Two
 There are three mechanisms driving disturbance within the northwestern Gulf of Mexico: eutrophication, commercial fishing harvest, especially shrimp trawling which has a significant impact on the demersal fish assemblages, and finally coastal marsh loss.  Two of these three primary disturbance mechanisms, eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  
@@ -75,9 +78,6 @@ In the northwestern Gulf fishing effort from the commercial shrimp fishery is wi
   
 ### Review of 4 panel graphic with abun biomass and our two driver, discuss break points  
 Overall trends in biomass and abundance within our 64 taxonomic entities during the 27 years of data evaluated in this study showed their highest values early in the survey, 1992 for biomass (Figure 1A) and 1987 for abundance (Figure 1B), with the lowest time series values occurring in 2000 for both measures.  Both biomass and abundance display positive trends since 2000, with values in 2011 representing 75% and 56% of the highest recorded values for biomass and abundance, respectively.  In contrast, time series values for our two ecosystem drivers, fishing effort and hypoxia, show differing temporal patterns of variation with fishing effort showing decline and hypoxia showing an increase during the period of observation (1987-2011).  Fishing effort was highest in 1987 at a value of 2.4 x 10^5^ (days) and was relatively stable at values around 2.0 x 10^5^ (days) until 2000 when we begin to observe declining shrimping effort with a precipitous decline in 2003 that culminates in a minimum value of 6.0 x 10^4^ (days) in 2010, a ~75% reduction in fishing effort over 7 years (Figure 1C).  The area of hypoxia showed lower values early in the time series with the average trend stabilizing at approximately 160,000 km^2^ in 1993 and remaining relatively stable, but with considerable inter-annual variability throughout the rest of the time series.  
-
-Both ecosystem drivers displayed broken stick shape curves that suggested the ability to fit two distinct linear models to each time series.  We conducted a piecewise regression analysis for both ecosystem drivers and determined that fishery effort was best modeled with a single break point in 2003 (model statistics) while area of hypoxia was best modelled with a break point in 1996 (model stats).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in XXXX (model stats) and XXXX (model stats), respectively.    
-  
   
 ### Discuss mosaic plot and trends in biomass.  contrast the four catch types
 To better understand to role of individual species or groups to the overall temporal variability of biomass within the northern Gulf we calculated a biomass time series for each of the 64 taxonomic entities considered in our study.  Individual time series were grouped into four groups reflecting their bycatch relationship within the Gulf shirmp fishery. Of the four groups observed fishery targets consisted of XX% of survey biomass, with bycatch (XX) rare bycatch () and non-bycatch ().???  Our comparison found that for the three target species *P. aztecus*, *P. setiferus*, and *P. duorarum* biomass values were low until 2003 (Figure 2A) at which point biomass values begin to increase for each of the three target species.  The time series for high-incidence bycatch species display an general pattern of decline with considerable inter-annual variability among the 16 taxonomic entities (Figure 2B).  The lowest biomass values for this group occur in the late 1990s until the early-2000s at which time many of the species in this group show increasing biomass.  The biomass time series for both low-incidence bycatch (Figure 2C) and non-bycatch (Figure 2D) species show very similar patterns of overall reduction in biomass throughout the period of observation.  With only a few notable exceptions(e.g. *Larimus fasciatus*, *Amusium papyraceum*) most species considered in these two final categories show little sign of increasing biomass over the observed period.  
@@ -90,6 +90,10 @@ Annual community metrics for the Louisiana shelf displayed contrasting patterns 
 ### Breakpoint analysis
 * Introduce table
 * highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
+
+We used a breakpoint analysis to identify large-scale alterations in the temporal patterns of 6 community metrics for the northwestern Gulf (Table 1).  All break point models were signicant and ranged in value from 1995 to 2004 with *r^2^* values all exceeding 0.97 (range = 0.972-0.999).  The earliest break point values occurred on the Texas shelf during the Fall season (1995-2000), for all other region/season combinations break points were identified within a 4 year window (1999-2004) with 17 of the 18 indicators breaking on or after 2000 (Table 1).  
+
+Both ecosystem drivers displayed broken stick shape curves that suggested the ability to fit two distinct linear models to each time series.  We conducted a piecewise regression analysis for both ecosystem drivers and determined that fishery effort was best modeled with a single break point in 2003 (model statistics) while area of hypoxia was best modelled with a break point in 1996 (model stats).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in XXXX (model stats) and XXXX (model stats), respectively.  
 
 
 ### Pelagic to demersal biomass ratio
