@@ -11,64 +11,36 @@ Figure 5: Warwick Statistics time series for Louisiana (square) and Texas (pyram
 
 
 ##Table 1:   
--------------------------------------------------
- Season    Reg    stat   alpha    p.Val    r.Sqr 
---------  -----  ------ ------- --------- -------
-Sum        LA      S     1997   1.31e-19  0.9873 
+|   mod   |  stat  |  alpha  |   p.Val   |  r.Sqr  |
+|:-------:|:------:|:-------:|:---------:|:-------:|
+| sum.la  |   S    |  1997   | 1.31e-19  | 0.9873  |
+| sum.la  |   d    |  2004   | 0.0002485 | 0.9724  |
+| sum.la  |   J    |  2000   | 1.341e-20 | 0.9916  |
+| sum.la  |  shan  |  2000   | 7.232e-21 | 0.9918  |
+| sum.la  |  simp  |  2000   | 1.671e-20 | 0.9918  |
+| sum.la  |   N1   |  2000   | 3.197e-19 | 0.9877  |
+| sum.la  |   N2   |  1999   | 4.741e-20 | 0.9912  |
+| sum.tx  |   S    |  1998   | 2.187e-33 | 0.9994  |
+| sum.tx  |   d    |  2003   | 1.004e-28 | 0.9986  |
+| sum.tx  |   J    |  2002   | 3.282e-20 | 0.9956  |
+| sum.tx  |  shan  |  2002   | 6.121e-19 | 0.9935  |
+| sum.tx  |  simp  |  2002   | 8.883e-21 | 0.9947  |
+| sum.tx  |   N1   |  2001   | 4.224e-17 |  0.997  |
+| sum.tx  |   N2   |  2002   | 3.067e-20 | 0.9944  |
+| fall.la |   S    |  2001   | 6.789e-22 | 0.9912  |
+| fall.la |   d    |  2000   | 1.263e-15 | 0.9772  |
+| fall.la |   J    |  2004   | 1.212e-22 |  0.993  |
+| fall.la |  shan  |  2004   | 1.069e-21 | 0.9912  |
+| fall.la |  simp  |  2002   | 4.636e-33 | 0.9994  |
+| fall.la |   N1   |  2000   | 1.017e-20 | 0.9886  |
+| fall.la |   N2   |  2002   | 3.683e-31 | 0.9991  |
+| fall.tx |   S    |  1997   | 9.455e-29 | 0.9984  |
+| fall.tx |   d    |  2000   | 1.233e-29 | 0.9987  |
+| fall.tx |   J    |  1998   | 1.403e-17 | 0.9848  |
+| fall.tx |  shan  |  2000   | 3.028e-23 | 0.9944  |
+| fall.tx |  simp  |  1995   | 0.003069  | 0.9752  |
+| fall.tx |   N1   |  1996   | 2.83e-15  | 0.9831  |
+| fall.tx |   N2   |  1995   | 0.0005285 |  0.97   |   
 
-                   d     2004   0.0002485 0.9724 
 
-                   J     2000   1.341e-20 0.9916 
-
-                  shan   2000   7.232e-21 0.9918 
-
-                  simp   2000   1.671e-20 0.9918 
-
-                   N1    2000   3.197e-19 0.9877 
-
-                   N2    1999   4.741e-20 0.9912 
-
-Sum-       TX      S     1998   2.187e-33 0.9994 
-
-                   d     2003   1.004e-28 0.9986 
-
-                   J     2002   3.282e-20 0.9956 
-
-                  shan   2002   6.121e-19 0.9935 
-
-                  simp   2002   8.883e-21 0.9947 
-
-                   N1    2001   4.224e-17  0.997 
-
-                   N2    2002   3.067e-20 0.9944 
-
-Fall       LA      S     2001   6.789e-22 0.9912 
-
-                   d     2000   1.263e-15 0.9772 
-
-                   J     2004   1.212e-22  0.993 
-
-                  shan   2004   1.069e-21 0.9912 
-
-                  simp   2002   4.636e-33 0.9994 
-
-                   N1    2000   1.017e-20 0.9886 
-
-                   N2    2002   3.683e-31 0.9991 
-
-           TX      S     1997   9.455e-29 0.9984 
-
-                   d     2000   1.233e-29 0.9987 
-
-                   J     1998   1.403e-17 0.9848 
-
-                  shan   2000   3.028e-23 0.9944 
-
-                  simp   1995   0.003069  0.9752 
-
-                   N1    1996   2.83e-15  0.9831 
-
-                   N2    1995   0.0005285  0.97  
--------------------------------------------------
-
-Table 1: Breakpoints derived from loess smooth trend lines for each diversity metric time series.  Metric time series are based on SEAMAP survey catch data.  The (α) scores represent the temporal "breakpoint" within each time series based on lowest MSE.  Model (r2) values represent pairwise regression model fits based on the stated α breakpoints.
+Table 1: Breakpoints derived from loess smooth trend lines for each diversity metric time series.  Metric time series are based on SEAMAP survey catch data.  The alpha scores represent the temporal "breakpoint" within each time series based on lowest MSE.  Model (r^2) values represent pairwise regression model fits based on the stated alpha breakpoints.
