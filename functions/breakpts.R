@@ -12,7 +12,7 @@ breakpt.fun <- function(df,t,v,C,R){
   y<-df[[v]]
   x<-df[[t]]
   
-  breaks <- x[which(x >= 1995 & x <= 2010)]
+  breaks <- x[which(x >= 1990 & x <= 2010)]
   
   mse <- numeric(length(breaks))
   for(i in 1:length(breaks)){
