@@ -164,61 +164,131 @@ Data frames were created for each of the region/seasonal data sets.
 
 
 
-
-
-
-
-
-
-
-
 ```
-## Error: object 'shrcom.agg2' not found
+## [1] "Break point = 2002"
 ```
 
 <img src="figure/fig11.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
 
 ```
-## Error: object 'x' not found
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -7.08e-04 -1.32e-04 -1.71e-05  2.26e-04  8.73e-04 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -2.65e+00   9.76e-02  -27.18   <2e-16 ***
+## x            1.34e-03   4.88e-05   27.46   <2e-16 ***
+## x < zTRUE    5.23e+00   1.07e-01   48.65   <2e-16 ***
+## x > zTRUE   -8.78e-04   4.67e-04   -1.88    0.075 .  
+## x:x < zTRUE -2.61e-03   5.37e-05  -48.64   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.000378 on 20 degrees of freedom
+## Multiple R-squared:  0.996,	Adjusted R-squared:  0.995 
+## F-statistic: 1.11e+03 on 4 and 20 DF,  p-value: <2e-16
 ```
 
 ```
-## Error: object 'shrcom.seg.mod' not found
-```
-
-```
-## Error: object 'shrcom.seg.mod' not found
-```
-
-```
-##  [1] "STATIONID"       "CRUISEID"        "VESSEL"         
-##  [4] "CRUISE_NO"       "P_STA_NO"        "BIO_BGS"        
-##  [7] "BGSID"           "CATEGORY"        "GENUS_BGS"      
-## [10] "SPEC_BGS"        "BGSCODE"         "CNT"            
-## [13] "CNTEXP"          "SAMPLE_BGS"      "SELECT_BGS"     
-## [16] "NODC_BGS"        "IS_SAMPLE"       "TAXONID"        
-## [19] "keep"            "TAXONOMIC"       "common_name"    
-## [22] "Kingdom"         "Phylum"          "Class"          
-## [25] "Order"           "Family"          "Genus"          
-## [28] "Species"         "Habitat.Biology" "Trophic_Level"  
-## [31] "pel"             "dem"             "hab"            
-## [34] "MIN_FISH"        "TIME_ZN"         "TIME_MIL"       
-## [37] "DEPTH_SSTA"      "S_STA_NO"        "MO_DAY_YR"      
-## [40] "TIME_EMIL"       "DEPTH_ESTA"      "GEARS"          
-## [43] "TEMP_SSURF"      "TEMP_BOT"        "TEMP_SAIR"      
-## [46] "B_PRSSR"         "WIND_SPD"        "WIND_DIR"       
-## [49] "WAVE_HT"         "SEA_COND"        "VESSEL_SPD"     
-## [52] "FAUN_ZONE"       "STAT_ZONE"       "TOW_NO"         
-## [55] "NET_NO"          "DECSLAT"         "DECSLON"        
-## [58] "DECELAT"         "DECELON"         "START_DATE"     
-## [61] "END_DATE"        "HAULVALUE"       "date"           
-## [64] "month"           "YR"              "effort"         
-## [67] "wt_per_min"      "c_per_min"       "ST_SELECT_BGS"  
-## [70] "ST_CNTEXP"       "cpue"            "catch_cpue"     
-## [73] "taxid"
+## [1] "Break point = 2000"
 ```
 
 <img src="figure/fig12.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.02213 -0.01253 -0.00294  0.00908  0.04079 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -51.85246    3.38994  -15.30  1.7e-12 ***
+## x             0.02651    0.00169   15.64  1.1e-12 ***
+## x < zTRUE   221.74317    4.28819   51.71  < 2e-16 ***
+## x > zTRUE    -0.07214    0.02117   -3.41   0.0028 ** 
+## x:x < zTRUE  -0.11092    0.00215  -51.66  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.0178 on 20 degrees of freedom
+## Multiple R-squared:  0.997,	Adjusted R-squared:  0.997 
+## F-statistic: 1.97e+03 on 4 and 20 DF,  p-value: <2e-16
+```
+
+```
+## [1] "Break point = 2001"
+```
+
+<img src="figure/fig13.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -3730   -458      2    247   2392 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  27234290     281624   96.70   <2e-16 ***
+## x              -13523        141  -96.08   <2e-16 ***
+## x < zTRUE   -21200031     328417  -64.55   <2e-16 ***
+## x > zTRUE        2572       1548    1.66     0.11    
+## x:x < zTRUE     10600        164   64.52   <2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1280 on 20 degrees of freedom
+## Multiple R-squared:     1,	Adjusted R-squared:     1 
+## F-statistic: 1.22e+04 on 4 and 20 DF,  p-value: <2e-16
+```
+
+```
+## [1] "Break point = 1996"
+```
+
+<img src="figure/fig14.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
+
+```
+## 
+## Call:
+## lm(formula = y ~ x * (x < z) + x * (x > z))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -387.6  -89.8   -0.4   63.2  530.7 
+## 
+## Coefficients: (1 not defined because of singularities)
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -2.17e+05   2.86e+04   -7.57  2.0e-07 ***
+## x            1.16e+02   1.43e+01    8.11  6.5e-08 ***
+## x < zTRUE   -1.52e+06   5.40e+04  -28.08  < 2e-16 ***
+## x > zTRUE   -8.23e+01   2.73e+02   -0.30     0.77    
+## x:x < zTRUE  7.59e+02   2.71e+01   28.02  < 2e-16 ***
+## x:x > zTRUE        NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 240 on 21 degrees of freedom
+## Multiple R-squared:  0.996,	Adjusted R-squared:  0.995 
+## F-statistic: 1.23e+03 on 4 and 21 DF,  p-value: <2e-16
+```
+
+<img src="figure/fig15.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
 
 
 
@@ -1276,71 +1346,12 @@ rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
     fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, 
     fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
     fall.tx_N1, fall.tx_N2)
+
+# pandoc.table(breakpt.tab)
 ```
 
 
-## Breakpoint Table
-----------------------------------------
-  mod    stat   alpha    p.Val    r.Sqr 
-------- ------ ------- --------- -------
-sum.la    S     1997   1.31e-19  0.9873 
 
-sum.la    d     2004   0.0002485 0.9724 
-
-sum.la    J     2000   1.341e-20 0.9916 
-
-sum.la   shan   2000   7.232e-21 0.9918 
-
-sum.la   simp   2000   1.671e-20 0.9918 
-
-sum.la    N1    2000   3.197e-19 0.9877 
-
-sum.la    N2    1999   4.741e-20 0.9912 
-
-sum.tx    S     1998   2.187e-33 0.9994 
-
-sum.tx    d     2003   1.004e-28 0.9986 
-
-sum.tx    J     2002   3.282e-20 0.9956 
-
-sum.tx   shan   2002   6.121e-19 0.9935 
-
-sum.tx   simp   2002   8.883e-21 0.9947 
-
-sum.tx    N1    2001   4.224e-17  0.997 
-
-sum.tx    N2    2002   3.067e-20 0.9944 
-
-fall.la   S     2001   6.789e-22 0.9912 
-
-fall.la   d     2000   1.263e-15 0.9772 
-
-fall.la   J     2004   1.212e-22  0.993 
-
-fall.la  shan   2004   1.069e-21 0.9912 
-
-fall.la  simp   2002   4.636e-33 0.9994 
-
-fall.la   N1    2000   1.017e-20 0.9886 
-
-fall.la   N2    2002   3.683e-31 0.9991 
-
-fall.tx   S     1997   9.455e-29 0.9984 
-
-fall.tx   d     2000   1.233e-29 0.9987 
-
-fall.tx   J     1998   1.403e-17 0.9848 
-
-fall.tx  shan   2000   3.028e-23 0.9944 
-
-fall.tx  simp   1995   0.003069  0.9752 
-
-fall.tx   N1    1996   2.83e-15  0.9831 
-
-fall.tx   N2    1995   0.0005285  0.97  
-----------------------------------------
-
-Table: Piecewise Regression Results
  
 
 
@@ -1348,39 +1359,8 @@ Table: Piecewise Regression Results
 
 
 
-```r
-breakpt.fun(biomass.dat, 1, 2)
-breakpt.fun(abundance.dat, 1, 2)
-breakpt.fun(shrcom.agg2, 1, 2)
-breakpt.fun(hypox.area, 1, 2)
-```
 
 
 
-
-
-```r
-# package methods
-
-library(segmented)
-
-lin.mod <- lm(y ~ x, data = sum.la.S)
-segmented.mod <- segmented(lin.mod, seg.Z = ~x, psi = 1999)
-
-plot(y ~ x, data = sum.la.S, pch = 16)
-plot(segmented.mod$fitted.values ~ segmented.mod$coefficients)
-```
-
-
-## GAM Models
-
-This might need to be a seperate analysis.  Also just found some citations to species time curves ``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )``,``(<a href="http://dx.doi.org/10.1046/j.1461-0248.2003.00497.x">Adler & Lauenroth, 2003</a> )``,``(<a href="http://dx.doi.org/10.1890/05-0067">Adler et al. 2005</a> )`` which could be an interesting way to determine the stability of the ecosystem and if we are seeing changes before and after large distrubtions in the ecosystem.  Perhaps I should revisit the Lorenz Curves (univariate:Gini index) from ``(<a href="http://dx.doi.org/10.1139/f03-076">Swain & Wade, 2003</a> )`` as a parameter but that uses catch, abundance, and distributional area so I am not sure that I can make the connections with the give resolution of data.  
-
-Considering developing a set of GAM models to examine the relationship between hypoxia, effort and the specified diversity metrics.  
-
-metric ~ s(year) + s(year, by=area.hypoxia) + s(year, by=fishing effort)
-
-
-make a data set:
 
 
