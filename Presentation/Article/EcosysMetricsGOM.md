@@ -91,9 +91,9 @@ Annual community metrics for the Louisiana shelf displayed contrasting patterns 
 * Introduce table
 * highlight the stong correspondence of all indicators to the breakpoint period corresponding to release from fishing
 
-We used a breakpoint analysis to identify significant changes in the temporal patterns of 6 community metrics for the northwestern Gulf (Table 1).  All break point models were signicant and ranged in $\alpha$ value from 1995 to 2004 with *r^2^* values all exceeding 0.97 (range = 0.972-0.999).  The earliest break point values occurred on the Texas shelf during the Fall season (1995-2000), for all other region/season combinations break points were identified within a 4 year window (1999-2004) with 17 of the 18 indicators breaking on or after 2000 (Table 1).  
+We used a breakpoint analysis to identify significant changes in the temporal patterns of 6 community metrics and 2 ecosystem drivers for the northwestern Gulf (Table 1).  All break point models were signicant and ranged in $\alpha$ value from 1995 to 2004 with *R^2^* values all exceeding 0.97 (range = 0.972-0.999).  The earliest break point values occurred on the Texas shelf during the Fall season (1995-2000), for all other region/season combinations break points were identified within a 4 year window (1999-2004) with 17 of the 18 indicators breaking on or after 2000 (Table 1).  
 
-Both ecosystem drivers displayed broken stick shape curves that suggested the ability to fit two distinct linear models to each time series.  We conducted a piecewise regression analysis for both ecosystem drivers (fishing effort and hypoxia) and determined that fishery effort was best modeled with a single break point $\alpha$ = 2001 (*r^2^*=0.99, *F*=1.22e^4^, *p*=< 2.2e^-16^) while area of hypoxia was best modelled with an break point in 1996 (model stats).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in XXXX (model stats) and XXXX (model stats), respectively.  
+Both ecosystem drivers displayed broken stick shape curves that suggested the ability to fit two distinct linear models to each time series.  We conducted a piecewise regression analysis for both ecosystem drivers (fishing effort and hypoxia) and determined that fishery effort was best modeled with a single break point $\alpha$ = 2001 (*R^2^*=0.99, *F*=1.22e^4^, *p*=< 2.2e^-16^) while area of hypoxia was best modelled with an break point in 1996 (model stats).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in 1999 (*R^2^*=0.99, *F*=846.8, *p*= <2.2e^-16^) and 2000 (*R^2^*=0.99, *F*=2833, *p*= <2.2e^-16^), respectively.  
 
 
 ### Pelagic to demersal biomass ratio
@@ -101,13 +101,7 @@ The ratio of pelagic to demersal biomass for the northwestern Gulf showed an ove
  
 
 ### W stats
-* Describe results
-* highlight regional differences
-* describe temporal trends
-
-
-
-
+To further examine the effect of ecosystem disturbance on the northwestern Gulf community we calculated a *W*-statistic time series for both the Louisiana and Texas coastal shelves based on biomass and abundance values for our 64 taxonomic groups (Figure 5).  Over the entire 30 year time series the Louisiana shelf sustained a lower average *W* value (0.009) relative to the Texas shelf (0.050), indicating a higher level of disturbance with that region.  The range of *W* values was similar between the Louisiana (-0.109-0.259) and Texas (-0.116-0.294) shelves, however the relationship between abundance and biomass on the Louisiana shelf was negative 13 of the 30 years examined, while the Texas shelf displayed negative relationships in only 5 of thos 30 years (Figure 5). Additionally, 3^rd^ degree polynomial regression lines showed differening patterns of change early in the time series with Texas values declining while values on the Louisiana shelf were relatively stable (Figure 5, solid line).  This trend changed in the mid to late 1990s with both regions begining to show patterns of increase for both regions begining in the late 90s and increasing at comparable rates (Figure 5).  
 
 
 ## Discussion
