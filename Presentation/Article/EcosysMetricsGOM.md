@@ -30,7 +30,7 @@ Introduce community level effects of hypoxia and fishing, and introduce metrics 
 
 Paragraph Four
 Paragraph 5 (Questions)
-The objective of this study was to evaluate spatial and temporal variation in community diversity metrics within the northwestern Gulf of Mexico.  The nwGOM is a highly disturbed environment experiencing eutrophication, intense patterns of harvest over the last 30 years.  
+The objective of this study was to evaluate spatial and temporal variation in demeral nekton community of the northwestern Gulf of Mexico.  The nwGOM is a highly disturbed environment experiencing eutrophication, intense patterns of harvest over the last 30 years.  
 
 
 
