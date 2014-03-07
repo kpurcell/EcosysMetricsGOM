@@ -1,3 +1,4 @@
+```{r, echo=FALSE}
 #Clear the junk
 graphics.off()
 rm(list=ls(all=TRUE))
@@ -96,35 +97,27 @@ length(unique(bgsrec.dat2$BIO_BGS))
 bgsrec.dat2$taxid<-paste(bgsrec.dat2$Genus, bgsrec.dat2$Species, sep=".")
 
 complete.dat<-bgsrec.dat2
+
+## Ditch everything above and pull and output from the main analysis script
 #====================================================================
 library(pander)
 # Generate total counts for each species and common name
-cnt.tab<-aggregate(ST_CNTEXP ~ TAXONOMIC + common_name, data=complete.dat, FUN=sum)
+cnt.tab<-aggregate(catch_cpue ~ TAXONOMIC + common_name, data=complete.dat, FUN=mean)
 
 # Generate total biomass for each taxonomic name
-bio.tab<-aggregate(ST_SELECT_BGS ~ TAXONOMIC , data=complete.dat, FUN=sum)
+bio.tab<-aggregate(cpue ~ TAXONOMIC , data=complete.dat, FUN=mean)
 
-# Generate a number of years present perhaps add a row total to cnt.tab
+# Generate a number of years present
 
 # Calculate of percentage of total biomass 
 # Calculate a percentage of stations??? trick this far down stream???
 
 # Abbreviated habitat designator (Benthic Pelagic Invert) Do we need to include??
 
-
-
 complete.tab<-merge(cnt.tab, bio.tab, by.x="TAXONOMIC")
-table<-orderBy(~-ST_SELECT_BGS, data=complete.tab)
-pandoc.table(table)
-head(table)
-
-
-
-
-
-
-
-
-
-
+# library(doBy)
+# table<-orderBy(~-ST_SELECT_BGS, data=complete.tab)
+# Rename columns for pretty
+pandoc.table(complete.tab, split.tables=Inf, round=4)
+```
 
