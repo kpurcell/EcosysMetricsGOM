@@ -1,19 +1,19 @@
 # Global fishery imports and Eutrophication: synergistic effects on community dynamics (temporary)
-**K.M. Purcell**, J.K. Craig
-Beaufort Laboratory.  
-National Marine Fisheries Service.   
-Beaufort, NC, USA.  
-[kevin@kevin.purcell.com](mailto:kevin@kevin-purcell.com)
+**K.M. Purcell**, J.K. Craig  
+Beaufort Laboratory  
+National Marine Fisheries Service  
+Beaufort, NC, USA  
+[kevin@kevin.purcell.com](mailto:kevin@kevin-purcell.com)  
 
-RH: Fish imports eutrophication effects community dynamics	
+RH: Fish imports eutrophication effects community dynamics  
 
 ## Abstract 
 (words target)
 
 
 
- 
-##Introduction: (5 paragraphs)
+
+##Introduction: (5 paragraphs)  
 Paragraph One
 Introduce some large theoretical frame work for ecosystem response to disturbance.  Not hysteresis but improvement or maturation something.  
 
@@ -64,7 +64,7 @@ This needs more description and reverences to why they were used or published st
 
 
 ### Pelagic to Demersal Ratio:  
-The proportion of pelagic relative to demersal biomass in fishery landings is considered a metric sensitive to eutrophication (Caddy 1993, de Leiva Moreno et al 2000, Hodorp et al. 2010).  Conceptually, the P:D ratio is derived from the differential response of fishery stocks to increased nutrients within a system (Caddy et al. 1998 via Hondorp).  More specifically in partially enclosed systems eutrophication will tend to degrade benthic habitat resulting in decreased demersal landings and elevated pelagic-demersal ratios (Hondorp et al 2010).  Previous studies have found positive correlations between P:D ratio and chlorophyll-a concentrations within systems in both in Europe and the Mediterranean (Caddy 2000, de Leiva Moreno et al 2000).  Additionally, a recent study by Hondorp et al (2010) examined landings composition and water quality data for 22 different ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al (2010) reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  To evaluate the effect of annual hypoxia on community dynamics we examined temporal and spatial dynamics in P:D ratio within the northwestern Gulf.  Biomass data for the 64 sampled biomass time series were classified as either pelagic or demersal based on species specific habitat occupancy.  The annual P:D ratios were calculated as the quotient of the annual aggregated pelagic and demersal biomasses for all survey stations summed across both the Louisiana and Texas shelves.  We also calculated the P:D ratio as a shelfwide metric including all stations for the entire northwestern Gulf.  
+The proportion of pelagic relative to demersal biomass in fishery landings is considered a metric sensitive to eutrophication [@Caddy1993Toward;@de2000pelagic;@Hondorp2010Eutrophication].  Conceptually, the P:D ratio is derived from the differential response of fishery stocks to increased nutrients within a system [@caddy1998have].  More specifically in partially enclosed systems eutrophication will tend to degrade benthic habitat resulting in decreased demersal landings and elevated pelagic-demersal ratios [@Hondorp2010Eutrophication].  Previous studies have found positive correlations between P:D ratio and chlorophyll-a concentrations within systems in both in Europe and the Mediterranean (Caddy 2000, de Leiva Moreno et al 2000).  Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al (2010) reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  To evaluate the effect of annual hypoxia on community dynamics we examined temporal and spatial dynamics in P:D ratio within the northwestern Gulf.  Biomass data for the 64 sampled biomass time series were classified as either pelagic or demersal based on species specific habitat occupancy.  The annual P:D ratios were calculated as the quotient of the annual aggregated pelagic and demersal biomasses for all survey stations summed across both the Louisiana and Texas shelves.  We also calculated the P:D ratio as a shelfwide metric including all stations for the entire northwestern Gulf.  
 
 ### Abundance Biomass Comparison (ABC) curves:  
 The application of Abundance Biomass Comparison (ABC) curves to the study of disturbance within an ecosystem has an established history within marine benthic systems [@warwick1986an]), especially with respect to pollution driven perturbations [@warwick1987detection;@warwick1994relearning].  ABC curves are a derivative of *k*-dominance curves [@lambshead1983detection via: @greenstreet1996fishing], the theoretical basis of which is derived from principles of intermediate disturbance hypothesis [@connell1978diversity] and r- and k-selection theory [@Pianka1970on] and has been previously reviewed (Warwick and Clarke 1994, Yemane et al. 2005).  Recently, the application of ABC cures analysis has been applied to the examination of fishing pressure and its impacts on fish assemblages (Bianchi et al 2001, Blanchard et al. 2004, DeMartini et al. 2008, Jouffre and Inejih 2005, Kaiser et al. 2000, @yemane2005exploring).  Specifically, ABC analysis involves the comparison of two superimposed *k*-dominance, or cumulative ranked, curves for both abundance and biomass within a system over a given time period (Clarke 1990).  The difference between the curves is calculated as the Warwick statistic (*W*) with negative values indicating a biomass curve that lies below the abundance curve, and represents relatively disturbed systems (Warwick 1986, @yemane2005exploring).  
