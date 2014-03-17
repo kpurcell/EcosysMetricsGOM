@@ -17,13 +17,22 @@ RH: Fish imports eutrophication effects community dynamics
 Paragraph One
 Introduce some large theoretical frame work for ecosystem response to disturbance.  Not hysteresis but improvement or maturation something.  
 
-Effort trends and the relationship with global shrimp imports!!!
-As I write th results this paragraph is becoming increasingly important. 
-
-
-
 Paragraph Two
 There are three mechanisms driving disturbance within the northwestern Gulf of Mexico: eutrophication, commercial fishing harvest, especially shrimp trawling which has a significant impact on the demersal fish assemblages, and finally coastal marsh loss.  Two of these three primary disturbance mechanisms, eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  
+
+
+Effort trends and the relationship with global shrimp imports!!!
+As I write th results this paragraph is becoming increasingly important. 
+Historically, the Gulf of Mexico shrimp fishery has been one of the largest fisheries in the US with
+
+The Gulf of Mexico shrimp fishery is one of the largest and most valuable fisheries in the US.  The domestic shrimp fishery landed ~302 million pounds in 2012, ranking eighth among US fishery species by volume and ranking third by value with revenues of ~$490 million dollars [Current Fishery Statistics 2012].  The Gulf of Mexico shrimp fishery represented roughly 68% of landings and 79% of the value of the entire domestic shrimp fishery with landings in excess of 208 million pounds and revenues of 387 million dollars.  However, profitability of this fishery has begun to falter driven primarily by increased global trade in shrimp products and increasing diesel fuel prices, creating challenging economic conditions for the Gulf shrimp fishery.  From 1980 to 2003 world export of both fresh and frozen shrimp increased approximately 3.23 billion pounds, meanwhile the price per pound of shrimp products dropped roughly 54% due to deflation during the same period [@keithly2008southeast].  The ex-vessle, or dock side price, of shrimp in the Gulf of Mexico dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  Coupled with fluctuations in fuel costs, which have been shown to represent a significant component of overall operating costs for industry vessels [@travis2004update], the economic performance of the fishery has begun to decline [cites].  As a result we have seen a dramatic decline in the 
+Beginning around 2000 Gulf shrimping effort began to decline from its average high of XX   there has been an ~XX% drop in commercial shrimping effort within the Gulf fishery, driven more by economic reasons then by issues of resource abundance.  
+	
+	
+This natural decline in effort not motivated by changes in abundance but rather by exogenous economic drivers provides us with an valuable opportunity to evaluate the community response to a release from predation while also allowing for an examination of the relative contribution of fishing effort and environmental perturbation on a LME demersal nekton community.  
+
+
+
 
 Paragraph Three
 Introduce community level effects of hypoxia and fishing, and introduce metrics used to calculate them in an evaluation framework.
