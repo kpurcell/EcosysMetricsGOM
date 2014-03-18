@@ -22,7 +22,7 @@ Introduce some large theoretical frame work for ecosystem response to disturbanc
 	
 Additionally, the limited spatial distribution of MPAs pose challenges in evaluating the effects of a release from harvest.  
 
-The Gulf of Mexico (Gulf) is a rich community....fertile cresent...etc etc.
+The Gulf of Mexico (Gulf) hosts a rich marine community....fertile cresent...etc etc.  In recent decades has come under intense disturbance and is currently one of the more disturbed...
 
 
 There are three mechanisms driving disturbance within the northern Gulf of Mexico: eutrophication, commercial commercial harvest, and finally coastal marsh loss.  Two of these three disturbance mechanisms, eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  
