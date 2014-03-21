@@ -20,24 +20,39 @@ Introduce some large theoretical frame work for ecosystem response to disturbanc
 	Limited number of studies that allow us to compare bottom-up and top-down forces operating on a LME ecosystem.  
 
 	
-Additionally, the limited spatial distribution of MPAs pose challenges in evaluating the effects of a release from harvest.  
+### Challenges faced by the Gulf.  (See EBM paper outlining areas of concern) namesly intense fishery harvest and bottom water hypoxia an outcome of increased eutrophication and water stratification.
 
+### Introduce Gulf
 The Gulf of Mexico (Gulf) hosts a rich marine community....fertile cresent...etc etc.  In recent decades has come under intense disturbance and is currently one of the more disturbed...
 
 
-There are three mechanisms driving disturbance within the northern Gulf of Mexico: eutrophication, commercial commercial harvest, and finally coastal marsh loss.  Two of these three disturbance mechanisms, eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  
+Eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  The demersal environment of the north-western Gulf of Mexico is a unique environment to evalute the dichotomy betweeen top-down and bottom-up disturbance processes and to correlate long-term monitoring of these disturbancs with community and populations level responses within the ecosystem.  The northern Gulf of Mexico is home to one of the most wide spread bottom water hypoxia evernts in the western hemisphere and the aerial extent of this event has been monitored for almost thirty years (1985-presnt).  
 
-Hypoxia and dead zone community impacts.
+### Hypxoxia paragraph
+Introduct hypoxia causes and literature briefly
+Discuss findings concerning fishery and community level impacts of hypoxia
+Craig and Boseman
+Craig population level stuff
+P:D literature
 
+### Fishing effort
 
-The Gulf of Mexico shrimp fishery is one of the largest and most valuable fisheries in the US.  Domestic shrimp fisheries landed ~302 million pounds in 2012, ranking eighth among US fishery species by volume and ranking third by value with revenues of ~$490 million dollars [Current Fishery Statistics 2012].  The Gulf of Mexico shrimp fishery represented roughly 68% of landings and 79% of the value of the entire domestic shrimp fishery with landings in excess of 208 million pounds and revenues of $387 million dollars [Cite the statistics book].  Maybe more on effort deployment and extent??
+In addition to hypoxia, the north-western Gulf is home to one of the largest and most valuable fisheries in the US.  Domestic shrimp fisheries landed ~302 million pounds in 2012, ranking eighth among US fishery species by volume and ranking third by value with revenues of ~$490 million dollars [Current Fishery Statistics 2012].  The Gulf of Mexico shrimp fishery represented roughly 68% of landings and 79% of the value of the entire domestic shrimp fishery with landings in excess of 208 million pounds and revenues of $387 million dollars [Cite the statistics book].  Maybe more on effort deployment and extent??
 
 However, profitability of this fishery began to falter in 2001 driven primarily by increased global trade in shrimp products and increasing diesel fuel prices, creating challenging economic conditions for the Gulf shrimp fishery [@travis2004update].  From 1980 to 2003 world export of both fresh and frozen shrimp increased approximately 3.23 billion pounds, meanwhile the price per pound of shrimp products dropped roughly 54% due to deflation during the same period [@keithly2008southeast].  The ex-vessl, or dock side price, of shrimp in the Gulf of Mexico dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  Coupled with increases in fuel costs, which increased between 20-30% between 2000-2003, the economic performance of the Gulf shrimp fishery has been in a sharp decline for over a decade [@jones2012big] and is resulting in a dramatic reductions in fishing effort .  
 
-This natural decline in effort which is not motivated by limitations in resource abundance but rather exogenous economic drivers provides us with an valuable opportunity to evaluate the community response to a release from predation while also allowing for an examination of the relative contribution of fishing effort and environmental perturbation on the demersal nekton community of a LME.  
+Perhaps quickly introduce previous studies examining fishing effort effects on communties? or maybe above in the general section.
+
+
+
+### Question paragraph
+This decline in effort which is not motivated by limitations in resource abundance but rather exogenous economic drivers provides us with an valuable opportunity to evaluate the community response to a release from predation while also allowing for an examination of the relative contribution of fishing effort and environmental perturbation on the demersal nekton community of a LME.  
 
 The objective of this study was to evaluate spatial and temporal variation in demersal nekton community of the northern Gulf of Mexico.  The nwGOM is a highly disturbed environment experiencing eutrophication, intense patterns of harvest over the last 30 years.  
 
+The spatial and temporal differences in bottom water hypoxia, in comparison to the rather uniform distribution shrimp fishery effort allows for the comparison of two region and two seasons providing a quai-experimental study design which allows for improved understanding of the mechanisms driving community dynamics in this LME???
+
+Additionally, the limited spatial distribution of MPAs pose challenges in evaluating the effects of a release from harvest.  
 
 ## Methods  
 ### Data Sets:  
@@ -90,7 +105,43 @@ To further examine the effect of ecosystem disturbance on the northwestern Gulf 
 
 ## Discussion
 
-Paragraph based on Paragraph from p 355 last one first column Hondorp et al2010
+###Paragraph: about abundance and biomass trends?
+from [@henriques2008development] p1917 "since a decrease in abundance or biomass is the first "response parameter" of a fish community in the presence of an impact" [@keough1991causality; @harrison2004multi-metric] 
 
+Similar to the guild approach [@elliot2007guild], our "fishing guilds" were defined based on the relationship between a given taxnomic entity and its catch or bycatch relationship with the Gulf shrimp fishery.  We 
+  Might need to dip into MPA literature for discussion material??
+
+###Paragraph: Community diversity trends with respect to fishing and eutrophication.
+  
+
+###Paragraph: Follow up on the community metrics trends with a discussion of the temporal correlation findings from the break point analysis.
+
+###Paragraph: Pelagic-demersal ratio findings:
+  Hondorp
+  Caddy
 Pelagic-to-demersal ratio:
-Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different coastal ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al [-@hondorp2010eutrophication] reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.
+Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different coastal ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al [-@hondorp2010eutrophication] reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  
+
+Maybe work in a tie to the shifting baselines problem.  Many reduction in fishing explotation are the result of reductions in abundance or the collapse of stocks or large-scale regiem shifts in the ecosystem, however changes the Gulf ecosystem 
+
+
+###Paragraph: Disucssing the the ABC curve analysis within the broader framework of literature
+
+###Paragraph: Summarize what we learned and how it fits into the bigger shit
+
+###Paragraph: Managmenet? or previous points bigger framework  
+
+Be sure to mention [@Jordan2010summer] analysis of summer fish communities in the nGOM estuaries.  "The used community data from trawl samples in >100 estuaries, bayous and coastal lagoons to develop indicators of ecol condition"  The constructed a fish community index (FCI) and compared their index to a number of ecosystem disturbances...
+
+
+
+###Paragraph based on Paragraph from p 355 last one first column Hondorp et al2010
+
+
+
+## Acknowledgments  
+
+
+
+
+
