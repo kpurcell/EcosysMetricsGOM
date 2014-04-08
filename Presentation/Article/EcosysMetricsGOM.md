@@ -12,8 +12,48 @@ RH: Fish imports eutrophication effects community dynamics
 
 
 
+* the current status of fisheries is bad and declining.
+managing effort has not resulted in recovery of stocks
+* Marine Protected Areas, specifically non-take reserves have been offered as a solution and show to be effective, however questions of their broader effect remain.
+* There are few examples of reduced fishing effort in which effort reduction was not tied to reductions in resource abundance.
+* The Gulf of Mexico shrimp fishery is one such example.  A previously dominant fishery which has been greatly reduced due to economnic rather than biological mechanisms.
+* Here we examine the relative impact of environmental and anthropogenic disturbance on the demersal nekton community of the Gulf of Mexico.  
+	1. what is the relationship between changes in fishery extractive activities and community and populations dynamics.
+	2. What role does secondary eutrophicaion and hypoxia have to do with overall community change?
+
+
+
+
 
 ##Introduction: (5 paragraphs)  
+
+@Tremblay-Boyer2011modeling - "Modelling the effects of fishing on the biomass of the world's oceans from 1950 to 2006"
+	-start with a focus on the effects of
+	
+	
+What is the efficacy of catch reductions?
+@Mora2009management - "Management effectivness of the worlds marine fisheries"
+	-Does lowering catch limits work> ie there is limited evidence of the efficacy of lowering fishing effort.
+@Worm2012fugture - "The future of fish"
+	-should have some useful stuff for this
+	
+@Caddy2001review 
+?? @Smith2005autopsy - "Autopsy your deasd...and living: a proposal for fisheries science..."
+	-Not sure how effective this will be
+	
+
+
+A number of studies based on marine reserves have found biomass recovery
+@Aburto-Oropeza2011large - "Large recovery of fish biomass in a no-take marine researve"
+
+@Lester2009biological - "Biological efffects within no-take marine researves:..."
+	-
+	
+But few findings have ever shown that fishing effort reduction could not only to target species but to the entire community including incidental catch species.  
+
+
+
+
 Paragraph One
 Introduce some large theoretical frame work for ecosystem response to disturbance.  Not hysteresis but improvement or maturation something.  
 	How about ecosystem based management
@@ -21,6 +61,10 @@ Introduce some large theoretical frame work for ecosystem response to disturbanc
 
 	
 ### Challenges faced by the Gulf.  (See EBM paper outlining areas of concern) namesly intense fishery harvest and bottom water hypoxia an outcome of increased eutrophication and water stratification.
+
+@Yanez-Arancibia2013understanding -- "Understanding the coastal EBM approach in the GoM"
+	-highlight issues p.243, first paragraph "The GOM is at severe risk due to ..."
+	
 
 ### Introduce Gulf
 The Gulf of Mexico (Gulf) hosts a rich marine community....fertile cresent...etc etc.  In recent decades has come under intense disturbance and is currently one of the more disturbed...
@@ -41,7 +85,7 @@ In addition to hypoxia, the north-western Gulf is home to one of the largest and
 
 However, profitability of this fishery began to falter in 2001 driven primarily by increased global trade in shrimp products and increasing diesel fuel prices, creating challenging economic conditions for the Gulf shrimp fishery [@travis2004update].  From 1980 to 2003 world export of both fresh and frozen shrimp increased approximately 3.23 billion pounds, meanwhile the price per pound of shrimp products dropped roughly 54% due to deflation during the same period [@keithly2008southeast].  The ex-vessl, or dock side price, of shrimp in the Gulf of Mexico dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  Coupled with increases in fuel costs, which increased between 20-30% between 2000-2003, the economic performance of the Gulf shrimp fishery has been in a sharp decline for over a decade [@jones2012big] and is resulting in a dramatic reductions in fishing effort .  
 
-Perhaps quickly introduce previous studies examining fishing effort effects on communties? or maybe above in the general section.
+Perhaps quickly introduce previous studies examining fishing effort effects on communities? or maybe above in the general section.
 
 
 
@@ -89,12 +133,14 @@ To better understand to role of individual species or groups to the overall temp
 ### Diversity Metric Trends
 Differences in the abundance and biomass of the taxonomic groups examined indicates the possibility of changes in community structure that could be resulting from changing environmental forces in the northern Gulf ecosystem.  We examined 4 metrics of community structure and diversity for both the Louisiana and Texas coastal shelf during the summer and fall seasons.  We observed an overall decrease for all metrics in each region and season combination during the examined time series (Figure 3).  The rate of decrease for each metric is greater post-2000 in all region season combinations with the exception of the Texas shelf during the fall months (9-12) where decreasing trends seemd to begin earlier (1995-2000) (Figure 3D).  
 
-Annual community metrics for the Louisiana shelf displayed contrasting patterns of temporal variation during the early period of the time series (1987-1995).  Specifically, we observed increasing trends for metrics during the summer months on the Louisiana shelf, peaking ~1995 and begining to decline with abrubt declines between 2000-2004 (Figure 3A).  By contrast, the Louisiana shelf during the fall showed decreasing measures of community structure early in the survey (1987-1995) after which there was period of stability (1995-2000) following which we observe abrupt declines similar to that seen in the summer months (Figure 3B).  While community metrics for the Texas shelf did display an overall decrease during the observed time series, the magnitude of change was considerably smaller than observed for the Louisina shelf (Figure 3C,D).  In the summer months on the Texas shelf we observed a subtle pattern of increase for all metrics, with the possible exception of species richness which remained relatively stable (Figure 3C).  This increasing trend peaks in 2000 afterwhich they decline throughout the observed period (Figure 3C). During the fall months the Texas shelf displayed greater interannual variation for each metric and while there were increases in observed metrics during individual years, average trends showed only limited increases early in the time series and then the common pattern of decrease in the post-2000 years (Figure 3D). Species richness, displayed a decreasing trend during the early portion of the time series (1987-2000) after which it stabilized, this was unique in comparson to all other region and season combinations (Figure 3D). 
+Annual community metrics for the Louisiana shelf displayed contrasting patterns of temporal variation during the early period of the time series (1987-1995).  Specifically, we observed increasing trends for metrics during the summer months on the Louisiana shelf, peaking ~1995 and beginning to decline with abrupt declines between 2000-2004 (Figure 3A).  By contrast, the Louisiana shelf during the fall showed decreasing measures of community structure early in the survey (1987-1995) after which there was period of stability (1995-2000) following which we observe abrupt declines similar to that seen in the summer months (Figure 3B).  While community metrics for the Texas shelf did display an overall decrease during the observed time series, the magnitude of change was considerably smaller than observed for the Louisina shelf (Figure 3C,D).  In the summer months on the Texas shelf we observed a subtle pattern of increase for all metrics, with the possible exception of species richness which remained relatively stable (Figure 3C).  This increasing trend peaks in 2000 after which they decline throughout the observed period (Figure 3C). During the fall months the Texas shelf displayed greater inter-annual variation for each metric and while there were increases in observed metrics during individual years, average trends showed only limited increases early in the time series and then the common pattern of decrease in the post-2000 years (Figure 3D). Species richness, displayed a decreasing trend during the early portion of the time series (1987-2000) after which it stabilized, this was unique in comparison to all other region and season combinations (Figure 3D). 
 
 ### Breakpoint analysis
-Both ecosystem drivers displayed broken stick shape curves (Figure 1A, 1B) that suggested the sutibaility of using peicewise regression analysis to explore difference in temporal trends for each time series.  A piecewise regression analysis for both ecosystem drivers (fishing effort and hypoxia) determined that fishery effort was best modeled with a single break point $\alpha$ = 2001 (*R^2^* = 0.999, *F* = 1.223e^4^, *p* = <0.001) while area of hypoxia was best modelled with an break point in 1996 (*R^2^* = 0.995, *F* = 1226.0, *p*= <0.001 ).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in 2002 (*R^2^*=0.995, *F*=1109.0, *p*= <0.001) and 2000 (*R^2^*=0.997, *F*=1969.0, *p*= <0.001), respectively.  
+** Rework this paragraph to have the effects (abudance and biomass) first and the drivers second. Then continue with metrics in the second paragraph to show that not only does biomass and abudance follow these trends but so do metrics of overall community dynamics and structure.
 
-Breakpoint analysis was also used to identify significant changes in the temporal patterns of the 4 community metrics for both regions (Louisiana and Texas) during both the summer and fall seasons (Table 1).  All break point models were signicant and ranged in $\alpha$ value from 1995 to 2004 with *R^2^* values all exceeding 0.97 (range = 0.972-0.999).  The earliest break point values occurred on the Texas shelf during the Fall season (1995-2000), for all other region/season combinations break points were identified within a 4 year window (1999-2004) with 17 of the 18 indicators breaking on or after 2000 (Table 1).  
+Both ecosystem drivers displayed broken stick shape curves (Figure 1A, 1B) that suggested the suitability of using piecewise regression analysis to explore differences in temporal trends for each time series.  A piecewise regression analysis for both ecosystem driver (fishing effort and hypoxia) determined that fishery effort was best modelled with a break point $\alpha$ = 2001 (*R^2^* = 0.999, *F* = 1.223e^4^, *p* = <0.001) while area of hypoxia was best modelled with an break point in 1996 (*R^2^* = 0.995, *F* = 1226.0, *p*= <0.001 ).  Further, our ecosystem drivers were also modeled with piecewise regression and breakpoints for biomass and abundance were identified in 2002 (*R^2^*=0.995, *F*=1109.0, *p*= <0.001) and 2000 (*R^2^*=0.997, *F*=1969.0, *p*= <0.001), respectively.  
+
+Breakpoint analysis was also used to identify significant changes in the temporal patterns of the 4 community metrics for both regions (Louisiana and Texas) during both the summer and fall seasons (Table 1).  All break point models were significant and ranged in $\alpha$ value from 1995 to 2004 with *R^2^* values all exceeding 0.97 (range = 0.972-0.999).  The earliest break point values occurred on the Texas shelf during the Fall season (1995-2000), for all other region/season combinations break points were identified within a 4 year window (1999-2004) with 17 of the 18 indicators breaking on or after 2000 (Table 1).  
 
 ### Pelagic to demersal biomass ratio
 The ratio of pelagic to demersal biomass for the north-western Gulf showed an overall decrease during the 25 year time series (Figure 4) with a high of 0.30 (1987) to a low value of 0.09 (2008). We observed a distinct separation in P:D ratio values between regions, with Texas showing consistently higher P:D values (0.13-0.62) relative to Louisiana (0.04-0.24) and therefore greater proportions of pelagic biomass across the entire time series in the Texas region (Figure 4).  Inter-annual variability is greater overall on the Texas shelf (variance = 0.016) in comparison to P:D values for the Louisiana coast (variance = 0.003).  The average rate of change was similar between regions prior to 1994 after which time the Texas shelf shows a temporay increase (1995-2000) which was followed by an increased rate of decline.  The difference between regional P:D ratios shows a decreasing trend during the 25 year time period observed, with the differnce between regions in 2011 only ~10% of the greatest difference (0.50) in 1996 (Figure 4).  The greater similarity between the P:D time series for the north-western Gulf and the Louisiana shelf reflects the dominance of the Louisiana shelf (62.4%) in the overall biomass for the entire survey.  
@@ -106,17 +152,60 @@ To further examine the effect of ecosystem disturbance on the northwestern Gulf 
 ## Discussion
 
 ###Paragraph: about abundance and biomass trends?
+Describe overall findings
+
+@Watson2013global - "Global marine yield halved as fishing intensity redoubles"
+	-might be cool to mention that opportunities to examine the effect of large-scale reductions in fishing effort or intensity are rare.
+	- especially in conditions driven by economic rather than biological limitations. (look for previous copy on this perhaps up in the Intro)
+	
+	
+	
+
 from [@henriques2008development] p1917 "since a decrease in abundance or biomass is the first "response parameter" of a fish community in the presence of an impact" [@keough1991causality; @harrison2004multi-metric] 
 
 Similar to the guild approach [@elliot2007guild], our "fishing guilds" were defined based on the relationship between a given taxnomic entity and its catch or bycatch relationship with the Gulf shrimp fishery.  We 
   Might need to dip into MPA literature for discussion material??
+  
+  
+  
+### Paragraph about Matrix plot
+Comparison of temporal patterns in species biomass (Figure 2) based on species association with the shrimp fishery allows us to isolate the impact of fishing effort on species specific demersal abundance.  
+
+* Fishing targets displayed low biomass until 2003 after which biomass showed increasing trends
+* High incidence bycatch species also showed recovery post 2000
+* Non and low incidence bycatch spcies show little sign of change post-2000.  A few examples could be examined if there is good theories.
+
+
 
 ###Paragraph: Community diversity trends with respect to fishing and eutrophication.
-  
+
+~ Diversity/disturbance papers and possible theoretical tie ins?
+
+@Bianchi2000impact -  "impact of fishing on size comp and diversity of demersal fish comm"
+
+@Handley2014importance - "The importance of benchmarking habitat structure and composition for..."
+	- might be cool to add a sentence about the value of our results in terms of benchmarking impacts and that previous bench marks would have made monitoring more impactful.
+	
+ * Overall decline in community metrics across the time series
+ * The severity of decline is more extensive in Louisiana than on Texas shelf
+ * Rate of decline is higher post-2000
+ * Seasonal consistency in Texas in contrast to seasonal differences on Louisiana shelf
+ 
+
 
 ###Paragraph: Follow up on the community metrics trends with a discussion of the temporal correlation findings from the break point analysis.
 
+* ecosystem drivers indicated breaks at 1996 (hypoxia) and 2001 (fishing effort).
+* Abudance and biomass both display break points at 2002 and 2000 (check these) respectively
+* Almost all of the indicators displayed break points on or after 2000 with a single exception which occurred on the Texas region calling into question any association with hypoxia (and the 1996) time break.
+
+
 ###Paragraph: Pelagic-demersal ratio findings:
+
+* Overall decline in P:D ratio
+* Rate of change varies across time-series including a period 1995-2000 where Texas saw increases
+* Regional differences in P:D ratio and rates of change
+
   Hondorp
   Caddy
 Pelagic-to-demersal ratio:
@@ -125,21 +214,30 @@ Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] exam
 Maybe work in a tie to the shifting baselines problem.  Many reduction in fishing explotation are the result of reductions in abundance or the collapse of stocks or large-scale regiem shifts in the ecosystem, however changes the Gulf ecosystem 
 
 
-###Paragraph: Disucssing the the ABC curve analysis within the broader framework of literature
+### Paragraph: Disucssing the the ABC curve analysis within the broader framework of literature
 
-###Paragraph: Summarize what we learned and how it fits into the bigger shit
+The relationship between biomass and abundance is one that has a long history in the literature.  The disparity is an indicator of disturbance.  
 
-###Paragraph: Managmenet? or previous points bigger framework  
+* Lower W-statistic values for Louisiana than Texas
+* Increases in temporal W-statistic trends differ between Louisiana and Texas
+* 
+
+### Paragraph: Summarize what we learned and how it fits into the bigger shit
+
+### Paragraph: Managmenet? or previous points bigger framework  
 
 Be sure to mention [@Jordan2010summer] analysis of summer fish communities in the nGOM estuaries.  "The used community data from trawl samples in >100 estuaries, bayous and coastal lagoons to develop indicators of ecol condition"  The constructed a fish community index (FCI) and compared their index to a number of ecosystem disturbances...
 
 
 
-###Paragraph based on Paragraph from p 355 last one first column Hondorp et al2010
+### Paragraph based on Paragraph from p 355 last one first column Hondorp et al2010
 
 
 
 ## Acknowledgments  
+Our grant
+the SEAMAP survey and information support staff
+NOAA for lodging
 
 
 
