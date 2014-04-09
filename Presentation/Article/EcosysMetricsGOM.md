@@ -127,7 +127,7 @@ In the north-western Gulf fishing effort from the commercial shrimp fishery is w
  
 Overall trends in biomass and abundance within our 64 taxonomic entities during the 27 years of data evaluated in this study showed their highest values early in the survey, 1992 for biomass (Figure 1A) and 1987 for abundance (Figure 1B), with the lowest time series values occurring in 2000 for both measures.  Both biomass and abundance display positive trends since 2000, with values in 2011 representing 75% and 56% of the highest recorded values for biomass and abundance, respectively.  In contrast, time series values for our two ecosystem drivers, fishing effort and hypoxia, show differing temporal patterns of variation with fishing effort showing decline and hypoxia showing an increase during the period of observation.  Fishing effort was highest in 1987 at a value of 2.4 x 10^5^ (days) and was relatively stable at values around 2.0 x 10^5^ (days) until 2000 (Figure 1C).  After 2000, we begin to observe declining shrimping effort with a precipitous decline in 2003 that culminates in a minimum value of 6.0 x 10^4^ (days) in 2010, a ~75% reduction in fishing effort over 7 years (Figure 1C).  The aerial extent of hypoxia showed lower values early in the time series with the average trend stabilizing at approximately 160,000 km^2^ in 1993 with a small rate of increase and considerable inter-annual variability throughout the rest of the time series (Figure 1D).  
   
-To better understand to role of individual species or groups to the overall temporal variability of biomass within the northern Gulf we calculated a biomass time series for each of the 64 taxonomic entities considered in our study.  Individual time series were grouped into four groups reflecting their bycatch relationship within the Gulf shrimp fishery. Of the four groups observed fishery targets consisted of 4.1% of survey biomass, with high (64.4%) rare (18.2%) and non-bycatch (13.2%) species making up the other 95.8% of overall survey biomass.  Our comparison found that for the three target species *P. aztecus*, *P. setiferus*, and *P. duorarum* biomass values were low until 2003 (Figure 2A) at which point biomass values begin to increase for each of the three target species.  The time series for high-incidence bycatch species display an general pattern of decline with considerable inter-annual variability among the 16 taxonomic entities (Figure 2B).  The lowest biomass values for this group occur in the late 1990s until the early-2000s at which time many of the species in this group show increasing biomass.  The biomass time series for both low-incidence bycatch (Figure 2C) and non-bycatch (Figure 2D) species show very similar patterns of overall reduction in biomass throughout the period of observation.  With only a few notable exceptions(e.g. *Larimus fasciatus*, *Amusium papyraceum*) most species considered in these two final categories show little sign of increasing biomass over the observed period.  
+To better understand to role of individual species or groups to the temporal variability of biomass and abundance within the northern Gulf we calculated a biomass time series for each of the 64 taxonomic entities considered in our study.  Individual time series were grouped into four groups reflecting their bycatch relationship within the Gulf shrimp fishery. Of the four groups observed fishery targets consisted of 4.1% of survey biomass, with high (64.4%) rare (18.2%) and non-bycatch (13.2%) species making up the other 95.8% of overall survey biomass.  Our comparison found that for the three target species *P. aztecus*, *P. setiferus*, and *P. duorarum* biomass values were low until 2003 (Figure 2A) at which point biomass values begin to increase for each of the three target species.  The time series for high-incidence bycatch species display an general pattern of decline with considerable inter-annual variability among the 16 taxonomic entities (Figure 2B).  The lowest biomass values for this group occur in the late 1990s until the early-2000s at which time many of the species in this group show increasing biomass.  The biomass time series for both low-incidence bycatch (Figure 2C) and non-bycatch (Figure 2D) species show very similar patterns of overall reduction in biomass throughout the period of observation.  With only a few notable exceptions(e.g. *Larimus fasciatus*, *Amusium papyraceum*) most species considered in these two final categories show little sign of increasing biomass over the observed period.  
 
 ### Diversity Metric Trends
 Differences in the abundance and biomass of the taxonomic groups examined indicates the possibility of changes in community structure that could be resulting from changing environmental forces in the northern Gulf ecosystem.  We examined 4 metrics of community structure and diversity for both the Louisiana and Texas coastal shelf during the summer and fall seasons.  We observed an overall decrease for all metrics in each region and season combination during the examined time series (Figure 3).  The rate of decrease for each metric is greater post-2000 in all region season combinations with the exception of the Texas shelf during the fall months (9-12) where decreasing trends seemd to begin earlier (1995-2000) (Figure 3D).  
@@ -150,31 +150,27 @@ To further examine the effect of ecosystem disturbance on the northwestern Gulf 
 
 ## Discussion
 
-###Paragraph: about abundance and biomass trends?
-Describe overall findings
+Our examination of 64 taxonomic entities during 27 years of the SEAMAP trawl survey showed dramatic changes in both biomass and abundance during the observed period (1987-2011).  Prior to 2000, patterns of both indicators were highly negative and provided clear indications the north western Gulf was undergoing significant environmental disturbance.  In fact previous studies on focusing on the causality of human impacts in marine systems [@keough1991causality] and on the development of fish-based indicators of environmental quality [@henriques2008development] have indicated that both abundance and biomass serve a key, and often initial, indicators that a fish community is undergoing some environmental impact.  Since, 2000 biomass and abundance metrics for the north western Gulf have increased by 62% and 74%, respectively, indicating a possible release from the disturbance mechanism driving the declines in both metrics during the early portion of the SEAMAP survey.  
+
+While there a number of mechanisms of disturbance in the Gulf [@Yanez2013understanding], two primary disturbances on the coastal shelf are hypoxia and commercial fishing effort.  Patterns of temporal variability in these two ecosystem drivers showed contrasting patterns of variability, with fishing effort (ie. shrimping effort) showing a drastic reductions between 2000-2010.  While these two events are tightly correlated in time, the complex spatial and temporal nature of these disturbances warranted closer examination.  
+
+~~~~~
+?? The interesting component of this ecosystem concerns the mechanisms which drove a large scale reduction in fishing effort
+
 
 @Watson2013global - "Global marine yield halved as fishing intensity redoubles"
 	-might be cool to mention that opportunities to examine the effect of large-scale reductions in fishing effort or intensity are rare.
 	- especially in conditions driven by economic rather than biological limitations. (look for previous copy on this perhaps up in the Intro)
-	
-	
-	
+~~~~~~
 
-from [@henriques2008development] p1917 "since a decrease in abundance or biomass is the first "response parameter" of a fish community in the presence of an impact" [@keough1991causality; @harrison2004multi-metric] 
+We examined temporal variation in species-specific biomass (Figure 2) with respect to each species association with the shrimp fishery.  This comparison allows us to isolate the impact of fishing effort on certain popualtions while allowing us to understand what patterns of variation exist in the absence of fishing.  The clear positive trends in biomass for *P. aztecus*, *P. setiferus*, *P. duorarum* after 2003, where not surprising as these species are the primary targets of the Gulf shrimp fishery in the north western Gulf.  
 
-Similar to the guild approach [@elliot2007guild], our "fishing guilds" were defined based on the relationship between a given taxnomic entity and its catch or bycatch relationship with the Gulf shrimp fishery.  We 
-  Might need to dip into MPA literature for discussion material??
-  
-  
-  
-### Paragraph about Matrix plot
-Comparison of temporal patterns in species biomass (Figure 2) based on species association with the shrimp fishery allows us to isolate the impact of fishing effort on species specific demersal abundance.  
-
-* Fishing targets displayed low biomass until 2003 after which biomass showed increasing trends
+Another interesting observation of our species-specific biomass study was that in 12 of 16 taxonomic groups considered high incidence bycatch showed positive biomass trends after 2000, including a number of demersal (*Micropogonias undulatus*, *Stenotomus caprinus*, *Lagodon rhomboides*, *Stellifer lanceolatus*) and reef-associated (*Syacium papillosum*, *Synodus foetens*) species which would be highly impacted by the bottom trawl activity of the shrimp fishery.  While the positive patterns in biomass for high-incidence bycatch species were more variable and not directly linked to the temporal break in fishery effort (2001) the overall patterns of biomass recovery was striking, especially when compared to patterns in both rare and non-bycatch groups which displayed predominatly negative trends in biomass.  
 * High incidence bycatch species also showed recovery post 2000
 * Non and low incidence bycatch spcies show little sign of change post-2000.  A few examples could be examined if there is good theories.
 
-
+?? Similar to the guild approach [@elliot2007guild], our "fishing guilds" were defined based on the relationship between a given taxnomic entity and its catch or bycatch relationship with the Gulf shrimp fishery.  
+  
 
 ###Paragraph: Community diversity trends with respect to fishing and eutrophication.
 
@@ -220,6 +216,13 @@ The relationship between biomass and abundance is one that has a long history in
 * Lower W-statistic values for Louisiana than Texas
 * Increases in temporal W-statistic trends differ between Louisiana and Texas
 * 
+
+### Paragraph: Discuss alternative explainations to what we have observed and the dominant explaination of fishery effort
+
+* possible AMO discussion
+* Oil/Gas exploration some info from ESR
+* Management and regulations: Magnuson-Stevens Fishery Act
+* Texas closure
 
 ### Paragraph: Summarize what we learned and how it fits into the bigger shit
 
