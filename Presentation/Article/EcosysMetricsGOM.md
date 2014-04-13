@@ -206,10 +206,10 @@ Another interesting observation of our species-specific biomass study was that i
 Pelagic-to-demersal ratio:
 Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different coastal ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al [-@hondorp2010eutrophication] reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  
 
-Maybe work in a tie to the shifting baselines problem.  Many reduction in fishing explotation are the result of reductions in abundance or the collapse of stocks or large-scale regiem shifts in the ecosystem, however changes the Gulf ecosystem 
+Maybe work in a tie to the shifting baselines problem.  Many reduction in fishing explotation are the result of reductions in abundance or the collapse of stocks or large-scale regime shifts in the ecosystem, however changes the Gulf ecosystem 
 
 
-### Paragraph: Disucssing the the ABC curve analysis within the broader framework of literature
+### Paragraph: Discussing the the ABC curve analysis within the broader framework of literature
 
 The relationship between biomass and abundance is one that has a long history in the literature.  The disparity is an indicator of disturbance.  
 
@@ -217,7 +217,7 @@ The relationship between biomass and abundance is one that has a long history in
 * Increases in temporal W-statistic trends differ between Louisiana and Texas
 * 
 
-### Paragraph: Discuss alternative explainations to what we have observed and the dominant explaination of fishery effort
+### Paragraph: Discuss alternative explanations to what we have observed and the dominant explanation of fishery effort
 
 * possible AMO discussion
 * Oil/Gas exploration some info from ESR
@@ -226,7 +226,7 @@ The relationship between biomass and abundance is one that has a long history in
 
 ### Paragraph: Summarize what we learned and how it fits into the bigger shit
 
-### Paragraph: Managmenet? or previous points bigger framework  
+### Paragraph: Management? or previous points bigger framework  
 
 Be sure to mention [@Jordan2010summer] analysis of summer fish communities in the nGOM estuaries.  "The used community data from trawl samples in >100 estuaries, bayous and coastal lagoons to develop indicators of ecol condition"  The constructed a fish community index (FCI) and compared their index to a number of ecosystem disturbances...
 
@@ -236,7 +236,7 @@ Be sure to mention [@Jordan2010summer] analysis of summer fish communities in th
 
 
 
-## Acknowledgments  
+## Acknowledgements  
 Our grant
 the SEAMAP survey and information support staff
 NOAA for lodging
