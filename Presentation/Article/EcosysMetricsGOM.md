@@ -238,7 +238,7 @@ Be sure to mention [@Jordan2010summer] analysis of summer fish communities in th
 ## Acknowledgements  
 Our grant
 the SEAMAP survey and information support staff
-NOAA for lodging
+NOAA for my desk
 
 
 
