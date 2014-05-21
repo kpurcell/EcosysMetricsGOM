@@ -205,7 +205,7 @@ cpue.tx2.fall$pd<-(cpue.tx2.fall$Pbiomass/cpue.tx2.fall$Dbiomass)
 
 
 
-```{r overviewPlot, echo=FALSE, fig.align='center'}
+```{r diagnosticPlot, echo=FALSE, fig.align='center'}
 # Whole Year Graphic ###
 par(mfrow=c(3,2))
 plot(cpue.dat2$pd ~ cpue.dat2$YR, type="b",
@@ -237,36 +237,62 @@ plot((cpue.dat2$Pbiomass/cpue.dat2$Sbiomass) ~ cpue.dat2$YR, type="b",
 
 
 ```{r Figure4, echo=FALSE, fig.align='center'}
-#windows(height=7, width=7)
-plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
-     xlab="Year",
-     ylab="P/D Ratio",
-     ylim= c(0.05,0.70))
-points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
-points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
-lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
-lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
-lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
-#grid(col="black")
-#legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+# #windows(height=7, width=7)
+# plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      ylim= c(0.05,0.70))
+# points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
+# points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
+# lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
+# lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
+# lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
+# #grid(col="black")
+# #legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+```
+
+```{r ggplotData, echo=FALSE, message=FALSE}
+cpue.dat2$region<-"GOM"
+cpue.la2$region<-"Louisiana"
+cpue.tx2$region<-"Texas"
+
+fig4.dat<-rbind(cpue.dat2,cpue.la2,cpue.tx2)
+
+# load packages
+library(reshape)
+library(ggplot2)
+
+# reshape data to long form
+fig4.dat<-melt(fig4.dat, id=c("YR", "region"))
+fig4.plot<-subset(fig4.dat, fig4.dat$variable=="pd")
+
+fig4<-ggplot(fig4.plot, aes(YR, value)) +
+        geom_point(aes(shape=region)) +
+        scale_shape(solid=FALSE) +
+        labs(y="P/D Ratio", x="Year") +
+        geom_smooth(fill=NA, colour="black",size=0.5, aes(linetype=region)) +
+        #theme_bw()
+        theme_minimal()
+  
+ggsave(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\Figures\\figure4.pdf", fig4, width=8, height=8)
 ```
 
 ```{r figOut, echo=FALSE, message=FALSE}
-png(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\Figures\\figure4.png")
-
-#windows(height=7, width=7)
-plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
-     xlab="Year",
-     ylab="P/D Ratio",
-     ylim= c(0.05,0.50))
-points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
-points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
-lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
-lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
-lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
-#grid(col="black")
-#legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
-dev.off()
+# png(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\Figures\\figure4.png")
+# 
+# #windows(height=7, width=7)
+# plot(cpue.dat2$pd ~ cpue.dat2$YR, type="p",
+#      xlab="Year",
+#      ylab="P/D Ratio",
+#      ylim= c(0.05,0.50))
+# points(cpue.la2$pd ~ cpue.la2$YR, type="p", pch=17)
+# points(cpue.tx2$pd ~ cpue.tx2$YR, type="p", pch=0)
+# lines(lowess(cpue.dat2$pd ~ cpue.dat2$YR), lty=1)
+# lines(lowess(cpue.la2$pd ~ cpue.la2$YR), lty=2)
+# lines(lowess(cpue.tx2$pd ~ cpue.tx2$YR), lty=4)
+# #grid(col="black")
+# #legend("topright", lty=c(1,2,4), pch=c(1,2,3), legend=c("GOM","LA", "TX"))
+# dev.off()
 ```
 
 
