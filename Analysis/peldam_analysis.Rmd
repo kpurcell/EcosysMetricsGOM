@@ -271,8 +271,9 @@ fig4<-ggplot(fig4.plot, aes(YR, value)) +
         scale_shape(solid=FALSE) +
         labs(y="P/D Ratio", x="Year") +
         geom_smooth(fill=NA, colour="black",size=0.5, aes(linetype=region)) +
-        #theme_bw()
-        theme_minimal()
+        theme_bw() 
+        #theme(legend.position="none")
+        #theme_minimal()
   
 ggsave(file="C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Presentation\\Article\\Figures\\figure4.pdf", fig4, width=8, height=8)
 ```
