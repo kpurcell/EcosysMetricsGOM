@@ -152,7 +152,7 @@ To further examine the effect of ecosystem disturbance on the northwestern Gulf 
 
 ## Discussion
 
-Our examination of 64 taxonomic entities during 25 years of the SEAMAP trawl survey showed dramatic changes in both biomass and abundance during the observed period (1987-2011).  Prior to 2000, patterns of both indicators were highly negative and provided clear indications that the northwestern Gulf was undergoing significant environmental disturbance.  In fact previous studies focusing on the causality of human impacts in marine systems [@keough1991causality] and on the development of fish-based indicators of environmental quality [@henriques2008development] have indicated that both abundance and biomass serve a key, and often initial, indicators that a fish community is undergoing some environmental impact.  Since, 2000 biomass and abundance metrics for the northwestern Gulf have increased by 62% and 74%, respectively, indicating a possible release from the disturbance mechanism driving the declines in both metrics during the early portion of the SEAMAP survey.  
+Our examination of 64 taxonomic entities during 25 years of the SEAMAP trawl survey showed dramatic changes in both biomass and abundance during the observed period (1987-2011).  Prior to 2000, patterns of both indicators were highly negative and provided clear indications that the northwestern Gulf was undergoing significant environmental disturbance.  In fact previous studies focusing on the causality of human impacts in marine systems [@keough1991causality] and on the development of fish-based indicators of environmental quality [@henriques2008development] have indicated that both abundance and biomass serve as key, and often initial, indicators that a fish community is undergoing some environmental impact.  Since, 2000 biomass and abundance metrics for the northwestern Gulf have increased by 62% and 74%, respectively, indicating a possible release from the disturbance mechanism driving the declines in both metrics during the early portion of the SEAMAP survey.  
 
 While there are a number of mechanisms of disturbance in the Gulf [@Yanez2013understanding], two primary disturbances on the coastal shelf are hypoxia and commercial fishing effort.  Patterns of temporal variability in these two ecosystem drivers showed contrasting patterns of variability, with fishing effort (ie. shrimping effort) showing a drastic reductions between 2000-2010.  While these two events are tightly correlated in time, the complex spatial and temporal nature of these disturbances warranted closer examination.  
 
@@ -167,11 +167,8 @@ While there are a number of mechanisms of disturbance in the Gulf [@Yanez2013und
 
 We examined temporal variation in species-specific biomass (Figure 2) with respect to each species association with the shrimp fishery.  This comparison allows us to isolate the impact of fishing effort on certain popualtions while allowing us to understand what patterns of variation exist in the absence of fishing.  The clear positive trends in biomass for *P. aztecus*, *P. setiferus*, *P. duorarum* after 2003, where not surprising as these species are the primary targets of the Gulf shrimp fishery in the northwestern Gulf.  
 
-Another interesting observation of our species-specific biomass study was that high-incidence bycatch 12 of 16 taxonomic groups showed positive biomass trends after 2000, including a number of demersal (*Micropogonias undulatus*, *Stenotomus caprinus*, *Lagodon rhomboides*, *Stellifer lanceolatus*) and reef-associated (*Syacium papillosum*, *Synodus foetens*) species which would be highly impacted by the bottom trawl activity of the shrimp fishery.  While the positive patterns in biomass for high-incidence bycatch species were more variable and not directly linked to the temporal break in fishery effort (2001) the overall patterns of biomass recovery was striking, especially when compared to patterns in both rare and non-bycatch groups which displayed predominatly negative trends in biomass.
-
-* High incidence bycatch species also showed recovery post 2000
-* Non and low incidence bycatch spcies show little sign of change post-2000.  A few examples could be examined if there is good theories.
-
+Another interesting observation of our species-specific biomass study was that high-incidence bycatch 12 of 16 taxonomic groups showed positive biomass trends after 2000, including a number of demersal (*Micropogonias undulatus*, *Stenotomus caprinus*, *Lagodon rhomboides*, *Stellifer lanceolatus*) and reef-associated (*Syacium papillosum*, *Synodus foetens*) species which could indicate the effects of large-scale changes in bottom trawl activity by the shrimp fishery.  A previous study which characterized bycatch composition for the Gulf and South Atlantic shrimp fisheries [@Scott-Denton2012Characterization] ranked each of these species within the top 23 bycatch species representing a total 21.1% of the total catch biomass during the study.    An earlier study of bycatch solely within the Gulf Shrimp fishery duing the 1992 and 1993 fishing seasons identified *M. undulatus* and *S. caprinus* as the two most abundant species in shrimp trawl catch representing 25% and 13% of total biomass, respectively [@nance1993effort].
+While the positive patterns in biomass for high-incidence bycatch species were more variable than those of target species the overall patterns of biomass recovery post-2001 was striking, especially when compared to patterns in both rare and non-bycatch groups which displayed predominatly negative trends in biomass.
 
 ###Paragraph: Community diversity trends with respect to fishing and eutrophication.
 
@@ -205,7 +202,7 @@ Another interesting observation of our species-specific biomass study was that h
   Hondorp
   Caddy
 Pelagic-to-demersal ratio:
-Additionally, a recent study by Hondorp et al [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different coastal ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al [-@hondorp2010eutrophication] reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  
+Additionally, a recent study by Hondorp et al. [-@hondorp2010eutrophication] examined landings composition and water quality data for 22 different coastal ecosystems including estuaries, coastal seas, and semi-enclosed basins.  While Hondorp et al [-@hondorp2010eutrophication] reported indications that fishery practices (gear) and management could affect patterns of landings composition, they found that systems with extensive eutrophication and hypoxia displayed high P:D ratios.  
 
 Maybe work in a tie to the shifting baselines problem.  Many reduction in fishing explotation are the result of reductions in abundance or the collapse of stocks or large-scale regime shifts in the ecosystem, however changes the Gulf ecosystem 
 
@@ -241,8 +238,3 @@ Be sure to mention [@Jordan2010summer] analysis of summer fish communities in th
 Our grant
 the SEAMAP survey and information support staff
 NOAA for my desk
-
-
-
-
-
