@@ -6,6 +6,28 @@ date: "Thursday, August 21, 2014"
 output: beamer_presentation
 ---
 
-## R Markdown
+## Introduction
+- effort changes
+- hypoxia
+- fragmentation
+
+## Hypoxia Distrbution
+
+## Effort trends
+
+## Economic drivers of Effort
 
 
+## Question and Approach
+- What
+## Methods
+- data pooling
+- 64 species choice
+- Assining bycatch designations
+
+
+## Abundance  Matrix
+
+![matrix figure](figure/location.ext)
+
+## 
