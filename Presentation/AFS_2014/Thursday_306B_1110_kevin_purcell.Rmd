@@ -1,0 +1,11 @@
+---
+title: Fishing and Eutrophication Effects on the Northern Gulf of Mexico Demersal
+  Nekton Community
+author: "KM Purcell, JK Craig"
+date: "Thursday, August 21, 2014"
+output: beamer_presentation
+---
+
+## R Markdown
+
+
