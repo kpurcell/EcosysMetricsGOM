@@ -1,3 +1,6 @@
+
+<!-- rmarkdown v1 -->
+
 Diversity Metrics Analysis Script
 =================================
 
@@ -63,7 +66,7 @@ source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Data\\Gat
 
 
 
-```{r regionalData, echo=FALSE,warning=FALSE,message=FALSE}
+```{r regionalData, echo=FALSE,warning=FALSE,message=FALSE, cache=TRUE}
 # Create seperate dataframes for Regions and seasons
 sum.dat<-subset(complete.dat, complete.dat$month>=6&complete.dat$month<=8)
 sum.la.dat<-subset(sum.dat, sum.dat$STAT_ZONE>=13&sum.dat$STAT_ZONE<=17)
@@ -129,12 +132,16 @@ fall.la.agg$mod<-"fall.la"
 
 fall.tx.agg<-divMetrics(fall.tx.tab)
 fall.tx.agg$mod<-"fall.tx"
-
-# source("C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R")
-# source("C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivMetricsFig.R")
-# source("C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivSmoothFig.R")
-# source("C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivSmoothFig.R")
 ```
+
+```{r plots, echo=FALSE, warning=FALSE, error=FALSE, fig.align='center'}
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R")
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivMetricsFig.R")
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivSmoothFig.R")
+source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivSmoothFig.R")
+```
+
+
 Data frames were created for each of the region/seasonal data sets.
 
 
@@ -173,6 +180,89 @@ fall.tx.simp<-as.data.frame(lowess(fall.tx.agg$simp~fall.tx.agg$YR));fall.tx.sim
 fall.tx.N1<-as.data.frame(lowess(fall.tx.agg$N1~fall.tx.agg$YR));fall.tx.N1$mod<-"fall.tx"
 fall.tx.N2<-as.data.frame(lowess(fall.tx.agg$N2~fall.tx.agg$YR));fall.tx.N2$mod<-"fall.tx"
 
+
+#plot
+#par(mfrow=c(2,4),pty="s")
+#la summer
+par(mfrow=c(2,2))
+plot(sum.la.agg2$S.norm.mean~sum.la.agg2$YR, pch="",
+     main="Louisiana Summer",
+     xlab="Year",
+     ylab="Normalized value",
+     ylim=c(0.454,1.1))
+#points(sum.la.agg2$N.norm.mean~sum.la.agg2$YR, type="p", pch=2)
+lines(lowess(sum.la.dat2$S.norm~sum.la.dat2$YR), lty=1)
+lines(lowess(sum.la.dat2$N.norm~sum.la.dat2$YR), lty=2)
+lines(lowess(sum.la.dat2$d.norm~sum.la.dat2$YR), lty=3)
+lines(lowess(sum.la.dat2$J.norm~sum.la.dat2$YR), lty=4)
+lines(lowess(sum.la.dat2$shan.norm~sum.la.dat2$YR), lty=5)
+lines(lowess(sum.la.dat2$simp.norm~sum.la.dat2$YR), lty=6)
+lines(lowess(sum.la.dat2$N1.norm~sum.la.dat2$YR), lty=7)
+lines(lowess(sum.la.dat2$N2.norm~sum.la.dat2$YR), lty=8)
+abline(v=2003,col=4,lty=2) #effort
+abline(v=1996,col=9,lty=2) #hypoxia
+rect(1998,0,2003,2, density=20, col="grey",
+     angle=-30, border="transparent") 
+
+#la fall
+plot(fall.la.agg2$S.norm.mean~fall.la.agg2$YR, pch="",
+     main="Louisiana fall",
+     xlab="Year",
+     ylab="Normalized value",
+     ylim=c(0.45,1.2))
+#points(fall.la.agg2$N.norm.mean~fall.la.agg2$YR, type="p", pch=2)
+lines(lowess(fall.la.dat2$S.norm~fall.la.dat2$YR), lty=1)
+lines(lowess(fall.la.dat2$N.norm~fall.la.dat2$YR), lty=2)
+lines(lowess(fall.la.dat2$d.norm~fall.la.dat2$YR), lty=3)
+lines(lowess(fall.la.dat2$J.norm~fall.la.dat2$YR), lty=4)
+lines(lowess(fall.la.dat2$shan.norm~fall.la.dat2$YR), lty=5)
+lines(lowess(fall.la.dat2$simp.norm~fall.la.dat2$YR), lty=6)
+lines(lowess(fall.la.dat2$N1.norm~fall.la.dat2$YR), lty=7)
+lines(lowess(fall.la.dat2$N2.norm~fall.la.dat2$YR), lty=8)
+abline(v=2003,col=4,lty=2)
+abline(v=1996,col=9,lty=2) #hypoxia
+rect(1998,0,2003,2, density=20, col="grey",
+     angle=-30, border="transparent") 
+
+#tx summer
+plot(sum.tx.agg2$S.norm.mean~sum.tx.agg2$YR, pch="",
+     main="Texas Summer",
+     xlab="Year",
+     ylab="Normalized value",
+     ylim=c(0.454,1.1))
+#points(sum.tx.agg2$N.norm.mean~sum.tx.agg2$YR, type="p", pch=2)
+lines(lowess(sum.tx.dat2$S.norm~sum.tx.dat2$YR), lty=1)
+lines(lowess(sum.tx.dat2$N.norm~sum.tx.dat2$YR), lty=2)
+lines(lowess(sum.tx.dat2$d.norm~sum.tx.dat2$YR), lty=3)
+lines(lowess(sum.tx.dat2$J.norm~sum.tx.dat2$YR), lty=4)
+lines(lowess(sum.tx.dat2$shan.norm~sum.tx.dat2$YR), lty=5)
+lines(lowess(sum.tx.dat2$simp.norm~sum.tx.dat2$YR), lty=6)
+lines(lowess(sum.tx.dat2$N1.norm~sum.tx.dat2$YR), lty=7)
+lines(lowess(sum.tx.dat2$N2.norm~sum.tx.dat2$YR), lty=8)
+abline(v=2003,col=4,lty=2)
+abline(v=1996,col=9,lty=2) #hypoxia
+rect(1999,0,2003,2, density=20, col="grey",
+     angle=-30, border="transparent") 
+
+#tx fall
+plot(fall.tx.agg2$S.norm.mean~fall.tx.agg2$YR, pch="",
+     main="Texas fall",
+     xlab="Year",
+     ylab="Normalized value",
+     ylim=c(0.45,1.2))
+#points(fall.tx.agg2$N.norm.mean~fall.tx.agg2$YR, type="p", pch=2)
+lines(lowess(fall.tx.dat2$S.norm~fall.tx.dat2$YR), lty=1)
+lines(lowess(fall.tx.dat2$N.norm~fall.tx.dat2$YR), lty=2)
+lines(lowess(fall.tx.dat2$d.norm~fall.tx.dat2$YR), lty=3)
+lines(lowess(fall.tx.dat2$J.norm~fall.tx.dat2$YR), lty=4)
+lines(lowess(fall.tx.dat2$shan.norm~fall.tx.dat2$YR), lty=5)
+lines(lowess(fall.tx.dat2$simp.norm~fall.tx.dat2$YR), lty=6)
+lines(lowess(fall.tx.dat2$N1.norm~fall.tx.dat2$YR), lty=7)
+lines(lowess(fall.tx.dat2$N2.norm~fall.tx.dat2$YR), lty=8)
+abline(v=2003,col=4,lty=2)
+abline(v=1996,col=9,lty=2) #hypoxia
+rect(1998,0,2005,2, density=20, col="grey",
+     angle=-30, border="transparent") 
 ```
 
 

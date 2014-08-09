@@ -179,6 +179,8 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
+<!-- rmarkdown v1 -->
+
 <h1>Diversity Metrics Analysis Script</h1>
 
 <p><strong>K.M.Purcell</strong><br/>
@@ -232,7 +234,7 @@ hljs.initHighlightingOnLoad();
 
 <h3>Fishery-dependent</h3>
 
-<p>Data on fishery-dependent parameters (fishery effort) was derived from data from the SHRCOM databases, which I obtained via <a href="email:james.m.nance@noaa.gov">Jim Nance</a> from the <a href="http://www.galvestonlab.sefsc.noaa.gov/">Galveston Laboratory</a> of the <a href="http://www.sefsc.noaa.gov/">Southeast Fishery Science Center (SEFC)</a>.  Data from the fishery was in a aggregated format which was provided directly from Jim with the parameters:</p>
+<p>Data on fishery-dependent parameters (fishery effort) was derived from data from the SHRCOM databases, which I obtained via <a href="mailto:james.m.nance@noaa.gov">Jim Nance</a> from the <a href="http://www.galvestonlab.sefsc.noaa.gov/">Galveston Laboratory</a> of the <a href="http://www.sefsc.noaa.gov/">Southeast Fishery Science Center (SEFC)</a>.  Data from the fishery was in a aggregated format which was provided directly from Jim with the parameters:</p>
 
 <pre><code class="r">names(shrcom.agg)
 </code></pre>
@@ -275,25 +277,166 @@ hljs.initHighlightingOnLoad();
 source(&quot;C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\divMetrics.R&quot;)
 
 # calculate diversity metrics
-sum.la.agg &lt;- divMetrics(sum.la.tab)
-sum.la.agg$mod &lt;- &quot;sum.la&quot;
+sum.la.agg&lt;-divMetrics(sum.la.tab)
+sum.la.agg$mod&lt;-&quot;sum.la&quot;
 
-sum.tx.agg &lt;- divMetrics(sum.tx.tab)
-sum.tx.agg$mod &lt;- &quot;sum.tx&quot;
+sum.tx.agg&lt;-divMetrics(sum.tx.tab)
+sum.tx.agg$mod&lt;-&quot;sum.tx&quot;
 
-fall.la.agg &lt;- divMetrics(fall.la.tab)
-fall.la.agg$mod &lt;- &quot;fall.la&quot;
+fall.la.agg&lt;-divMetrics(fall.la.tab)
+fall.la.agg$mod&lt;-&quot;fall.la&quot;
 
-fall.tx.agg &lt;- divMetrics(fall.tx.tab)
-fall.tx.agg$mod &lt;- &quot;fall.tx&quot;
-
-# source(&#39;C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R&#39;)
-# source(&#39;C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivMetricsFig.R&#39;)
-# source(&#39;C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivSmoothFig.R&#39;)
-# source(&#39;C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivSmoothFig.R&#39;)
+fall.tx.agg&lt;-divMetrics(fall.tx.tab)
+fall.tx.agg$mod&lt;-&quot;fall.tx&quot;
 </code></pre>
 
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAyVBMVEX9/v0AAAAAADkAAEwAAGUAKysAOTkAOY8AZrUrAAArTIc5AAA5AGU5OTk5OWU5ZmU5ZrU5j9pMh75lAABlADllAGVlOTllOY9lZjllZmVlZrVlj9pltbVltf1ro76Hvr6POQCPOTmPOWWPZmWPZo+Pj2WPj7WPj9qPtY+P29qP2/21ZgC1Zjm1ZmW1jzm1j4+1tWW1/tq1/v2+h0y+o2u+vr7ajznaj2Xaj4/atbXa24/a/rXa/tra/v39tWX924/9/rX9/tr9/v3nrZ8FAAAAQ3RSTlP///////////////////////////////////////////////////////////////////////////////////////8AQWIE7wAAAAlwSFlzAAALEgAACxIB0t1+/AAAIABJREFUeJztfQmb5DZypULbltpbPrqmZ6yZlnOmLcs76yq1xy5NZu9aqqxq/v8fZZI4iCMABC4eCbxPpSaTJALEI+IAguBXQ0eT+GrrCgRwAQVvnkoUllXK5TT+7+UOvn7Iq8rmaIj4kS6OtxlFdOLXQTniX98vBd2nF9GJXxHXfC0/FzKzNrGXWFonfmWoxM8d99vnganuaeMRGA1MOZzms758nLY1di78sqm06cB42Uk8BBdFC8wWYblS2X0UhmImfq6IU9rucTTiheo/se2xsSdmJtIeFQMuzfm9Vohm3Mfz/8AMyH99XM5lHIpnS9/ViP+3RQAmbfc4GPFXYaWn7jWx8naiY2LlOv/DngVJl9oLuY2Xv4gHRfcgll/fDuauSrxyESpt9zgW8VMbj/ROHPKO/fX/5fb2cdYCEyWn6fh0/tXu8go/j/PRmbXxZPbEzOeIzn2ydhUbL6zF+A8ube84FvHCq7pyVXwxNSyjZu7cNglL1+SmYSrjAsoTI37kysTcVYkXOt4pbec4FvGy0/IfFk9vAif2tDB8sop6lAcemdbgZTNOpwsZhbMraOxaXv1ykUPajnFY4pm+vghjrHTnk+JuYXHbVVpsi3jBLP/Z2HUQ75e2VxyOeK1xWZNPXDDe30qqhPcv/fiFRN59i/V4TNr+cSziuSUW4L180vX8iEIvU+uaHeA7j07i6TZeJ96Stn8ci/iJAB5ATaRN/fCX93Ov5Kcw/oWDfVGpuAhimDuPE0/26hXiUWm7x7GI10MyxrI6jMNH05Rh+cXbXpwAVhpKvHLS28HaZeV++6wTj0rbPQ5GvLSm91J5838e1daX7pbaBReCROBvE+8dueMxgUk8Lm3vOBrxrJXnPT7mIlTtZf79quhzK8Di+oL9ihPvG6vnz4FFvEPavnEI4jvKoxPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvEqHg/2KakMEImHbKRXcT3Zr989D8OXH5QPnN3ubVOJl/+c1Z/Pjm37QEQLXO4v2mc+lkvp4tJkI8Rnys4hPigOzoAfoNy2g/gL/OMd0vhrEP/63S9j+39aWn894m1VvzPioTbx46P/0wPe+ImgF/Dlx+e/OIivLvsC//xe+4ZY+FK/Ri1CvPITGCf4yk8kfvy/r/FjrVfE6fN3n1BVnwi6qv8w3fMnVNUrv6n3DjmN7wVOvCI7ZMjTVP30KUbl0Tf1Dr/fKjZ+gmpoV7TxE/EhGz+2taJitZ3Kqn5qdPCK07YTiV8crOm5Oo9Fsb8z/3eAeVP+rm3PCuF8fn0P/+tJ/pYAcMg2tvV6ZMhWVb1DNkzbyu/gbIO5Hej3eoE3T/7nndWoKvFOB0sWFjRt0/HLabjef354+f7z72Ocu2eXV09CjuwJjh6vFm+1hq8yRIy3/frbf0eJ1woE39EI2TjxTgeLeCPc/Lzcff0wTI1/uY/y6j/4/QuK6DTZdmmu4tl2/PVOTG7Vl3/5B+ptZ8t2qHqXgwVE2yrq9XJ3//mPY697KEI8zcZnyI4L5yDs58So+lHuy9+Fblv6WKboQjbeRCzxbOfxNLy8u/xmUrlRXv3XD6hjCTHOXYrsuAEcioNbwqfFwnUgjKkUJT4Oo4M1feb3m6he55YNMdVIke0jHq8XaHv4OQnQ/coBTJ+R+udBVeLLFKD4F2mlFFH1dqlaGO2wuVFePTpYKp4vrSQjhE+RHU08UdWbQUcJ4uEMpHpUkB20ag6jG+Xc4YOl822DfLIwXwPQA2WJBxrxrB2uc/8ZD1zLeNYxzt26shF7H0/84PFppZmjO5mFiaedzjTRddJcU1BeqPEjRJeWzZ4mZ0mu0dMYVe8cLOV7rrJchzYhnv2NvW4Mpsc+tyLxoh3KygZ95Cb6+gzRcsdDPHpsCxvPnY+51738LZQinqLqQdU2xWTPQ/Kya9FD2lK3vXhztkbnh2qHczFx/Nz4n/5UrMfHxPFFZQP3sLYgXg6dOIhfdoyG2jCO53b2m3drqvoM2dY0gSabkM80mLUt8cwt+/7SzGGODYkvU8B6sq3RYuvSIPFQmPiF7q2Jj1H1ynY5VY+ENcXm4z3E08bIVXaKqHoQEbRlygEZPgdl+5DEv7xzy65IvDVNgMjWiLecqtLEW1PwUpx8IhbZiyWqQXzirdAve30/3cAb1/xk1IB9rOzQpYaVt7Sv5QYUiySxw4EA82jEz9S7xsuhKvGj4JP+i7zUNTyT1fheeETPv/Agwy0hiXhPHhCmd8ztwjZemi5YRivq2PjnR03ZKK61OfsgG/9saHflrKiH1JwgclvXJaw0LYu2nUK8Jw/oDI4qFSXeeOiE6YJF2VYiftlRcu7MPDsz3w8cOXcxxFtTwngrg0a8qg1KEe/IAwLnsLQfaT1eNL5CAJSemDaBzMfrac2mknW2BoSjvwUe4rUiQ8ZFEe497lL1rjwgYLdT0cFCky05AWs+dMulSwXEj6TGJzIk4Fb1Rpmk0oIcxadXg0O1WanFib0Oz7mz1HuVcA5PxGB6R/kN93OswDr+KQ2penDkJKBhZZqqd6VXgxouVrHxGxJPy7nTG1+OkduBdYxoHXhfA6SvAU/Nwi2gB5Hp1eY2/VbopzqTLVNRhHhP8Qvx6aLx1CtzVMBSITJNAIyfg9omMr3a3iGiREBbv4CYnDvlHOGB5IjGUq/wq/VkO8CeB4LslCHbFcI5p2yiuHqyTXMqAms8xoz06sOvEyxjCIOI4/kTUiScs7AD4k3/xSuusGxZLOdX7WPC6VEaf3kKYlR94D1VZOcMlmzlASxMfCIKNH5yEeXMjHMXHDsVLZwiD69HJ75e66ONX4F4sg2vSHyEilW3nbWYJuPU0XGnbIh7hYoiOwzlvtHRUSN2z1H1PtHKnhK7gxau11b12u3kE3+ZSH99f+84vFw6OTEbEu8aOAH/05glWvfhdBHAzPqSB1jduQsXSShA4vXP7N//5+nzC/GJzVggnFNSbJWD7jAuXrR9qWoxHKKdoVxY9sbET2+1XgJLCoL4X2orkq/zDeBIGpQ2l1YosfG9AORRsyqTLjvNxut2xd6m653XD2NrfwrbeAhqVfeBHOIXE6oM0J3FER5GSa1MVvVC03mAvC4npv+1CE7srRDHlyR+1K6nR0KP5yUlOZnO1rf8SkzV8359Vn7hYxnSkeIcebIfLVwCHi3mT8+VOYMmepDTpWvY+AREFODO/kmsh+Migl85qG6z+An/DZ9899R3euzCPq1VGcvaKw8nWfawA+ItG49n/4C6U0Q24lciOXcom3bj496fz8I9wrf/+vT/nx3HzUtZL5e1AfNAjGyGreN428aj2T+KVo2vh0s29szhOXeDbmhVETIXCoA+LXudSfxWo91cVVOzcHrmtHA3zvxpwB2gKsS7YkdsJ9bGY9k/y4sMmHuRRjz+zC1ijUnxaUKcT3xbOXfA/8jr3L1+QH7RV9VcIgZ9akD69GpCCDaQVEXVR2vcyAvsZMucwMjxO+5XuubjnXOfgJwcEP36T3dgOJbWqprMogs7Zzg6YIpey8aXI37UtlenV68kW0LyCkCJq2oq1UbTGmSPtH6yT6LAreqNtAq5ayaARsl2pF6532Y5qz+oKiXZxn8YTH270nr19tgREs4t6dx6PbD0s+zUq3B6dbGZcEeP1/TdMCzBCujEgz7MYA13hGsxkqxHNcEFDpVnTj9gb6fYeFfOnXFHvkVp1LMc8A9Y2u6F6lKg27WWO0PsitwFfXewz4t59MNLmsZqNbKN9+bcWYvFO0w+STQyYOkbviAhzhxHp1cPxraa3qmlelo2GcVsVPRBrHCypXWLacTb8OTcmY88avbtZEi3JPuhoyxi7AQ2tOMDOb3aUPUMPPdHBNkJqh4h3oRt7GDQtWpgLW+XbK9facl2ZJWrk/PDGSyDgAMJ59yLGFOsGkRY1xnR6dVq4xfzNLxAWgCsm/bVw23jDb+SJBsVsdSDSLz9vEctYmxt67LTnbvw50FiNVHc6d5LbU3vTyJ393j/aLnnUsfZGa5NpmhkCoFAPHFOPKtejt+jVL3Y3/ChI1xi+IArih4iiafOic9Q1W2+qrcGDAiyKWu1k2UHJkcTxhC0OM8TxYb8C2D/s97Ic9bDTMOi9PioOXHlpy1sPIsqQSt1T8RL5v3OXdC/YMQD4k8766HN5KTZeLQWOXA/+vdfPp5cB7FLeRzB+c+SbcK1zl3US6+icn7RYf9C3qDlNeCFgnmMQDxJ7+Rx73z0pyjmhygbr1apNPHocmcxNw8xje8viUu2RwZcDQJ6k5BsPEXvLApMIl/Vj4HjQCYeiZzsSmXE8T7idREOfXtm0/IEVf8+FE8IhsG8I4+q55lAdFVP1TuasEI2/qrHjQ7ZRqmzx2MMHrnrQY/jHevcoesOYPLEGw6y9T2NH8q6A2nVovra8pQGiUcmh7Fa5IWorsanyjZ/ionp3D3efN7ND1lj981/cepb7binx4c+U59qJYKyGaKcu4gwES8gCY52zyfegjVSzTQd9uQFygTnM8MEpT3vJEglRVH1VM8adDtbQNXbg9aEBd9YiplSZGo4Z9g3a6RaiR3otyquC6h6E6a28Zhy/wEYqGvgRHjWUJx4K5gmLfhmJ6J56uFuAdPOqiPVavbPQP2ubc46d45lh+L9aaASH+NZ5ykgC1iOM2nBt5jKuHs8ZmfN+fjFr40Aj+qcjT89YdOXUxSxvmWHIoUPVFUf4VkXJh57q4G04FtMbbL8CyPhjX6dj/j54dJyeinzYlTZsBgoN7bOq3e8H+9W9foLZdqOqx7kOD7y27LuAyymcvc65tnYQyclcu4m2fQ4njRjwMoH5cfaY/VIbru5jS3+NgyU7B80zzPi27KeA/INB7eV8Xr1CTl3aJKUB46RO4+6BezHIGK8HN/3480IelGmjulQZ8j9+mcWx/vci9iY1Yp3Y7z6rJy7JXpfsq+9F+Ajd14HC2QgDfTHIMq99SVbGhZ30aag1UV9HhyyCe5FdOurHSSO+MycO50KKvGWc+cing+VstZnwfQSUqmCrJFtus4LpVfDEiWrO/LOmYYVxt83xhdefidO1S8pYMACzkjiM3LuQK6zykUHZTvieFzVz34D6+2sQZVIFf9yyrzti2vmUPJHw711ZdkixDMFcJZbwB8C8RSEA1ov4oiXjQ/iKYhR9bE5d+ggvuCFFM5NpBuNj6dXayvmKv/KY/HZ/eTBI4cxX05Qji0hGGDnRyB0KX4cRBjovj4l2804jp4gRVOIZ/pW1XquYSTxyhYvWDElXqPiqwVxDAHpPdijYH17LSkKN2R7DjsaX7pYTisTk+3mOoycodIQJv767a8f9cb3p1eDxLKGufgG53KWvp3b+EKLL6Wqd67a1pghW5rspSRzG1+Djbe+d6w+KdtN3XHcqjKRGyR+1LTXe8vOuoaR9IETpfAacbwiKzAnvuh49STfSAbTc/QXKlTZy1HsvfTF8Sj3zJkvc4B5q7FN/tU8jHQ5UTL/kB/IN1ZB3YZVOARM0GCOnkWGc2E74gxmQksfGZfG+Yle2RxTj//x1x+ejIHjcCGRzFf0cpaTzDGcIPFfPtJfmkxCqee9CvHDBe5f38enP807waAjoHfScvptceLVPvWj20AKaNXKlBqylTvO2459ZRB9by9T1VOANYBpdNNqEeHleBY41N4bUzzqSP8iMEmjTxAhFalHvLKT29cYJhv/BzsLxl2L0I8xBcRd6uu71jEZUkXJxnPunELCqOHa+AoFx7aNycZ/9E8VOQspQPwLANnL8bS7Hr6CYD1QT2S5MyznTt0B9ABeX+9pMcnF4gduzTyyI97bY7Nz3lP0QqxoCTM+ZL0T9dD5VL3kGezcZ5drbbkXeM7dUtKi6j1DFpo1dqp6dMDS9/V08dj5mlzeOdXGJ+W2i50s4rGHzrfSHy5BjM/PZ5/VxUW9sm33Asu5w3IBfB9d1FYCoRMfXG9KEK/oslzis15jigm3SHCt9BcoXQkvyeuRoKCEc36rA9oeDqSveb6ezn4I3YcxPl2T+ECYTCgAeY8JWekvXLzs8MjoPF4AZRDFutScBMJqQm/8KNGFC8hU9UqXT47jzeyfNFUvMzTINh5BKOdOsbPESjkEOcK57de5M+GsBbV6nh6PvbcXbgHbvonQXe1zXucunNK/NvFSrNO9WH2du4QjlNMCWYeGg+X6E4sLu891yiYTLypEu13X9R5kr3MXJ/uruQHe/Kdf01cj3gFHXIOXLF9ecNndIqo+DqImET5t5jp3SB28R1my5WhUE8cPF/8uecjW7HZ2XKNO/5sSZtaFr4HXwyU77NpQ/Qu8Uh7RuLbJWOcuacj2z5fT1WgA8xUfXy0484nO3Xe/fDBnBp1xjfDh2EMgg0kAfz1cZiYczKxIfOY6d8oOORFj9q/0Wnz58fn1g5qb4SuEFMy7if/1h6fA7JxLgwto+3TZccTHIV7VlxMtLk3x6scQa56l12qBNCr7GeT/pG+9bIUejAtlPh69WhRvPgBoLTFEqfo00C1cMdFZxE9tcrrosTQSyijfYxFp5Hz3LBMyed61V+f5238hXlNzVrg+2Mui+HQeZYm9VFUvd2IsHEl0UVWP1evZSq92fY9lUL7H4kjD9gSVLK/+V5/GNaJysW2F6+yelZPAb+MpqEd82MIliNO204hH3mbB8tmZguejZiL5Wr5oI3/ztcBsaH1t4L0B57g8LMnNZOJd69ylI8/CVZI9I4J4q2DZ58QWOOGuxWxove/qBhxLk3lYDojH0nExdbmzDGzg3BELcK5e7X2NCdnhOfaYNfbVIjkX4CyOGeodZEwPwglxefXIa9Ju4gur+ozUK2o9kohPrgXYHpaf+NQW4NtMm6h2nef682jfQzwyTeBY584hm3DA9cwlrN0cXY/CxCeeWlbnqZbdeDfZCOvcqh779tt6Nr7qpZQCKixijIbUZQJa1YArR9UdhOgI524tG2+/tUa+NFs2Q501cOgfOo0NaLkBXyQIjT4oB4zaFiG+qKrH3lpzz87tQ9UTa2FOp5QKaIUB5+P2pmwwhsh9sh/tcSPVxgMfv/CsvyPGMtBtX84d8taaZ3ZuH8TTQcv1jQpoDfvtLtY8D8HY+C/fI7+v8QoV8taaZ3aurGyOmh8qUI19RAHutT3tSrmPae4fhsgh2zS4AwrrrTX37Fxh2QxV17kDqXsj4hri2p64qle2l7CS3oSl1rlbakgWPeMGbPxymXeSZiLeMLSEb97R6gFDLPHrvTQZgNu92E/OHeU6/4Isj56VhPNlxxSw6WvS6+fc5ReSXsDU47FvYxRpATD+DaNYzl389Zvk3MUUUtbgxGXZxoZUQNF5Xqyn6jfIuaOgci1MeN8ejKgHZTVfL1a08cVy7oY6xCfA49wh8Lw9mCZ6ywHzpsbqkavjPgcbenswSnReAZ14ubWKqifI9opTAnzfKE8V2XpFSouureppLy6uR7w1y+9d420h+0A2nia6MvHYO+qecnxxE7gPEQGI+GB9QN8lYsNwruSllAI8xOuxtJ1qKX+TSfVgHZDj9asSb0/m0LDfde7KF0BV9bKllaFwnuYEcglz4UqJA+yB8ebVE28gTtUbZx1vyNYturaqR/LqjYET7VswoKz/AvoS5kD5QIoXS0gQ2/jLA0jE1pM0KjYi3kyvtt9Rkhpdz6M2bEAJVR8XDKpXRoZzPeeOlFdfsBb+S5OJHyIfup5Xn5BXXzmcixSXJnu9vHoE4U/qRtbj+AM40l7UJn61nDsEpE/qBm9V3S5MfCL2q/NMbBTORXxSt4jsGyY+uJZtRdkJ10d8UreE7H2q+hLTsmw8IU721uHcnlV9deKDi7oS65FA/G4GcI6fc5dUQKFp2XhV33PuIgupW8CKsnvOnbuQdcK5+CVNPQeKj5s6ZTMl88pWDYxT9dk5d6rsQ9p4TWyJWHq9ZEtga/teTsP1/vPDX7///PsYVZ+Xc6fJ/uNLUPY+VX3MkqalZWdcyoeapmGg4fPDy/eX+/UsHB/lIsveH/FFky1zC4huffbvy9391PifH1Z0bSJl71HVe5c0TajHejaebT+eRpV1Of18X4j4mCZnsn9zDcreI/Ek2TsmfnawrvA3pXp8TJNz2d+U7/GJOEQ41+fj167FTmTnz8eb569523Gyu6pXkD0fz1JGrmwU6DwGViuqeubcMdnjgZBsRwbOe+Ot9YhaAHIgPYfGKbuKjc9d544TP7XdZDPWJT5OtjPZ8jExpLIz84ac5Kko2SUK0IYQBl57qiAWS1/ZRx6u99nER3wCJ1a2k3i7FjT5+rnAn8TYj/gkyc4uwH5pG6w78gpirT/3upc7yCY+QrQknio7Ob2aPEdYIL1aoH44ZwwhKK0fIXtu/E9PP8cRj7y1hogO1YPJ/lN6j3dm2QZ8OP7gyQPT4kd2anYUNorj0+cJfj6NGxf4m/8dQzz6ZVXXpxeQbZX4C3zzrjjxiTiEqp+xVc5dypdVM2RHp1dXqUWtSzeXnafqa8rucbyKnnNnYnlH6qy+MHV2bCMHaHLosmPqQZWEpF7lyk6/Zf6pH+Cfq4fl0z/oNvLnFUEkXqmTa4d2IAvx4uJk28SvJ9uDKk3eiVdhqfr1ZHsWfuvEb9jr6st2f/SyE3/TxNNEd+I78SsT33Eb6MQ3ik58o+jEN4pOfKPoxDcKOvHT57ru3jxNf1pK3jSRN/0g/qwD05VWEl8cGpVdUzSZ+Je7t8NPDy/vpr/LScnN+unh+nb64T/4n3Xgv8crtSui0ajsqqKjeryohZ4qMlxP0w9/4H/WgScruSQajcquKTqK+OuU0jP+6WVyIXYthPQijd+i7Jqio4if0nanP02LvP7uaUD1jjjwPH9JNUfdtiq7pugo4qdlWqY/zW94BHiLehriQBkHq0XZNUX3cK5RdOIbRSe+UXTiG0UnvlF04htFJ75RdOIbRSe+UXTiG0UnvlF04htFJ75RZBL/5eNpuOJvGdbGhqJvQXZuj3/97pffPU2pXvPaan+Pvu1ZCRuKvgHZ2ar+Aqc5P4itrZZb2lFEH192NvFTmsc0/8/WVsst7Siijy+7CPE/PUxLZK3+6G8o+viyixA/PXpsbbXc0o4i+viyezjXKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y0CJ/71u+fpuxcr12V7XO6buW0X8b98mBbCX7kyW2O87e+eG7ntTryCLz8+/6Vt4ofpI0ePK394YQd4uYO2Vf3cAl8/rFuVneDLDw33+FHnvX4Y/yd/gGykV3Ej2fOV53PeX8ZtV4bDxn8Yuf9VefSXGzir550d2/aBHOITxO1F9tGIH66jqbtwG8+e/PFG5r/zsGzPu9g2+peK9Yh/fT/dq/rpxuaIn/AF7fEqhCYD9yn+AkjIbjx6AZZ9ny7NMlPpl1YGceQOvQEQv0O4fY5BPHYp5BRwOOIfJ52nfLIYVXkwnHlfnxrnrN7kljZefQILyObEk2SD2QZHI376luGAq3rtPs/iIEzbZoOr2+sRz4ka7fVorEvIZmxSZPM2YKJvjXgbsnFCJyUifCko54gA7nIarvefH16+//z71cwMl11GdGVEq3obpIB5NeJFD53GHoep9S/36/kXJUVXRrRzd1Z/20ccP/oa2Ekvd/ef/zh2u4f14/hJ9MNf80RXRizxIGmEucEXrEq8JhpAdej4gcfT8PLu8ptJ565NPBN9+jlPdGVEEi+8XDD1K7WABCCXEkLr2cO6wjelenwEyoiujGTipTdnBvGOsZ70KmLERzmSKxJfUHRlpKh6xvQ8kqsogLP6CNRV9SAjSePAvF04jsdEuGRrD+QRwzkLWgMsHrxG/GIDqhM/PXOu8SJeg+sclowHrmW8+gjimejxQJboysgZsuWHRD9XibeuKKxuwVmieCivUz7FlEFXiHjS2Ux2GdGVQSae4E8BLMrAtMKlG99ZHVGDK8skud6vTTwUEl0ZVOJlFzurP9n6b35C5kF80A6sHkvP3e7lb6EU8RGymei7TNGVQR25s4gHI5g2iB+WRosk3krtziD+05+K9fhY4j89/XxA4pGxem3ufXBbWaZorRHcGOKNDN+0xuOG9pt3K6r6oqIrI3aSZlHhNKNvXhVGIeLVamxyaZHr6yF2kkaGUWq4LmL6hWmh3lloB1GjfGZqd5qq1+uRilzZhyPeTK9euu5ZGa8Tdp1tw+IImMRHpS9d4M0T1zbgzvcT20DK/aPBfnOsNeLt9GrxL7fdMGgqf9EC2p2CDOkjiB9b//W3/07MBSAVTJZtv0DUmqr3pFfLfd7xwXwIbABSgBuTf/HlX/4Bk40UQjEinXgEaenV4oWBs61uAUmtZtdTcRl9i5e/C6V9KVlf5Wy89eZYa6p+BubVs/xKmXCj55spp1YZq9fG54V7AfhAUrpsLcW6SeJVzNral2Kl6ntXAYlAQsnEAuKu0jVd2t/hiEfCueU/zOiCRpCNAsTHuQplZW91fT1EDeDAoM+DqylP6gFkLLcE8ViGlb2Toer7K1Q48XKcRv5ozcWIIxZFGw6iRMhGX6HKkX004mnp1WAOyeGa310ADX3ItgYyEjHsiRjzReOzAAAORElEQVRQN2sR7ynJcagTjyAjr97YOau9vJ6qFwUj9QArpt/czNwk8brBN4g3ryhHPN/vxOchXdWbw7Sm5q+j6i3nQT+v2hjCRtfXQxzxjrF4vMlNwlKhl+N+Rc/5+l4nHkEU8WYcb9h4w65r1vgY4Vxx2TdHPOJhmTctJ+G3bvxOPIY0Ve+8HyW0161xj+N3BuIixlRPjWVl8NR6t6sXBevS2LI68QiIa9lqKs+t/1hWBojFcdiZpdWtK2pDtruqdyKF+AHd4ffJkqvVlMxCjQ904muNIWDbt0W8J9PVB67g1bBq/jcuyxYrdRm4cYfrywX0QV6a7O2urwcH8Rf45/eAEu+7FZVyxQ8E1wAADSbxgdV2lFO1AjJkb3d9PTiTLUc9j6l6TxzvOMDen85tfDBlE+cMZAGpssXFbaj6mXj8TZoo4jldBVS9mQvgI17RCAWIJwxZuA8cjXhN1afnnukZt6lYHjr3gDGtgATZWY/s3ol//e3DcH1jLc+PZ9na8ET1g3y7poCdBbQU/Fe0ABJe3mmXEoovJnpVzD3+y0f49tl7miecc0+QM8LZOp9FiLfTqznxheJ4POdOGXh2inAd2Dfxr+9PZo/3LmJs7tgtwxuc4SwWyUoE7l/I7Tmv3puFGSF7pP6tur+EELdIvA1HsiXfhmHp58HeXE7Vh4WkF1Dh0iLX18NM/AXeXrUHHSVeDcxlSwejaggvcByAx4egPX1xsh1v0qRh38S/fmBxuwJM1XONrhJPjuOrDJsudBdT9arY8CvaQ/AV7X0TPy3NBf6PzGltPL8iSzZ8qxDvrUcN2fjOsWy87cvaiPXLQdsq49XbvxLHAzO9+hzsmvhpGYRBXQUBQeQNaBn2ACUmaawf6SXSz/S8SZOGfRM/L0Xg/77i4tVT1BwScZdWt4FP4Cw7pbTNDap6tviq/4uqfCxm2Avx+rcJvMQX0jY3SXwYC/GUk60J+agWoLy3F56blReXNzMrXl8PbOSO6typQzg0BNMzLVA+hBRl3121VVbX8l2ehZsgXq5+Qg2j2IXgU/VIREH89Jk5dMzPBUTd4rKt1bUwdFUvt+KIn0712niky5E+dqhTaomTZ7lNgrW6FoabJh6L4/12lq7qpX2IaAH3AofBP8BX3XLIMVbXctU/B7smHkHUBwc9WHywKBvvX+AQdfbk1AF6MBmdeLlFV3PadpyNdyxwqJZkaPTFi6MO2VIGLG9b1WOg2dl84gf+XUYVgQUOLeJhMfj4QINTtiXaQnPEu9OrE+EqINz2pn+BnSBMintYP030rav6x9NFTzxxp1engq7qqZfaZzhfnE8WfePEv34Y7ao2H+9Ory6v6oNIU7eKwe9DtghYj4fTo9bjPenV9CSEtDXjbSQ1vmrwO/EIIhcxTkaZkAotBR2iUQ1+D+cQzAM4AUM3ZNxA/Fi9T7Zj+eRhsLkPfu02VvYm19dD5XAuOGRrO5YWzOFiSwI74M/vTxN946renqQpNoATJN52LC14iQd5QDBPJp4guhOfdAPzQH1I1duOpVXMUoat0JUt91dHyaIv8I93jo8RpWHfxCMgLWIcQOIHB+1yPFcrtt2dmEGWPT7vPz1EfZMm9/h2iEi9YiCrOVD0sGcAh+RYIuablaoN08apekT0rOgcxBuylzmhI6t6YrLljNLEE0burGl3sW2+2JE9STN9f4n0MSL5YbXAC5s3RDwVRlZcfkilGQ4Qv+j6PWqs3gHKK1T8efMZoRTRayJa1Scif6xeH8dB2hxcdp7e47WrPEkgPOEDnIkfB3mFKgynqqfagOwer2h0FiSqJYppWTTnrsKQrbXaCrJ9AFUfO4iy4KwsQpZE/Os/3RF7vEo8nlPJuzzZxtuiW/sYUdQgivn74t56UXrY1PoRWGWcg7okFHmFqlAUWxmO2TkTbienvpdDM9sgUVt26JIDEW85d55FjA1VLzNfAuug5Tt3g+JSgF6q9k20nHDOK3tAt/EYc9nZK/BwLnItW+YAIweWbXcLfKakXvERAd6owt7LXcXTIxNPEZ1AvD7ctG/iJ9L116Q9xCcij3iQm8tTMCjEG7EeVXYM8VQUG76oDDlJo2u9tEWMPchT9UooDyrv/Ijr63de2VVz7gqkIVRGwe/OeQ9kOVgyZFa603lQBgf1ILuobK0kZBs9ACK+PRrxY2/QR/J2QrzSn93i1C7fiXdhtvEfkfn4R+2nijY+6lJKMURVHy076rpDqPov/8f8lc1PckS+uFgxy5bYjuZZGxBf6vp6wHv8jMPm1W+v6uXOzom3eryFPRBPXa9edew78S44VsQokXqlIb/xiSXwD6CVlb3Z9fXwFT5NVej9+AXZjU/lnf9XaMD8polHsNr78RTIUVqKOFgW2y0m25J3K6r++u2vH424fcX344MAabQp4kQav3LFFsTDAYgfe/b1vuySpkULSFmoro6Nj1j75whx/OuH4XIa0hIxyKAXEPiuLUVWYedumSIiF6V8WXmnmHr8j7/+8KQN2dhYUdU7ZgaDKexyu7SNl9MBkvhbGbK9wP30WRofNideNmVYnCAe4mVbi13CoJbkfi/T2JYJCvsmnoA1bTw2JYwtcON+ZQpA+XhKhGx7sUsYBkSyC9QZ4T1gh8SrVy3zBNZ8gSenHZS/mHkCe7FLUOZ+CdW1hg9uiPj6qt5MkNDVrSxV7YnmkK1U9rGq3lzsMiqc01drvzVVXz+ON3OcYRD5TMZcjJsV+X3LBOfO8QrVWXf0dHn8ZFByAUB/NHeHiq9Ja9hg2BSsjbjLmZkBxbQM5r7vu7pwxFeodjhWn3Fd5qih3NQ8xkCp3DW4IeK3m5ZNHTaN8Or935YFVdXrQwWGbLglVU+NYfEDWxEf9zlo/BUqRrbxnqSPePb+5vmAPd6CZ4UZagHrX8p6aJ1v0vhiNSgiujKoWba5amsL4gf+FmUV4j3RPSya4nDEW1m28iaOpOohVtW7ZFuhpE+2GPI5oqpHsmzFyNlB1rIdmHkq9dDR8/0GdUQ/0z7WxLHWso06XfolRWQHorf5fyrP7C3iQxKv4kjEL+pZWSSprmyxDIs6cDdkuheVsf2nSYKIU/VycZzl3e3qskH4kXKsHgYR9O0VNzeAA/oLFb6wiyybzxPIctzED6L3DzdHfCLWUvUL0UzZliAe1AcAO0ldhgWUsZ3jEX/cSRo5fS5JKEg8UhQsz5c84zALIxCwZ1WPB9ls3KxMHK9MCYMqm88V6xU0Bnb3iuMTj68nC3z8ocwAjiJvtt7qsJ36Pr7G9Y0Rn4h6qh6PmdQh1eKywdjTwnfC9XvA4YknGPHSsrWAXR+RL5jSXxmHU/VmirO11Jpdj3zZuhsBer6fOl+rHcgTXRlHI162bEQ98p07zY0AX6Kny+DvDkdT9Sm+WhHiF0r1hGttfL6k6Mo4GvEp8x5ZsvWxGaxs32jNDRG/tY1Xtj1xHmA7qbKBB4ayqysZVksuvZn/PQf4RyOevIixY7sq8SLh0ZNXr7uAZNne9eqXGTg+F8M6Ox+f1xLu+c4BZ+fWXMs29lKpXD3NmroUinu9etBlKgPCw8K7UcPsRMWaOC7xPjdPP1ZANsgBA83FE1uD+aCJk49GvGcRY5qqZ3c8qs5Rb1ZS9apvjRh/JeiLk42+QsVNObfyUqPLt6EXywJ6DaNErwkH8Zf7LBvPJ8Uvp+F6//mPL99//n0N585ZjyXgynjo1Feoxn/P4q1dR94h8G39Dd6jET+q+u+eM1Q9b/lJbwyfH16+v9yXU/WrFmDbE+QXEOYcrKNHI/7Lj89/ySFe6r6Xu/uJ+M8PhyAe9erNq6VlHxQfTwT6Ryd+JAykqmcqT6ivmPTqx9P5r+8uv/l5VPc/p1cxXtUbOzleve5GcK9yybZadpjxNx2PwxE/IT/nbnburvBNqR5fnXi3bCWdziReCe0s2YckXsWOwjn6dUoslit74VlGk4v7PqjBHX79/lAr586yjPRLC+X7KeMraQWol9rEx12/P1RKr2YjXNeZwfHANcKrJ8oO1kMY4GKqfsmlVdOw/JW6CeK9678YcTzTfNfJPZwGBLYgfpk1Ke1fCOL5a/C+Sh2NeMfCCOTb4ENnY48fA/mxv8cQv/vUbmnlCZr/cMSbiCWedfm5x4+RYRzxZjk7+R6O+ltTxMeoer4zE//pT3E9HlvnjibOdaCOqpcG3zE9fExVbyItjuc2/pt3UT0eWeeOJs51YMMxhBsiPhGHGLItL7sT34nfGY6cc0etR1f1CKjEg+LL4DuBA+lVTBK3F9npoiuDSPwCcO3QDmQhXtxtyK6BTvwBZNdAJ/4AsmugE38A2TXQiT+A7BqIJr7jNtCJbxSd+EbRiW8UnfhG0YlvFHTiXz8ML3dvnqY/7QMW03tS0w/izzowXWl98iIOrcquCDLxL3dvh58eXt5Nf5eT8iWDnx6ub6cf/oP/WQf+e7xSuyIarcquiageLxrg05P2ufnrafrhD/zPOvA0XmlcEYtWZVdEFPHXKYtq/NNvh9+f3QDixos0fpOyKyKK+ClTevrTFNjr754GVOWJA8/jlZkqr1XZFRFF/AXePE1/msvyCPAWdXLEgTIOVpOyK6KHc42iE98oOvGNohPfKDrxjaIT3yg68Y2iE98oOvGNohPfKDrxjaIT3yg68Y0ik/gvH0/D9W34vArYUPSmsgsht8e/fvfL756mLLN5Obu/f7Ni1sGGojeVXQbZqv4Cpzk1iS1nV6JKRxC9qewiyCZ+yjCZUg/YcnYlqnQE0ZvKLoIixP/0MH25aPVHf0PRm8ougiLET489W86uRJWOIHpT2UXQw7lG0YlvFJ34RtGJbxSd+EbRiW8UnfhG0YlvFJ34RtGJbxSd+EbRiW8U/wPJhjzuZiF1OAAAAABJRU5ErkJggg==" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" /></p>
+
 <p>Data frames were created for each of the region/seasonal data sets.</p>
+
+<pre><code>## Error: object &#39;sum.la.agg2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.agg2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.la.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.agg2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;sum.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.agg2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: object &#39;fall.tx.dat2&#39; not found
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
 </code></pre>
@@ -415,7 +558,7 @@ fall.tx.agg$mod &lt;- &quot;fall.tx&quot;
 
 <pre><code class="r"># load the break point function
 source(&quot;C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\breakpts.R&quot;)
-breakpt.fun(sum.la.S, 1, 2, 1, 1)
+breakpt.fun(sum.la.S,1,2,1,1)
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1997&quot;
@@ -449,7 +592,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 1997
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.d, 1, 2, 2, 1)
+<pre><code class="r">breakpt.fun(sum.la.d,1,2,2,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2004&quot;
@@ -483,7 +626,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 2004
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.J, 1, 2, 3, 1)
+<pre><code class="r">breakpt.fun(sum.la.J,1,2,3,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -517,7 +660,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.shan, 1, 2, 4, 1)
+<pre><code class="r">breakpt.fun(sum.la.shan,1,2,4,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -551,7 +694,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.simp, 1, 2, 5, 1)
+<pre><code class="r">breakpt.fun(sum.la.simp,1,2,5,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -585,7 +728,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.N1, 1, 2, 6, 1)
+<pre><code class="r">breakpt.fun(sum.la.N1,1,2,6,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -619,7 +762,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.la.N2, 1, 2, 7, 1)
+<pre><code class="r">breakpt.fun(sum.la.N2,1,2,7,1) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1999&quot;
@@ -653,8 +796,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ## [1] 1999
 </code></pre>
 
-<pre><code class="r">
-breakpt.fun(sum.tx.S, 1, 2, 1, 2)
+<pre><code class="r">breakpt.fun(sum.tx.S,1,2,1,2)
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1998&quot;
@@ -688,7 +830,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 1998
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.d, 1, 2, 2, 2)
+<pre><code class="r">breakpt.fun(sum.tx.d,1,2,2,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2003&quot;
@@ -722,7 +864,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2003
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.J, 1, 2, 3, 2)
+<pre><code class="r">breakpt.fun(sum.tx.J,1,2,3,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -756,7 +898,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.shan, 1, 2, 4, 2)
+<pre><code class="r">breakpt.fun(sum.tx.shan,1,2,4,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -790,7 +932,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.simp, 1, 2, 5, 2)
+<pre><code class="r">breakpt.fun(sum.tx.simp,1,2,5,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -824,7 +966,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.N1, 1, 2, 6, 2)
+<pre><code class="r">breakpt.fun(sum.tx.N1,1,2,6,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2001&quot;
@@ -858,7 +1000,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2001
 </code></pre>
 
-<pre><code class="r">breakpt.fun(sum.tx.N2, 1, 2, 7, 2)
+<pre><code class="r">breakpt.fun(sum.tx.N2,1,2,7,2) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -892,8 +1034,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">
-breakpt.fun(fall.la.S, 1, 2, 1, 3)
+<pre><code class="r">breakpt.fun(fall.la.S,1,2,1,3)
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2001&quot;
@@ -927,7 +1068,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2001
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.d, 1, 2, 2, 3)
+<pre><code class="r">breakpt.fun(fall.la.d,1,2,2,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -961,7 +1102,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.J, 1, 2, 3, 3)
+<pre><code class="r">breakpt.fun(fall.la.J,1,2,3,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2004&quot;
@@ -995,7 +1136,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2004
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.shan, 1, 2, 4, 3)
+<pre><code class="r">breakpt.fun(fall.la.shan,1,2,4,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2004&quot;
@@ -1029,7 +1170,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2004
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.simp, 1, 2, 5, 3)
+<pre><code class="r">breakpt.fun(fall.la.simp,1,2,5,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -1063,7 +1204,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.N1, 1, 2, 6, 3)
+<pre><code class="r">breakpt.fun(fall.la.N1,1,2,6,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -1097,7 +1238,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.la.N2, 1, 2, 7, 3)
+<pre><code class="r">breakpt.fun(fall.la.N2,1,2,7,3) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2002&quot;
@@ -1131,8 +1272,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ## [1] 2002
 </code></pre>
 
-<pre><code class="r">
-breakpt.fun(fall.tx.S, 1, 2, 1, 4)
+<pre><code class="r">breakpt.fun(fall.tx.S,1,2,1,4)
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1997&quot;
@@ -1166,7 +1306,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 1997
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.d, 1, 2, 2, 4)
+<pre><code class="r">breakpt.fun(fall.tx.d,1,2,2,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -1200,7 +1340,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.J, 1, 2, 3, 4)
+<pre><code class="r">breakpt.fun(fall.tx.J,1,2,3,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1998&quot;
@@ -1234,7 +1374,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 1998
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.shan, 1, 2, 4, 4)
+<pre><code class="r">breakpt.fun(fall.tx.shan,1,2,4,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 2000&quot;
@@ -1268,7 +1408,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 2000
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.simp, 1, 2, 5, 4)
+<pre><code class="r">breakpt.fun(fall.tx.simp,1,2,5,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1995&quot;
@@ -1302,7 +1442,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 1995
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.N1, 1, 2, 6, 4)
+<pre><code class="r">breakpt.fun(fall.tx.N1,1,2,6,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1996&quot;
@@ -1336,7 +1476,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 1996
 </code></pre>
 
-<pre><code class="r">breakpt.fun(fall.tx.N2, 1, 2, 7, 4)
+<pre><code class="r">breakpt.fun(fall.tx.N2,1,2,7,4) 
 </code></pre>
 
 <pre><code>## [1] &quot;Break point = 1995&quot;
@@ -1370,21 +1510,81 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ## [1] 1995
 </code></pre>
 
-<pre><code class="r">
-breakpt.tab &lt;- rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, 
-    sum.la_N1, sum.la_N2, sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, 
-    sum.tx_N1, sum.tx_N2, fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, 
-    fall.la_N1, fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
-    fall.tx_N1, fall.tx_N2)
-# bind the model output tables
-rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2, 
-    sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2, 
-    fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, 
-    fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
-    fall.tx_N1, fall.tx_N2)
-
-# pandoc.table(breakpt.tab)
+<pre><code class="r">breakpt.tab&lt;-rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
+#bind the model output tables
+rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
 </code></pre>
+
+<pre><code class="r">pandoc.table(breakpt.tab)
+</code></pre>
+
+<hr/>
+
+<p>mod    stat   alpha    p.Val    r.Sqr </p>
+
+<hr/>
+
+<p>sum.la    S     1997   1.31e-19  0.9873 </p>
+
+<p>sum.la    d     2004   0.0002485 0.9724 </p>
+
+<p>sum.la    J     2000   1.341e-20 0.9916 </p>
+
+<p>sum.la   shan   2000   7.232e-21 0.9918 </p>
+
+<p>sum.la   simp   2000   1.671e-20 0.9918 </p>
+
+<p>sum.la    N1    2000   3.197e-19 0.9877 </p>
+
+<p>sum.la    N2    1999   4.741e-20 0.9912 </p>
+
+<p>sum.tx    S     1998   2.187e-33 0.9994 </p>
+
+<p>sum.tx    d     2003   1.004e-28 0.9986 </p>
+
+<p>sum.tx    J     2002   3.282e-20 0.9956 </p>
+
+<p>sum.tx   shan   2002   6.121e-19 0.9935 </p>
+
+<p>sum.tx   simp   2002   8.883e-21 0.9947 </p>
+
+<p>sum.tx    N1    2001   4.224e-17  0.997 </p>
+
+<p>sum.tx    N2    2002   3.067e-20 0.9944 </p>
+
+<p>fall.la   S     2001   6.789e-22 0.9912 </p>
+
+<p>fall.la   d     2000   1.263e-15 0.9772 </p>
+
+<p>fall.la   J     2004   1.212e-22  0.993 </p>
+
+<p>fall.la  shan   2004   1.069e-21 0.9912 </p>
+
+<p>fall.la  simp   2002   4.636e-33 0.9994 </p>
+
+<p>fall.la   N1    2000   1.017e-20 0.9886 </p>
+
+<p>fall.la   N2    2002   3.683e-31 0.9991 </p>
+
+<p>fall.tx   S     1997   9.455e-29 0.9984 </p>
+
+<p>fall.tx   d     2000   1.233e-29 0.9987 </p>
+
+<p>fall.tx   J     1998   1.403e-17 0.9848 </p>
+
+<p>fall.tx  shan   2000   3.028e-23 0.9944 </p>
+
+<p>fall.tx  simp   1995   0.003069  0.9752 </p>
+
+<p>fall.tx   N1    1996   2.83e-15  0.9831 </p>
+
+<h2>fall.tx   N2    1995   0.0005285  0.97  </h2>
 
 </body>
 

@@ -1,10 +1,11 @@
+
+<!-- rmarkdown v1 -->
+
 Diversity Metrics Analysis Script
 =================================
 
 **K.M.Purcell**  
 [email](mailto:kevin@kevin-purcell.com)
-
-
 
 
 
@@ -67,9 +68,8 @@ names(bgsrec.dat)
 ## [16] "NODC_BGS"   "IS_SAMPLE"  "TAXONID"
 ```
 
-
 ### Fishery-dependent
-Data on fishery-dependent parameters (fishery effort) was derived from data from the SHRCOM databases, which I obtained via [Jim Nance](email:james.m.nance@noaa.gov) from the [Galveston Laboratory](http://www.galvestonlab.sefsc.noaa.gov/) of the [Southeast Fishery Science Center (SEFC)](http://www.sefsc.noaa.gov/).  Data from the fishery was in a aggregated format which was provided directly from Jim with the parameters:
+Data on fishery-dependent parameters (fishery effort) was derived from data from the SHRCOM databases, which I obtained via [Jim Nance](mailto:james.m.nance@noaa.gov) from the [Galveston Laboratory](http://www.galvestonlab.sefsc.noaa.gov/) of the [Southeast Fishery Science Center (SEFC)](http://www.sefsc.noaa.gov/).  Data from the fishery was in a aggregated format which was provided directly from Jim with the parameters:
 
 
 ```r
@@ -79,7 +79,6 @@ names(shrcom.agg)
 ```
 ## [1] "yr"     "area"   "Season" "fz"     "pounds" "effort"
 ```
-
 
 Additionally, I utilized information obtained online from [Fishbase](http://www.fishbase.org/) for species description information, namely habitat characteristics vital to catagorizing species into groups.
 
@@ -95,7 +94,6 @@ names(specinfo.dat)
 ## [10] "Species"         "Habitat.Biology" "Trophic_Level"  
 ## [13] "pel"             "dem"             "hab"
 ```
-
 
 The environmental drivers under consideration in this project were fishing effort, data obtained via the ```shrcom.agg``` above and coastal hypoxia.  The hypoxia data was obtained from Rabalais (XXXX)?  I did not update these values to reflect the new study ```citep("10.1021/es400983g").  
 
@@ -123,9 +121,6 @@ summary(hypox.area)
 
 
 
-
-
-
 Data was then limited to the summer (``6`` - ``8``) and fall (``9`` - ``11``) months.  The nwGOM was divided into two regions Louisiana (``13``- ``17``) and Texas (``18``-``21``.  
 
 A function ```divMetrics()``` was written to calcuate all the diversity metrics of interest for each of the region and seasonal data sets and returen a data frame of values.
@@ -137,29 +132,217 @@ A function ```divMetrics()``` was written to calcuate all the diversity metrics 
 source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\divMetrics.R")
 
 # calculate diversity metrics
-sum.la.agg <- divMetrics(sum.la.tab)
-sum.la.agg$mod <- "sum.la"
+sum.la.agg<-divMetrics(sum.la.tab)
+sum.la.agg$mod<-"sum.la"
 
-sum.tx.agg <- divMetrics(sum.tx.tab)
-sum.tx.agg$mod <- "sum.tx"
+sum.tx.agg<-divMetrics(sum.tx.tab)
+sum.tx.agg$mod<-"sum.tx"
 
-fall.la.agg <- divMetrics(fall.la.tab)
-fall.la.agg$mod <- "fall.la"
+fall.la.agg<-divMetrics(fall.la.tab)
+fall.la.agg$mod<-"fall.la"
 
-fall.tx.agg <- divMetrics(fall.tx.tab)
-fall.tx.agg$mod <- "fall.tx"
-
-# source('C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivMetricsFig.R')
-# source('C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivMetricsFig.R')
-# source('C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\LaDivSmoothFig.R')
-# source('C:\\Users\\Kevin.Purcell\\Desktop\\EcosysMetricsGOM\\Analysis\\ResultsFigures\\TxDivSmoothFig.R')
+fall.tx.agg<-divMetrics(fall.tx.tab)
+fall.tx.agg$mod<-"fall.tx"
 ```
+
+<img src="figure/plots.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" />
+
 
 Data frames were created for each of the region/seasonal data sets.
 
 
 
+```
+## Error: object 'sum.la.agg2' not found
+```
 
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: object 'sum.la.dat2' not found
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: object 'fall.la.agg2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: object 'fall.la.dat2' not found
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: object 'sum.tx.agg2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: object 'sum.tx.dat2' not found
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: object 'fall.tx.agg2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: object 'fall.tx.dat2' not found
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
+
+```
+## Error: plot.new has not been called yet
+```
 
 
 
@@ -291,11 +474,10 @@ Data frames were created for each of the region/seasonal data sets.
 <img src="figure/fig15.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
 
 
-
 ```r
 # load the break point function
 source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\breakpts.R")
-breakpt.fun(sum.la.S, 1, 2, 1, 1)
+breakpt.fun(sum.la.S,1,2,1,1)
 ```
 
 ```
@@ -332,7 +514,7 @@ breakpt.fun(sum.la.S, 1, 2, 1, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.d, 1, 2, 2, 1)
+breakpt.fun(sum.la.d,1,2,2,1) 
 ```
 
 ```
@@ -369,7 +551,7 @@ breakpt.fun(sum.la.d, 1, 2, 2, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.J, 1, 2, 3, 1)
+breakpt.fun(sum.la.J,1,2,3,1) 
 ```
 
 ```
@@ -406,7 +588,7 @@ breakpt.fun(sum.la.J, 1, 2, 3, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.shan, 1, 2, 4, 1)
+breakpt.fun(sum.la.shan,1,2,4,1) 
 ```
 
 ```
@@ -443,7 +625,7 @@ breakpt.fun(sum.la.shan, 1, 2, 4, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.simp, 1, 2, 5, 1)
+breakpt.fun(sum.la.simp,1,2,5,1) 
 ```
 
 ```
@@ -480,7 +662,7 @@ breakpt.fun(sum.la.simp, 1, 2, 5, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.N1, 1, 2, 6, 1)
+breakpt.fun(sum.la.N1,1,2,6,1) 
 ```
 
 ```
@@ -517,7 +699,7 @@ breakpt.fun(sum.la.N1, 1, 2, 6, 1)
 ```
 
 ```r
-breakpt.fun(sum.la.N2, 1, 2, 7, 1)
+breakpt.fun(sum.la.N2,1,2,7,1) 
 ```
 
 ```
@@ -554,8 +736,7 @@ breakpt.fun(sum.la.N2, 1, 2, 7, 1)
 ```
 
 ```r
-
-breakpt.fun(sum.tx.S, 1, 2, 1, 2)
+breakpt.fun(sum.tx.S,1,2,1,2)
 ```
 
 ```
@@ -592,7 +773,7 @@ breakpt.fun(sum.tx.S, 1, 2, 1, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.d, 1, 2, 2, 2)
+breakpt.fun(sum.tx.d,1,2,2,2) 
 ```
 
 ```
@@ -629,7 +810,7 @@ breakpt.fun(sum.tx.d, 1, 2, 2, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.J, 1, 2, 3, 2)
+breakpt.fun(sum.tx.J,1,2,3,2) 
 ```
 
 ```
@@ -666,7 +847,7 @@ breakpt.fun(sum.tx.J, 1, 2, 3, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.shan, 1, 2, 4, 2)
+breakpt.fun(sum.tx.shan,1,2,4,2) 
 ```
 
 ```
@@ -703,7 +884,7 @@ breakpt.fun(sum.tx.shan, 1, 2, 4, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.simp, 1, 2, 5, 2)
+breakpt.fun(sum.tx.simp,1,2,5,2) 
 ```
 
 ```
@@ -740,7 +921,7 @@ breakpt.fun(sum.tx.simp, 1, 2, 5, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.N1, 1, 2, 6, 2)
+breakpt.fun(sum.tx.N1,1,2,6,2) 
 ```
 
 ```
@@ -777,7 +958,7 @@ breakpt.fun(sum.tx.N1, 1, 2, 6, 2)
 ```
 
 ```r
-breakpt.fun(sum.tx.N2, 1, 2, 7, 2)
+breakpt.fun(sum.tx.N2,1,2,7,2) 
 ```
 
 ```
@@ -814,8 +995,7 @@ breakpt.fun(sum.tx.N2, 1, 2, 7, 2)
 ```
 
 ```r
-
-breakpt.fun(fall.la.S, 1, 2, 1, 3)
+breakpt.fun(fall.la.S,1,2,1,3)
 ```
 
 ```
@@ -852,7 +1032,7 @@ breakpt.fun(fall.la.S, 1, 2, 1, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.d, 1, 2, 2, 3)
+breakpt.fun(fall.la.d,1,2,2,3) 
 ```
 
 ```
@@ -889,7 +1069,7 @@ breakpt.fun(fall.la.d, 1, 2, 2, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.J, 1, 2, 3, 3)
+breakpt.fun(fall.la.J,1,2,3,3) 
 ```
 
 ```
@@ -926,7 +1106,7 @@ breakpt.fun(fall.la.J, 1, 2, 3, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.shan, 1, 2, 4, 3)
+breakpt.fun(fall.la.shan,1,2,4,3) 
 ```
 
 ```
@@ -963,7 +1143,7 @@ breakpt.fun(fall.la.shan, 1, 2, 4, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.simp, 1, 2, 5, 3)
+breakpt.fun(fall.la.simp,1,2,5,3) 
 ```
 
 ```
@@ -1000,7 +1180,7 @@ breakpt.fun(fall.la.simp, 1, 2, 5, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.N1, 1, 2, 6, 3)
+breakpt.fun(fall.la.N1,1,2,6,3) 
 ```
 
 ```
@@ -1037,7 +1217,7 @@ breakpt.fun(fall.la.N1, 1, 2, 6, 3)
 ```
 
 ```r
-breakpt.fun(fall.la.N2, 1, 2, 7, 3)
+breakpt.fun(fall.la.N2,1,2,7,3) 
 ```
 
 ```
@@ -1074,8 +1254,7 @@ breakpt.fun(fall.la.N2, 1, 2, 7, 3)
 ```
 
 ```r
-
-breakpt.fun(fall.tx.S, 1, 2, 1, 4)
+breakpt.fun(fall.tx.S,1,2,1,4)
 ```
 
 ```
@@ -1112,7 +1291,7 @@ breakpt.fun(fall.tx.S, 1, 2, 1, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.d, 1, 2, 2, 4)
+breakpt.fun(fall.tx.d,1,2,2,4) 
 ```
 
 ```
@@ -1149,7 +1328,7 @@ breakpt.fun(fall.tx.d, 1, 2, 2, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.J, 1, 2, 3, 4)
+breakpt.fun(fall.tx.J,1,2,3,4) 
 ```
 
 ```
@@ -1186,7 +1365,7 @@ breakpt.fun(fall.tx.J, 1, 2, 3, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.shan, 1, 2, 4, 4)
+breakpt.fun(fall.tx.shan,1,2,4,4) 
 ```
 
 ```
@@ -1223,7 +1402,7 @@ breakpt.fun(fall.tx.shan, 1, 2, 4, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.simp, 1, 2, 5, 4)
+breakpt.fun(fall.tx.simp,1,2,5,4) 
 ```
 
 ```
@@ -1260,7 +1439,7 @@ breakpt.fun(fall.tx.simp, 1, 2, 5, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.N1, 1, 2, 6, 4)
+breakpt.fun(fall.tx.N1,1,2,6,4) 
 ```
 
 ```
@@ -1297,7 +1476,7 @@ breakpt.fun(fall.tx.N1, 1, 2, 6, 4)
 ```
 
 ```r
-breakpt.fun(fall.tx.N2, 1, 2, 7, 4)
+breakpt.fun(fall.tx.N2,1,2,7,4) 
 ```
 
 ```
@@ -1334,22 +1513,82 @@ breakpt.fun(fall.tx.N2, 1, 2, 7, 4)
 ```
 
 ```r
-
-breakpt.tab <- rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, 
-    sum.la_N1, sum.la_N2, sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, 
-    sum.tx_N1, sum.tx_N2, fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, 
-    fall.la_N1, fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
-    fall.tx_N1, fall.tx_N2)
-# bind the model output tables
-rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2, 
-    sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2, 
-    fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, 
-    fall.la_N2, fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, 
-    fall.tx_N1, fall.tx_N2)
-
-# pandoc.table(breakpt.tab)
+breakpt.tab<-rbind(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
+#bind the model output tables
+rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
+                   sum.tx_S, sum.tx_d, sum.tx_J, sum.tx_shan, sum.tx_simp, sum.tx_N1, sum.tx_N2,
+                   fall.la_S, fall.la_d, fall.la_J, fall.la_shan, fall.la_simp, fall.la_N1, fall.la_N2,
+                   fall.tx_S, fall.tx_d, fall.tx_J, fall.tx_shan, fall.tx_simp, fall.tx_N1, fall.tx_N2)
 ```
 
+
+```r
+pandoc.table(breakpt.tab)
+```
+
+
+----------------------------------------
+  mod    stat   alpha    p.Val    r.Sqr 
+------- ------ ------- --------- -------
+sum.la    S     1997   1.31e-19  0.9873 
+
+sum.la    d     2004   0.0002485 0.9724 
+
+sum.la    J     2000   1.341e-20 0.9916 
+
+sum.la   shan   2000   7.232e-21 0.9918 
+
+sum.la   simp   2000   1.671e-20 0.9918 
+
+sum.la    N1    2000   3.197e-19 0.9877 
+
+sum.la    N2    1999   4.741e-20 0.9912 
+
+sum.tx    S     1998   2.187e-33 0.9994 
+
+sum.tx    d     2003   1.004e-28 0.9986 
+
+sum.tx    J     2002   3.282e-20 0.9956 
+
+sum.tx   shan   2002   6.121e-19 0.9935 
+
+sum.tx   simp   2002   8.883e-21 0.9947 
+
+sum.tx    N1    2001   4.224e-17  0.997 
+
+sum.tx    N2    2002   3.067e-20 0.9944 
+
+fall.la   S     2001   6.789e-22 0.9912 
+
+fall.la   d     2000   1.263e-15 0.9772 
+
+fall.la   J     2004   1.212e-22  0.993 
+
+fall.la  shan   2004   1.069e-21 0.9912 
+
+fall.la  simp   2002   4.636e-33 0.9994 
+
+fall.la   N1    2000   1.017e-20 0.9886 
+
+fall.la   N2    2002   3.683e-31 0.9991 
+
+fall.tx   S     1997   9.455e-29 0.9984 
+
+fall.tx   d     2000   1.233e-29 0.9987 
+
+fall.tx   J     1998   1.403e-17 0.9848 
+
+fall.tx  shan   2000   3.028e-23 0.9944 
+
+fall.tx  simp   1995   0.003069  0.9752 
+
+fall.tx   N1    1996   2.83e-15  0.9831 
+
+fall.tx   N2    1995   0.0005285  0.97  
+----------------------------------------
 
 
  
