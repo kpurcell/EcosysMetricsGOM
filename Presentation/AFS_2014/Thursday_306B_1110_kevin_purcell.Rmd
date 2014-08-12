@@ -7,19 +7,31 @@ output: beamer_presentation
 ---
 
 ## Introduction
-- effort changes
-- hypoxia
-- fragmentation
+- Importance of the GoM to fisheries
+- Major disruptions to the GoM ecosystem
 
 ## Hypoxia Distrbution
 
 ## Effort trends
 
-## Economic drivers of Effort
+![effort trends](shrimp_effort_timeseries.jpg)
 
+## Community Trends in Gulf of Mexico
+ 
+ - Lowest Biomass in **2000**
+ 
+ ![biomass trends](avg_biomass_seamap.jpg)
+ 
+
+## Community Trends in Gulf of Mexico
+
+- Lowest Abundance in **2000**
+
+ ![abundance trends](avg_abundance_seamap.jpg)
 
 ## Question and Approach
 - What
+
 ## Methods
 - data pooling
 - 64 species choice
@@ -28,6 +40,15 @@ output: beamer_presentation
 
 ## Abundance  Matrix
 
-![matrix figure](figure/location.ext)
+![matrix figure](all_mod2.jpg)
 
-## 
+## Mean Trophic Level
+
+![trophic level](EcoAss_TrophicLevel_fig.jpg)
+
+## Abundance-Biomass Curves
+
+![abc figure](warwick_excel_fig.jpg)
+
+## Breakpoint Analysis
+Number of breaks before and after etc from text
