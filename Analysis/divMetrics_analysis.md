@@ -115,6 +115,36 @@ summary(hypox.area)
 
 
 
+```
+##  [1] "STATIONID"       "CRUISEID"        "VESSEL"         
+##  [4] "CRUISE_NO"       "P_STA_NO"        "BIO_BGS"        
+##  [7] "BGSID"           "CATEGORY"        "GENUS_BGS"      
+## [10] "SPEC_BGS"        "BGSCODE"         "CNT"            
+## [13] "CNTEXP"          "SAMPLE_BGS"      "SELECT_BGS"     
+## [16] "NODC_BGS"        "IS_SAMPLE"       "TAXONID"        
+## [19] "keep"            "TAXONOMIC"       "common_name"    
+## [22] "Kingdom"         "Phylum"          "Class"          
+## [25] "Order"           "Family"          "Genus"          
+## [28] "Species"         "Habitat.Biology" "Trophic_Level"  
+## [31] "pel"             "dem"             "hab"            
+## [34] "MIN_FISH"        "TIME_ZN"         "TIME_MIL"       
+## [37] "DEPTH_SSTA"      "S_STA_NO"        "MO_DAY_YR"      
+## [40] "TIME_EMIL"       "DEPTH_ESTA"      "GEARS"          
+## [43] "TEMP_SSURF"      "TEMP_BOT"        "TEMP_SAIR"      
+## [46] "B_PRSSR"         "WIND_SPD"        "WIND_DIR"       
+## [49] "WAVE_HT"         "SEA_COND"        "VESSEL_SPD"     
+## [52] "FAUN_ZONE"       "STAT_ZONE"       "TOW_NO"         
+## [55] "NET_NO"          "DECSLAT"         "DECSLON"        
+## [58] "DECELAT"         "DECELON"         "START_DATE"     
+## [61] "END_DATE"        "HAULVALUE"       "date"           
+## [64] "month"           "YR"              "effort"         
+## [67] "wt_per_min"      "c_per_min"       "ST_SELECT_BGS"  
+## [70] "ST_CNTEXP"       "cpue"            "catch_cpue"
+```
+
+```
+## [1] 65
+```
 
 
 
@@ -129,8 +159,29 @@ A function ```divMetrics()``` was written to calcuate all the diversity metrics 
 
 ```r
 # load diversity function
-source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\divMetrics.R")
+#source("C:\\Users\\Kevin.Purcell\\Documents\\GitHub\\EcosysMetricsGOM\\functions\\divMetrics.R")
+# Function script for calculating common fishery diversity indicies
+# KM Purcell
+# updated:2014-2-11
+# dependencies: Vegan package
 
+divMetrics<- function(x){
+  #browser()
+  N<-rowSums(x) # total individuals caught per station
+  shan<- diversity(x, index="shannon") #shannon
+  simp<-diversity(x, index="simpson") #simpson
+  J<- shan/log(specnumber(x))
+  S<-specnumber(x)
+  d<-(S-1)/log(N)
+  N1<-exp(shan)
+  N2<-D2<-(1/simp)
+  data.frame(YR,S,d,J,shan,simp,N1,N2)
+}
+```
+
+
+
+```r
 # calculate diversity metrics
 sum.la.agg<-divMetrics(sum.la.tab)
 sum.la.agg$mod<-"sum.la"
@@ -145,7 +196,7 @@ fall.tx.agg<-divMetrics(fall.tx.tab)
 fall.tx.agg$mod<-"fall.tx"
 ```
 
-<img src="figure/plots.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" />
+<img src="figure/plots1.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" /><img src="figure/plots2.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" /><img src="figure/plots3.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" /><img src="figure/plots4.png" title="plot of chunk plots" alt="plot of chunk plots" style="display: block; margin: auto;" />
 
 
 Data frames were created for each of the region/seasonal data sets.
@@ -1526,69 +1577,41 @@ rm(sum.la_S, sum.la_d, sum.la_J, sum.la_shan, sum.la_simp, sum.la_N1, sum.la_N2,
 
 
 ```r
-pandoc.table(breakpt.tab)
+pandoc.table(breakpt.tab, style="rmarkdown")
 ```
 
 
-----------------------------------------
-  mod    stat   alpha    p.Val    r.Sqr 
-------- ------ ------- --------- -------
-sum.la    S     1997   1.31e-19  0.9873 
 
-sum.la    d     2004   0.0002485 0.9724 
-
-sum.la    J     2000   1.341e-20 0.9916 
-
-sum.la   shan   2000   7.232e-21 0.9918 
-
-sum.la   simp   2000   1.671e-20 0.9918 
-
-sum.la    N1    2000   3.197e-19 0.9877 
-
-sum.la    N2    1999   4.741e-20 0.9912 
-
-sum.tx    S     1998   2.187e-33 0.9994 
-
-sum.tx    d     2003   1.004e-28 0.9986 
-
-sum.tx    J     2002   3.282e-20 0.9956 
-
-sum.tx   shan   2002   6.121e-19 0.9935 
-
-sum.tx   simp   2002   8.883e-21 0.9947 
-
-sum.tx    N1    2001   4.224e-17  0.997 
-
-sum.tx    N2    2002   3.067e-20 0.9944 
-
-fall.la   S     2001   6.789e-22 0.9912 
-
-fall.la   d     2000   1.263e-15 0.9772 
-
-fall.la   J     2004   1.212e-22  0.993 
-
-fall.la  shan   2004   1.069e-21 0.9912 
-
-fall.la  simp   2002   4.636e-33 0.9994 
-
-fall.la   N1    2000   1.017e-20 0.9886 
-
-fall.la   N2    2002   3.683e-31 0.9991 
-
-fall.tx   S     1997   9.455e-29 0.9984 
-
-fall.tx   d     2000   1.233e-29 0.9987 
-
-fall.tx   J     1998   1.403e-17 0.9848 
-
-fall.tx  shan   2000   3.028e-23 0.9944 
-
-fall.tx  simp   1995   0.003069  0.9752 
-
-fall.tx   N1    1996   2.83e-15  0.9831 
-
-fall.tx   N2    1995   0.0005285  0.97  
-----------------------------------------
+|   mod   |  stat  |  alpha  |   p.Val   |  r.Sqr  |
+|:-------:|:------:|:-------:|:---------:|:-------:|
+| sum.la  |   S    |  1997   | 1.31e-19  | 0.9873  |
+| sum.la  |   d    |  2004   | 0.0002485 | 0.9724  |
+| sum.la  |   J    |  2000   | 1.341e-20 | 0.9916  |
+| sum.la  |  shan  |  2000   | 7.232e-21 | 0.9918  |
+| sum.la  |  simp  |  2000   | 1.671e-20 | 0.9918  |
+| sum.la  |   N1   |  2000   | 3.197e-19 | 0.9877  |
+| sum.la  |   N2   |  1999   | 4.741e-20 | 0.9912  |
+| sum.tx  |   S    |  1998   | 2.187e-33 | 0.9994  |
+| sum.tx  |   d    |  2003   | 1.004e-28 | 0.9986  |
+| sum.tx  |   J    |  2002   | 3.282e-20 | 0.9956  |
+| sum.tx  |  shan  |  2002   | 6.121e-19 | 0.9935  |
+| sum.tx  |  simp  |  2002   | 8.883e-21 | 0.9947  |
+| sum.tx  |   N1   |  2001   | 4.224e-17 |  0.997  |
+| sum.tx  |   N2   |  2002   | 3.067e-20 | 0.9944  |
+| fall.la |   S    |  2001   | 6.789e-22 | 0.9912  |
+| fall.la |   d    |  2000   | 1.263e-15 | 0.9772  |
+| fall.la |   J    |  2004   | 1.212e-22 |  0.993  |
+| fall.la |  shan  |  2004   | 1.069e-21 | 0.9912  |
+| fall.la |  simp  |  2002   | 4.636e-33 | 0.9994  |
+| fall.la |   N1   |  2000   | 1.017e-20 | 0.9886  |
+| fall.la |   N2   |  2002   | 3.683e-31 | 0.9991  |
+| fall.tx |   S    |  1997   | 9.455e-29 | 0.9984  |
+| fall.tx |   d    |  2000   | 1.233e-29 | 0.9987  |
+| fall.tx |   J    |  1998   | 1.403e-17 | 0.9848  |
+| fall.tx |  shan  |  2000   | 3.028e-23 | 0.9944  |
+| fall.tx |  simp  |  1995   | 0.003069  | 0.9752  |
+| fall.tx |   N1   |  1996   | 2.83e-15  | 0.9831  |
+| fall.tx |   N2   |  1995   | 0.0005285 |  0.97   |
 
 
  
