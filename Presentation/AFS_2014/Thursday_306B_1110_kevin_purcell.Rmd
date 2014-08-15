@@ -6,38 +6,35 @@ date: "Thursday, August 21, 2014"
 output: beamer_presentation
 ---
 
-## Gulf of Mexico (Gulf) Shrimp Fishery
+## Northwester Gulf of Mexico (Gulf)
+- "Fertile fishery crescent" - *Gunter 1963*
 
 ![nwGoM](screenshot4.jpg)
 
 
-## Gulf Shrimp Trawl Fishery
-- Bottom trawl fishery
-- Occurs primarily on the near shore shelf
-- Targets Brown (*F. aztecus*) & White (*L. setiferus*) shrimp.
-
-
-## Gulf Shrimp Fishery Profitability
-
-- Since **2001** fishery profitability is faltering driven by global trade and increased fuel prices. [@travis2004update].  
-- From 1980 to 2003 world export of shrimp increased approximately 3.23 billion pounds, 
-- meanwhile the price per pound of shrimp products dropped roughly 54% during the same period [@keithly2008southeast].  
-- The ex-vessl, or dock side price, of shrimp in the Gulf dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  
-- Fuel costs increased between 20-30% between 2000-2003, the economic performance of the Gulf shrimp fishery has been in a sharp decline for over a decade [@jones2012big] and is resulting in a dramatic reductions in fishing effort .  
-
-
-
-## Hypoxia
-- "Fertile fishery crescent" - *Gunter 1963*
+## Gulf Hypoxia
+- Largest seasonally occuring hypoxic zone in the western hemisphere
 
 ![hypoxia pic](composit_hypoxia.jpg)
 
 
-## Effort trends
+## Gulf Shrimp Fishery
 
-- Gulf Shrimp fishery undergoes
+- Bottom trawl fishery, primarily on the near shore shelf
+- Targets Brown (*F. aztecus*) and White (*L. setiferus*) shrimp
+- In 2011 landed ~208M pounds (68%) with revenues $387M
 
-![effort trends](shrimp_effort_timeseries.jpg)
+![nwGoM](screenshot3.jpg)
+
+
+## Gulf Shrimp Fishery Profitability
+
+- Since **2001** fishery profitability is faltering resulting in a dramatic reductions in fishing effort
+- From **1980** to **2003** world export of shrimp products increased by 3.23B pounds, driving down prices  
+- The ex-vessl price of shrimp dropped **40%** from **2000-2003** 
+- Fuel costs increased between **20-30%** between **2000-2003** 
+- Resulting in, sharp declines in economic performance & dramatic reductions in fishing effort
+
 
 ## Changes in Shrimping Effort
 
@@ -57,7 +54,7 @@ plot(gom.eff$effort ~ gom.eff$yr,
           main="Regional Trends in Fishing Effort",
      ylim=c(5000,250000),
      type="p",
-     col="white")
+     col="lightgrey")
  lines(lowess(gom.eff$effort ~ gom.eff$yr, f=.2))
  lines(lowess(la.eff$effort~la.eff$yr, f=.2), col="blue")
  lines(lowess(tx.eff$effort~tx.eff$yr, f=.2), col="red")
@@ -68,6 +65,37 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ```
 
 
+
+## Gulf Environmental Drivers
+
+- Different temporal patterns for Hypoxia and Fishing
+
+ ![env trends](effort_hypoxia_plot.jpeg)
+
+
+## Methods
+
+### Questions 
+1. What is the relationship between changes in fishery effort and community and populations dynamics.
+2. What secondary role does eutrophicaion and hypoxia have to do with overall community change?
+
+### Approaches
+- Abundance Time series
+- Diversity metrics Time series
+- Breakpoint Analysis
+- Pelagic:Demersal Time series
+- Abundance-Biomass Curve (*W-statistic* time series)
+
+
+## Study Data
+### Fishery-Independent Data
+- Southeast Area Monitoring and Assessment Program (**SEAMAP**) 
+- 25 years (1987-2011)
+- **60** species and **4** genus, representing ~ **90%** of total sampled biomass.
+- We chose 20 taxa from 3 habitat groups: Demersal (**88%**), Pelagic (**95%**),  and Invertebrates (**97%**)
+
+
+
 ## Community Trends in Gulf of Mexico
  
  - Lowest Biomass & Abundance in **2000**
@@ -75,62 +103,42 @@ plot(gom.eff$effort ~ gom.eff$yr,
  ![bioabu trends](biomass_abundance_trends.jpeg)
  
 
-## Community Trends in Gulf of Mexico
-
-- Different temporal patterns for Hypoxia and Fishing
-
- ![env trends](effort_hypoxia_plot.jpeg)
-
-## Questions and Approach
-1. What, if any, ecosystem effects have resulted from massive changes in directed fishery effort?
-2. Do changes in effort have disproportionate effects on certain biological domains?
-3. Are there indications that changes in fishery efforts are mediating possible
-
-- A number of ecosystem & community metrics
-- Fishery-independent data on species occurance
-
-This decline in effort which is not motivated by limitations in resource abundance but rather exogenous economic drivers provides us with an valuable opportunity to evaluate the community response to a release from predation while also allowing for an examination of the relative contribution of fishing effort and environmental perturbation on the demersal nekton community of a LME.  
-
-## Objectives 
-
-- to evaluate spatial and temporal variation in demersal nekton community of the northern Gulf of Mexico.  The nwGOM is a highly disturbed environment experiencing eutrophication, intense patterns of harvest over the last 30 years.  
-
-- Compare spatial and temporal differences in bottom water hypoxia, in comparison to the rather uniform distribution shrimp fishery effort allows for the comparison of two region and two seasons providing a quai-experimental study design which allows for improved understanding of the mechanisms driving community dynamics in this LME???
-
-## Approaches
-
-- Abundance Time series
-- Diversity Time series
-- Pelatic:Demersal Time series
-- Abundance-Biomass Curves
-- Breakpoint Analysis
-
-## Methods
-- Southeast Area Monitoring and Assessment Program (**SEAMAP**)
-- 64 species choice
-- Assining bycatch designations
-
-In the 31 years the SEAMAP survey has operated it has listed 2261 unique taxonomic entities representing 747 genus and 1341 species.  To more manageably examine the diversity and dynamics of this marine community we evaluated a list of 60 species and 4 genus which represent ~90% of the total sampled biomass over 25 years (1987-2011) of the SEAMAP survey.  To avoid the systematic size bias derived from a biomass metric our list was created by examining the cumulative biomass contributions of all 2261 entities divided into three habitat categories: pelagic, demersal and invertebrates.  From each of these three lists approximately 20 species were chosen from each representing 88% of demersal, 95% of pelagic and 97% of invertebrate sampled biomass.
-
 ## Abundance  Matrix
 
 ![matrix figure](all_mod2.jpg)
+- Bycatch Designations assigned based on *Scott-Denton et al. 2012*
+
 
 ## Diversity Time Series
 
 ![divmet figure](div_metrics_afs.jpg)
 
-## Breakpoint Analysis
-Number of breaks before and after etc from text
+## Piecewise Regression Analysis
+
+### Drivers & Biomass
+- Fishery effort was best modelled $\alpha$ = **2001**
+- Area of hypoxia was best modelled with $\alpha$ = **1996**
+
+### Diversity Metrics
+- All break point models were significant and ranged from $\alpha$ = **1995** to **2004** 
+- The earliest break point (1995) occurred on the Texas shelf during the Fall season
+- All other region/season combinations break points were betwee 1999-2004
+- 17 of the 18 indicators had break points on or after **2000** 
 
 ## Pelagic to Demersal Biomass
 
-![pd figure](figure4.png)
+![pd figure](PD_plot_legend.jpeg)
 
 ## Abundance-Biomass Curves
 
-![abc figure](warwick_excel_fig.jpg)
+![abc figure](warwick_excel_fig2.jpg)
 
 ## Summary
+- Strong temporal correlations between increased abundance of nekton in response to economically-driven changes in fishery effort
+- Benthic disturbance indicators and
 
+## Acknowledgements
+- NOAA Center of Sponsored Coastal Ocean Research
+- NOAA Fisheries Beaufort Laboratory
+- B. Pelligrin, R. Hart, J. Rester, J. Primrose (*data access*)
 
