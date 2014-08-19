@@ -1,9 +1,13 @@
 ---
-title: Fishing and Eutrophication Effects on the Northern Gulf of Mexico Demersal
+title: Fishing and Eutrophication Effects on the Northwestern Gulf of Mexico Demersal
   Nekton Community
 author: "KM Purcell, JK Craig"
 date: "Thursday, August 21, 2014"
-output: beamer_presentation
+output: 
+   beamer_presentation:
+    theme: "Antibes"
+    colortheme: "beetle"
+    fonttheme: "structurebold"
 ---
 
 ## Northwestern Gulf of Mexico (Gulf)
@@ -25,15 +29,6 @@ output: beamer_presentation
 - In 2011 landed ~208M pounds (68%) with revenues $387M
 
 ![nwGoM](screenshot3.jpg)
-
-
-## Gulf Shrimp Fishery Profitability
-
-- Since **2001** fishery profitability is faltering resulting in a dramatic reductions in fishing effort
-- From **1980** to **2003** world export of shrimp products increased by 3.23B pounds, driving down prices  
-- The ex-vessel price of shrimp dropped **40%** from **2000-2003** 
-- Fuel costs increased between **20-30%** between **2000-2003** 
-- Resulting in, sharp declines in economic performance & dramatic reductions in fishing effort
 
 
 ## Changes in Shrimping Effort
@@ -65,12 +60,13 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ```
 
 
+## Gulf Shrimp Fishery Profitability
 
-## Gulf Environmental Drivers
-
-- Different temporal patterns for Hypoxia and Fishing
-
- ![env trends](effort_hypoxia_plot.jpeg)
+- Since **2001** profitability of the shrimp fishery has been faltering 
+- From **1980** to **2003** world export of shrimp products increased by 3.23B pounds, driving down prices  
+- The ex-vessel price of shrimp dropped **40%** from **2000-2003** 
+- Fuel costs increased between **20-30%** between **2000-2003** 
+- Resulting in observed dramatic reductions in fishing effort
 
 
 ## Methods
@@ -87,6 +83,7 @@ plot(gom.eff$effort ~ gom.eff$yr,
 - Abundance-Biomass Curve (*W-statistic* time series)
 
 
+
 ## Study Data
 ### Fishery-Independent Data
 - Southeast Area Monitoring and Assessment Program (**SEAMAP**) 
@@ -95,15 +92,14 @@ plot(gom.eff$effort ~ gom.eff$yr,
 - We chose 20 taxa from 3 habitat groups: Demersal (**88%**), Pelagic (**95%**),  and Invertebrates (**97%**)
 
 
-
-## Community Trends in Gulf of Mexico
+## Nekton Community Trends in Gulf of Mexico
  
  - Lowest Biomass & Abundance in **2000**
  
  ![bioabu trends](biomass_abundance_trends.jpeg)
  
 
-## Abundance  Matrix
+## Taxon Abundance  Trends & Bycatch Relationship
 
 ![matrix figure](all_mod2.jpg)
 - Bycatch Designations assigned based on *Scott-Denton et al. 2012*
@@ -113,6 +109,14 @@ plot(gom.eff$effort ~ gom.eff$yr,
 
 ![divmet figure](div_metrics_afs.jpg)
 
+
+## Environmental Drivers in Gulf of Mexico
+
+- Different temporal patterns for Hypoxia and Fishing
+
+ ![env trends](effort_hypoxia_plot.jpeg)
+ 
+ 
 ## Piecewise Regression Analysis
 
 ### Drivers & Biomass
@@ -125,9 +129,14 @@ plot(gom.eff$effort ~ gom.eff$yr,
 - All other region/season combinations break points were between 1999-2004
 - 17 of the 18 indicators had break points on or after **2000** 
 
+
+
 ## Pelagic to Demersal Biomass
 
+- **Negative** trend in P:D ratio
+
 ![pd figure](PD_plot_legend.jpeg)
+
 
 ## Abundance-Biomass Curves
 
@@ -136,6 +145,7 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ## Summary
 - Strong temporal correlations between increased abundance of nekton in response to economically-driven changes in fishery effort
 - Benthic disturbance indicators and
+
 
 ## Acknowledgements
 - NOAA Center of Sponsored Coastal Ocean Research
