@@ -6,14 +6,14 @@ date: "Thursday, August 21, 2014"
 output: beamer_presentation
 ---
 
-## Northwester Gulf of Mexico (Gulf)
+## Northwestern Gulf of Mexico (Gulf)
 - "Fertile fishery crescent" - *Gunter 1963*
 
 ![nwGoM](screenshot4.jpg)
 
 
 ## Gulf Hypoxia
-- Largest seasonally occuring hypoxic zone in the western hemisphere
+- Largest seasonally occurring hypoxic zone in the western hemisphere
 
 ![hypoxia pic](composit_hypoxia.jpg)
 
@@ -31,7 +31,7 @@ output: beamer_presentation
 
 - Since **2001** fishery profitability is faltering resulting in a dramatic reductions in fishing effort
 - From **1980** to **2003** world export of shrimp products increased by 3.23B pounds, driving down prices  
-- The ex-vessl price of shrimp dropped **40%** from **2000-2003** 
+- The ex-vessel price of shrimp dropped **40%** from **2000-2003** 
 - Fuel costs increased between **20-30%** between **2000-2003** 
 - Resulting in, sharp declines in economic performance & dramatic reductions in fishing effort
 
@@ -39,10 +39,10 @@ output: beamer_presentation
 ## Changes in Shrimping Effort
 
 - Gulf shrimping effort peaked in **1988**
-- larged reduction in fishery effort begining in **2000**
+- large reduction in fishery effort beginning in **2000**
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-eff.dat<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/offshore_6011.csv")
+eff.dat<-read.csv("P://comm_analysis//offshore_6011.csv")
 gom.eff <- aggregate(effort ~ yr, data=eff.dat, FUN=sum)
 la.dat <- subset(eff.dat, eff.dat$area==3) #area 3 are Louisiana stat zones
 tx.dat <- subset(eff.dat, eff.dat$area==4) #area 4 are Texas zones
@@ -77,12 +77,12 @@ plot(gom.eff$effort ~ gom.eff$yr,
 
 ### Questions 
 1. What is the relationship between changes in fishery effort and community and populations dynamics.
-2. What secondary role does eutrophicaion and hypoxia have to do with overall community change?
+2. What secondary role does eutrophication and hypoxia have to do with overall community change?
 
 ### Approaches
 - Abundance Time series
 - Diversity metrics Time series
-- Breakpoint Analysis
+- Break-point Analysis
 - Pelagic:Demersal Time series
 - Abundance-Biomass Curve (*W-statistic* time series)
 
@@ -116,13 +116,13 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ## Piecewise Regression Analysis
 
 ### Drivers & Biomass
-- Fishery effort was best modelled $\alpha$ = **2001**
-- Area of hypoxia was best modelled with $\alpha$ = **1996**
+- Fishery effort was best modeled $\alpha$ = **2001**
+- Area of hypoxia was best modeled with $\alpha$ = **1996**
 
 ### Diversity Metrics
 - All break point models were significant and ranged from $\alpha$ = **1995** to **2004** 
 - The earliest break point (1995) occurred on the Texas shelf during the Fall season
-- All other region/season combinations break points were betwee 1999-2004
+- All other region/season combinations break points were between 1999-2004
 - 17 of the 18 indicators had break points on or after **2000** 
 
 ## Pelagic to Demersal Biomass
