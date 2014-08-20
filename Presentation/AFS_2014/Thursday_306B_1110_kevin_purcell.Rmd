@@ -1,7 +1,7 @@
 ---
-title: Fishing and Eutrophication Effects on the Northwestern Gulf of Mexico Demersal
-  Nekton Community
-author: "KM Purcell, JK Craig"
+title: Fishing and Eutrophication Effects on the Northwestern Gulf of Mexico Nekton Community
+author: "Kevin M. Purcell and J. Kevin Craig"
+affiliation: "NOAA Fisheries, SEFSC, Beaufort Lab, 101 Pivers Island Rd. Beaufort, NC 28516"
 date: "Thursday, August 21, 2014"
 output: 
    beamer_presentation:
@@ -36,43 +36,20 @@ output:
 - Gulf shrimping effort peaked in **1988**
 - large reduction in fishery effort beginning in **2000**
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-eff.dat<-read.csv("P://comm_analysis//offshore_6011.csv")
-gom.eff <- aggregate(effort ~ yr, data=eff.dat, FUN=sum)
-la.dat <- subset(eff.dat, eff.dat$area==3) #area 3 are Louisiana stat zones
-tx.dat <- subset(eff.dat, eff.dat$area==4) #area 4 are Texas zones
-la.eff <- aggregate(effort ~ yr, la.dat, FUN=sum)
-tx.eff <- aggregate(effort ~ yr, tx.dat, FUN=sum)
-
-plot(gom.eff$effort ~ gom.eff$yr,
-          ylab="Fishing Effort (24 hours fished)",
-          main="Regional Trends in Fishing Effort",
-     ylim=c(5000,250000),
-     type="p",
-     col="lightgrey")
- lines(lowess(gom.eff$effort ~ gom.eff$yr, f=.2))
- lines(lowess(la.eff$effort~la.eff$yr, f=.2), col="blue")
- lines(lowess(tx.eff$effort~tx.eff$yr, f=.2), col="red")
- grid(col="black")
- abline(v=2000, col="black")
- legend("topright",col=c("black","blue","red"),lty=1,legend=c("GoM","Louisiana", "Texas"), bty="n")      
-
-```
+![effTrends](eff_trends.jpeg)
 
 
-## Gulf Shrimp Fishery Profitability
+## Environmental Drivers in Gulf of Mexico
 
-- Since **2001** profitability of the shrimp fishery has been faltering 
-- From **1980** to **2003** world export of shrimp products increased by 3.23B pounds, driving down prices  
-- The ex-vessel price of shrimp dropped **40%** from **2000-2003** 
-- Fuel costs increased between **20-30%** between **2000-2003** 
-- Resulting in observed dramatic reductions in fishing effort
+- Different temporal patterns for Hypoxia and Fishing
 
-
+ ![env trends](effort_hypoxia_plot.jpeg)
+ 
+ 
 ## Methods
 
 ### Questions 
-1. What is the relationship between changes in fishery effort and community and populations dynamics.
+1. What is the relationship between changes in fishery effort and community and populations dynamics?
 2. What secondary role does eutrophication and hypoxia have to do with overall community change?
 
 ### Approaches
@@ -91,6 +68,10 @@ plot(gom.eff$effort ~ gom.eff$yr,
 - **60** species and **4** genus, representing ~ **90%** of total sampled biomass.
 - We chose 20 taxa from 3 habitat groups: Demersal (**88%**), Pelagic (**95%**),  and Invertebrates (**97%**)
 
+### Fishery-Dependent
+- Gulf Shrimp Statistics program
+- Annual aerial extent of Hypoxia (*Obenour et al. 2013*)
+
 
 ## Nekton Community Trends in Gulf of Mexico
  
@@ -102,33 +83,27 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ## Taxon Abundance  Trends & Bycatch Relationship
 
 ![matrix figure](all_mod2.jpg)
-- Bycatch Designations assigned based on *Scott-Denton et al. 2012*
+
+- Bycatch designation based on *Scott-Denton et al. 2012*
 
 
 ## Diversity Time Series
 
+ - Consistent change point circa 2000
+
 ![divmet figure](div_metrics_afs.jpg)
 
 
-## Environmental Drivers in Gulf of Mexico
 
-- Different temporal patterns for Hypoxia and Fishing
-
- ![env trends](effort_hypoxia_plot.jpeg)
- 
- 
 ## Piecewise Regression Analysis
 
-### Drivers & Biomass
+### Environmental Drivers
 - Fishery effort was best modeled $\alpha$ = **2001**
 - Area of hypoxia was best modeled with $\alpha$ = **1996**
 
 ### Diversity Metrics
-- All break point models were significant and ranged from $\alpha$ = **1995** to **2004** 
-- The earliest break point (1995) occurred on the Texas shelf during the Fall season
-- All other region/season combinations break points were between 1999-2004
+- All break point models ranged from $\alpha$ = **1995** - **2004** 
 - 17 of the 18 indicators had break points on or after **2000** 
-
 
 
 ## Pelagic to Demersal Biomass
@@ -138,17 +113,36 @@ plot(gom.eff$effort ~ gom.eff$yr,
 ![pd figure](PD_plot_legend.jpeg)
 
 
-## Abundance-Biomass Curves
-
-![abc figure](warwick_excel_fig2.jpg)
-
 ## Summary
-- Strong temporal correlations between increased abundance of nekton in response to economically-driven changes in fishery effort
-- Benthic disturbance indicators and
+
+### Conclusions
+- Dramatic change in the nekton community occurred c. **2000**
+- **Positive** trends in the abundance of fishery target & bycatch species
+- Strong temporal correlations between increased **abundance** of nekton and decreases in **fishery effort**
+- **Limited** indications that regional hypoxia is mitigating the positive effects of a release from harvest
+
+### Future Directions
+- Further study of ecosystem-based indicators
+- Multivariate examination of species composition
+- Examination of rare species occurrence
 
 
 ## Acknowledgements
 - NOAA Center of Sponsored Coastal Ocean Research
 - NOAA Fisheries Beaufort Laboratory
 - B. Pelligrin, R. Hart, J. Rester, J. Primrose (*data access*)
+
+![funding1](nccos_med.jpg)
+
+
+## 
+
+### Questions?
+
+
+
+## Abundance-Biomass Curves
+
+![abc figure](warwick_excel_fig2.jpg)
+
 
