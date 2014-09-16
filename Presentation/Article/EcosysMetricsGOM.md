@@ -57,7 +57,7 @@ Introduce some large theoretical frame work for ecosystem response to disturbanc
 	Limited number of studies that allow us to compare bottom-up and top-down forces operating on a LME ecosystem.  
 
 	
-### Challenges faced by the Gulf.  (See EBM paper outlining areas of concern) namesly intense fishery harvest and bottom water hypoxia an outcome of increased eutrophication and water stratification.
+### Challenges faced by the Gulf.  (See EBM paper?? outlining areas of concern) namely intense fishery harvest and bottom water hypoxia an outcome of increased eutrophication and water stratification.
 
 @Yanez-Arancibia2013understanding -- "Understanding the coastal EBM approach in the GoM"
 	-highlight issues p.243, first paragraph "The GOM is at severe risk due to ..."
@@ -152,7 +152,7 @@ To further examine the effect of ecosystem disturbance on the northwestern Gulf 
 
 ## Discussion
 
-Our examination of 64 taxonomic entities during 25 years of the SEAMAP trawl survey showed dramatic changes in both biomass and abundance during the observed period (1987-2011).  Prior to 2000, patterns of both indicators were highly negative and provided clear indications that the northwestern Gulf was undergoing significant environmental disturbance.  In fact previous studies focusing on the causality of human impacts in marine systems [@keough1991causality] and on the development of fish-based indicators of environmental quality [@henriques2008development] have indicated that both abundance and biomass serve as key, and often initial, indicators that a fish community is undergoing some environmental impact.  Since, 2000 biomass and abundance metrics for the northwestern Gulf have increased by 62% and 74%, respectively, indicating a possible release from the disturbance mechanism driving the declines in both metrics during the early portion of the SEAMAP survey.  
+Our examination of 64 taxonomic entities during 25 years of the SEAMAP trawl survey showed dramatic changes in both biomass and abundance over the observed period (1987-2011).  Prior to 2000, patterns of both indicators were highly negative and showed clear indications that the northwestern Gulf was undergoing significant environmental disturbance.  In fact previous studies focusing on the causality of human impacts in marine systems [@keough1991causality] and on the development of fish-based indicators of environmental quality [@henriques2008development] have indicated that both abundance and biomass serve as key, and often initial, indicators that a fish community is undergoing some environmental impact.  Since, 2000 biomass and abundance metrics for the northwestern Gulf have increased by 62% and 74%, respectively, indicating a possible release from the disturbance mechanism driving the declines in both metrics during the early portion of the SEAMAP survey.  
 
 While there are a number of mechanisms of disturbance in the Gulf [@Yanez2013understanding], two primary disturbances on the coastal shelf are hypoxia and commercial fishing effort.  Patterns of temporal variability in these two ecosystem drivers showed contrasting patterns of variability, with fishing effort (ie. shrimping effort) showing a drastic reductions between 2000-2010.  While these two events are tightly correlated in time, the complex spatial and temporal nature of these disturbances warranted closer examination.  
 
@@ -165,10 +165,10 @@ While there are a number of mechanisms of disturbance in the Gulf [@Yanez2013und
 	- especially in conditions driven by economic rather than biological limitations. (look for previous copy on this perhaps up in the Intro)
 ~~~~~~
 
-We examined temporal variation in species-specific biomass (Figure 2) with respect to each species association with the shrimp fishery.  This comparison allows us to isolate the impact of fishing effort on certain popualtions while allowing us to understand what patterns of variation exist in the absence of fishing effects (***However these effects are confounded with space which is relatively consistent within the shrimp fishery, CORRECT?? Not during high hypoxia years???...Consider).  The clear positive trends in biomass for *P. aztecus*, *P. setiferus*, *P. duorarum* after 2003, where not surprising as these species are the primary targets of the Gulf shrimp fishery in the northwestern Gulf.  
+We examined temporal variation in species-specific biomass (Figure 2) with respect to each species association with the shrimp fishery.  This comparison allows us to isolate the impact of fishing effort on certain populations while allowing us to understand what patterns of variation exist in the absence of fishing effects (However these effects are confounded with space which is relatively consistent within the shrimp fishery, CORRECT?? Not during high hypoxia years???...Consider).  The clear positive trends in biomass for *P. aztecus*, *P. setiferus*, *P. duorarum* after 2003, where not surprising as these species are the primary targets of the Gulf shrimp fishery in the northwestern Gulf.  
 
-Another interesting observation of our species-specific biomass study was that high-incidence bycatch 12 of 16 taxonomic groups showed positive biomass trends after 2000, including a number of demersal (*Micropogonias undulatus*, *Stenotomus caprinus*, *Lagodon rhomboides*, *Stellifer lanceolatus*) and reef-associated (*Syacium papillosum*, *Synodus foetens*) species which could indicate the effects of large-scale changes in bottom trawl activity by the shrimp fishery.  A previous study which characterized bycatch composition for the Gulf and South Atlantic shrimp fisheries [@Scott-Denton2012Characterization] ranked each of these species within the top 23 bycatch species representing a total 21.1% of the total catch biomass during the study.    An earlier study of bycatch solely within the Gulf Shrimp fishery duing the 1992 and 1993 fishing seasons identified *M. undulatus* and *S. caprinus* as the two most abundant species in shrimp trawl catch representing 25% and 13% of total biomass, respectively [@nance1993effort].
-While the positive patterns in biomass for high-incidence bycatch species were more variable than those of target species the overall patterns of biomass recovery post-2001 was striking, especially when compared to patterns in both rare and non-bycatch groups which displayed predominatly negative trends in biomass.
+Additionally, biomass trends for 12 of 16 high-incidence bycatch taxonomic groups were positive after 2000, including a number of demersal (*Micropogonias undulatus*, *Stenotomus caprinus*, *Lagodon rhomboides*, *Stellifer lanceolatus*) and reef-associated (*Syacium papillosum*, *Synodus foetens*) species which could indicate the effects of large-scale changes in bottom trawl activity by the shrimp fishery.  A previous study which characterized bycatch composition for the Gulf and South Atlantic shrimp fisheries [@Scott-Denton2012Characterization] ranked each of these species within the top 23 bycatch species representing a total 21.1% of the total catch biomass during the study.  An earlier study of bycatch solely within the Gulf Shrimp fishery duing the 1992 and 1993 fishing seasons identified *M. undulatus* and *S. caprinus* as the two most abundant species in shrimp trawl catch representing 25% and 13% of total biomass, respectively [@nance1993effort].  While the positive patterns in biomass for high-incidence bycatch species were more variable than those of target species the overall patterns of biomass recovery post-2001 was striking, especially when compared to patterns in both rare and non-bycatch groups which displayed predominatly negative trends in biomass.
+
 
 ###Paragraph: Community diversity trends with respect to fishing and eutrophication.
 
@@ -224,6 +224,9 @@ The relationship between biomass and abundance is one that has a long history in
 
 ### Paragraph: Summarize what we learned and how it fits into the bigger shit
 
+Future work:  Cite the papers showing importance of size-based metrics and a desire to develop a study of these indices
+
+
 ### Paragraph: Management? or previous points bigger framework  
 
 Be sure to mention [@Jordan2010summer] analysis of summer fish communities in the nGOM estuaries.  "The used community data from trawl samples in >100 estuaries, bayous and coastal lagoons to develop indicators of ecol condition"  The constructed a fish community index (FCI) and compared their index to a number of ecosystem disturbances...
@@ -231,6 +234,7 @@ Be sure to mention [@Jordan2010summer] analysis of summer fish communities in th
 
 
 ### Paragraph based on Paragraph from p 355 last one first column Hondorp et al2010
+
 
 
 
