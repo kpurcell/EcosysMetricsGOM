@@ -19,17 +19,17 @@ Outline:
 managing effort has not resulted in recovery of stocks
 * Marine Protected Areas, specifically non-take reserves have been offered as a solution and show to be effective, however questions of their broader effect remain.
 * There are few examples of reduced fishing effort in which effort reduction was not tied to reductions in resource abundance.
-* The Gulf of Mexico shrimp fishery is one such example.  A previously dominant fishery which has been greatly reduced due to economnic rather than biological mechanisms.
+* The Gulf of Mexico shrimp fishery is one such example.  A previously dominant fishery which has been greatly reduced due to economic rather than biological mechanisms.
 * Here we examine the relative impact of environmental and anthropogenic disturbance on the demersal nekton community of the Gulf of Mexico.  
 	1. what is the relationship between changes in fishery extractive activities and community and populations dynamics.
-	2. What role does secondary eutrophicaion and hypoxia have to do with overall community change?
+	2. What role does secondary eutrophication and hypoxia have to do with overall community change?
 
 @Tremblay-Boyer2011modeling - "Modelling the effects of fishing on the biomass of the world's oceans from 1950 to 2006"
 	-start with a focus on the effects of
 	
 	
 What is the efficacy of catch reductions?
-@Mora2009management - "Management effectivness of the worlds marine fisheries"
+@Mora2009management - "Management effectiveness of the worlds marine fisheries"
 	-Does lowering catch limits work> ie there is limited evidence of the efficacy of lowering fishing effort.
 @Worm2012fugture - "The future of fish"
 	-should have some useful stuff for this
@@ -43,7 +43,7 @@ What is the efficacy of catch reductions?
 A number of studies based on marine reserves have found biomass recovery
 @Aburto-Oropeza2011large - "Large recovery of fish biomass in a no-take marine researve"
 
-@Lester2009biological - "Biological efffects within no-take marine researves:..."
+@Lester2009biological - "Biological effects within no-take marine reserves:..."
 	-
 	
 But few findings have ever shown that fishing effort reduction could not only to target species but to the entire community including incidental catch species.  
@@ -67,10 +67,10 @@ Introduce some large theoretical frame work for ecosystem response to disturbanc
 The Gulf of Mexico (Gulf) hosts a rich marine community....fertile cresent...etc etc.  In recent decades has come under intense disturbance and is currently one of the more disturbed...
 
 
-Eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  The demersal environment of the north-western Gulf of Mexico is a unique environment to evalute the dichotomy betweeen top-down and bottom-up disturbance processes and to correlate long-term monitoring of these disturbancs with community and populations level responses within the ecosystem.  The northern Gulf of Mexico is home to one of the most wide spread bottom water hypoxia evernts in the western hemisphere and the aerial extent of this event has been monitored for almost thirty years (1985-presnt).  
+Eutrophication and harvest, have a disproportionately strong effect on the demersal fish community through coastal hypoxia and physical stress of harvest.  The demersal environment of the north-western Gulf of Mexico is a unique environment to evaluate the dichotomy between top-down and bottom-up disturbance processes and to correlate long-term monitoring of these disturbances with community and populations level responses within the ecosystem.  The northern Gulf of Mexico is home to one of the most wide spread bottom water hypoxia evernts in the western hemisphere and the aerial extent of this event has been monitored for almost thirty years (1985-present).  
 
 ### Hypxoxia paragraph
-Introduct hypoxia causes and literature briefly
+Introduce hypoxia causes and literature briefly
 Discuss findings concerning fishery and community level impacts of hypoxia
 Craig and Boseman
 Craig population level stuff
@@ -80,7 +80,7 @@ P:D literature
 
 In addition to hypoxia, the north-western Gulf is home to one of the largest and most valuable fisheries in the US.  Domestic shrimp fisheries landed ~302 million pounds in 2012, ranking eighth among US fishery species by volume and ranking third by value with revenues of ~$490 million dollars [Current Fishery Statistics 2012].  The Gulf of Mexico shrimp fishery represented roughly 68% of landings and 79% of the value of the entire domestic shrimp fishery with landings in excess of 208 million pounds and revenues of $387 million dollars [Cite the statistics book].  Maybe more on effort deployment and extent??
 
-However, profitability of this fishery began to falter in 2001 driven primarily by increased global trade in shrimp products and increasing diesel fuel prices, creating challenging economic conditions for the Gulf shrimp fishery [@travis2004update].  From 1980 to 2003 world export of both fresh and frozen shrimp increased approximately 3.23 billion pounds, meanwhile the price per pound of shrimp products dropped roughly 54% due to deflation during the same period [@keithly2008southeast].  The ex-vessl, or dock side price, of shrimp in the Gulf of Mexico dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  Coupled with increases in fuel costs, which increased between 20-30% between 2000-2003, the economic performance of the Gulf shrimp fishery has been in a sharp decline for over a decade [@jones2012big] and is resulting in a dramatic reductions in fishing effort .  
+However, profitability of this fishery began to falter in 2001 driven primarily by increased global trade in shrimp products and increasing diesel fuel prices, creating challenging economic conditions for the Gulf shrimp fishery [@travis2004update].  From 1980 to 2003 world export of both fresh and frozen shrimp increased approximately 3.23 billion pounds, meanwhile the price per pound of shrimp products dropped roughly 54% due to deflation during the same period [@keithly2008southeast].  The ex-vessel, or dock side price, of shrimp in the Gulf of Mexico dropped 40% from 2000-2003 [@keithly2008southeast; @jones2012big].  Coupled with increases in fuel costs, which increased between 20-30% between 2000-2003, the economic performance of the Gulf shrimp fishery has been in a sharp decline for over a decade [@jones2012big] and is resulting in a dramatic reductions in fishing effort .  
 
 Perhaps quickly introduce previous studies examining fishing effort effects on communities? or maybe above in the general section.
 
