@@ -1,0 +1,27 @@
+---
+title: "Size-Based Indicator Analysis"
+author: "Kevin M. Purcell"
+date: "Tuesday, November 18, 2014"
+output: html_document
+---
+
+## Objectives
+
+Two primary sources for metric obtions and preliniary metric response are [Shin et al. 2005](http://icesjms.oxfordjournals.org/content/62/3/384) and [Rochet and Trinkle 2003](http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164).  
+
+
+## Methods
+
+
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
