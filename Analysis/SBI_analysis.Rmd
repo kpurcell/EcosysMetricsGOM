@@ -12,11 +12,48 @@ Two primary sources for metric obtions and preliniary metric response are [Shin 
 
 ## Methods
 
+1. Bring in size frequency data
+2. Attached locations or sampling sites to size based data
+3. Derive size based indicators from initial size sampling data
+4. Evaluate temporal patterns of indicators
 
 
-```{r}
-summary(cars)
+```{r dataImport, echo=FALSE}
+sfDat <- read.table("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+                    header = TRUE, sep = ",")
 ```
+
+
+
+```{r varTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
+
+shortnames=names(sfDat)
+#create variable descriptions
+description <- c("unique integer (int) entry id",
+                 "unique int for ea. entry in CRUSIES table",
+                 "Unique int for ea. entry in BGSREC table",
+                 "unique int for ea. entry in STAREC table",
+                 "unique int for ea. entry in VESSELS table",
+                 "four character (ch.) string format YYXX",
+                 "five ch. string for Pascagoula Station No.",
+                 "9 digit field for Genus species biocode",
+                 "no current used",
+                 "7 ch. field for Genus",
+                 "6 ch. field for species",
+                 "4 digit XXX.X field for weight (kg)",
+                 "2 ch. field containing measurement code",
+                 "4 ch. field (numeric) of length (mm)",
+                 "1 ch. field representing sex (M, F, U) can be blank",
+                 "1 ch. field representing maturity code")
+
+metadataBound <- cbind(shortnames, description)
+colnames(metadataBound) <- c("Parameter", "Description")
+metadataTable <- xtable::xtable(metadataBound, 
+                                align="ccl",
+                                caption="Data variables and description") 
+Metadata <- xtable::print.xtable(metadataTable, type="html")
+```
+
 
 You can also embed plots, for example:
 
