@@ -19,13 +19,16 @@ Two primary sources for metric obtions and preliniary metric response are [Shin 
 
 
 ```{r dataImport, echo=FALSE}
-sfDat <- read.table("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+                    header = TRUE, sep = ",")
+
+stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
                     header = TRUE, sep = ",")
 ```
 
 
 
-```{r varTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
+```{r sfTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
 
 shortnames=names(sfDat)
 #create variable descriptions
@@ -49,16 +52,12 @@ description <- c("unique integer (int) entry id",
 metadataBound <- cbind(shortnames, description)
 colnames(metadataBound) <- c("Parameter", "Description")
 metadataTable <- xtable::xtable(metadataBound, 
-                                align="ccl",
+                                align="lcc",
                                 caption="Data variables and description") 
 Metadata <- xtable::print.xtable(metadataTable, type="html")
 ```
 
 
-You can also embed plots, for example:
 
-```{r, echo=FALSE}
-plot(cars)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
