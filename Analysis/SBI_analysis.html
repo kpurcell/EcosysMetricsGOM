@@ -60,19 +60,174 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="objectives" class="section level2">
 <h2>Objectives</h2>
-<p>Two primary sources for metric obtions and preliniary metric response are <a href="http://icesjms.oxfordjournals.org/content/62/3/384">Shin et al. 2005</a> and <a href="http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164">Rochet and Trinkle 2003</a>.</p>
+<p>Identify and calculate size-based indicator (SBI) time series for the Gulf of Mexico based on the length-frequency data collected by <a href>SEAMAP</a> for our focal species. Indicatory identification is derived from two primary sources <a href="http://icesjms.oxfordjournals.org/content/62/3/384">Shin et al. 2005</a> and <a href="http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164">Rochet and Trinkle 2003</a>. Initially a global time series will be developed for community-wide metrics of mean length:</p>
+<p>$ {L}= $</p>
+<p>Additionally, a community estimate of mean weight:</p>
+<p>$ {W}= $</p>
+<p>will also be generated and trends over the survey period will be assessed.</p>
 </div>
 <div id="methods" class="section level2">
 <h2>Methods</h2>
 <ol style="list-style-type: decimal">
-<li>Bring in size frequency data</li>
+<li>Bring in size frequency and supporting data</li>
+</ol>
+<table border="1">
+<caption align="bottom"> 
+Data variables and description
+</caption>
+<tr> <th>  </th> <th> 
+Parameter
+</th> <th> 
+Description
+</th>  </tr>
+  <tr> <td> 
+1
+</td> <td align="center"> 
+GLFID
+</td> <td align="center"> 
+unique integer (int) entry id
+</td> </tr>
+  <tr> <td> 
+2
+</td> <td align="center"> 
+CRUISEID
+</td> <td align="center"> 
+unique int for ea. entry in CRUSIES table
+</td> </tr>
+  <tr> <td> 
+3
+</td> <td align="center"> 
+BGSID
+</td> <td align="center"> 
+Unique int for ea. entry in BGSREC table
+</td> </tr>
+  <tr> <td> 
+4
+</td> <td align="center"> 
+STATIONID
+</td> <td align="center"> 
+unique int for ea. entry in STAREC table
+</td> </tr>
+  <tr> <td> 
+5
+</td> <td align="center"> 
+VESSEL
+</td> <td align="center"> 
+unique int for ea. entry in VESSELS table
+</td> </tr>
+  <tr> <td> 
+6
+</td> <td align="center"> 
+CRUISE_NO
+</td> <td align="center"> 
+four character (ch.) string format YYXX
+</td> </tr>
+  <tr> <td> 
+7
+</td> <td align="center"> 
+P_STA_NO
+</td> <td align="center"> 
+five ch. string for Pascagoula Station No.
+</td> </tr>
+  <tr> <td> 
+8
+</td> <td align="center"> 
+BIO_GLF
+</td> <td align="center"> 
+9 digit field for Genus species biocode
+</td> </tr>
+  <tr> <td> 
+9
+</td> <td align="center"> 
+NODC_GLF
+</td> <td align="center"> 
+no current used
+</td> </tr>
+  <tr> <td> 
+10
+</td> <td align="center"> 
+GENUS_GLF
+</td> <td align="center"> 
+7 ch. field for Genus
+</td> </tr>
+  <tr> <td> 
+11
+</td> <td align="center"> 
+SPEC_GLF
+</td> <td align="center"> 
+6 ch. field for species
+</td> </tr>
+  <tr> <td> 
+12
+</td> <td align="center"> 
+INDVL_WT
+</td> <td align="center"> 
+4 digit XXX.X field for weight (kg)
+</td> </tr>
+  <tr> <td> 
+13
+</td> <td align="center"> 
+MEASCD_GLF
+</td> <td align="center"> 
+2 ch. field containing measurement code
+</td> </tr>
+  <tr> <td> 
+14
+</td> <td align="center"> 
+LEN_GLF
+</td> <td align="center"> 
+4 ch. field (numeric) of length (mm)
+</td> </tr>
+  <tr> <td> 
+15
+</td> <td align="center"> 
+SEX_GLF
+</td> <td align="center"> 
+1 ch. field representing sex (M, F, U) can be blank
+</td> </tr>
+  <tr> <td> 
+16
+</td> <td align="center"> 
+MAT_GLF
+</td> <td align="center"> 
+1 ch. field representing maturity code
+</td> </tr>
+   </table>
+
+
+<ol start="2" style="list-style-type: decimal">
 <li>Attached locations or sampling sites to size based data</li>
+</ol>
+<pre class="r"><code>sbiDat1 &lt;- dplyr::inner_join(sfDat, stDat, by = NULL, copy = FALSE)</code></pre>
+<pre><code>## Joining by: c(&quot;CRUISEID&quot;, &quot;STATIONID&quot;, &quot;VESSEL&quot;, &quot;CRUISE_NO&quot;, &quot;P_STA_NO&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>Limit the dataset based on the 64 species used in the study</li>
+</ol>
+<pre class="r"><code>#Import list of study species
+studySpecies&lt;-read.csv(&quot;C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv&quot;)
+#studySpecies$keep &lt;- NULL
+colnames(studySpecies)[1] &lt;- &quot;BIO_GLF&quot;
+
+#return all rows from x where there are matching values in y, keeping just columns from x. 
+sbiDat2 &lt;- dplyr::inner_join(sbiDat1, studySpecies, by = NULL, copy = FALSE)</code></pre>
+<pre><code>## Joining by: &quot;BIO_GLF&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Attach taxonomic info to the database</li>
+</ol>
+<pre class="r"><code>#change the column name in taxDat to BIO_GLF
+colnames(taxDat)[3] &lt;- &quot;BIO_GLF&quot;
+
+#join taxonomy data to database
+sbiDat3 &lt;- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)</code></pre>
+<pre><code>## Joining by: &quot;BIO_GLF&quot;</code></pre>
+<pre class="r"><code># #Isolate the biocodes
+# tsnDat &lt;- unique(sbiDat3$tsn)
+# #Pull taxonmic data from ITIS???
+# taxInfo &lt;- taxize::classification(tsnDat, db = 'itis')</code></pre>
+<ol start="3" style="list-style-type: decimal">
 <li>Derive size based indicators from initial size sampling data</li>
 <li>Evaluate temporal patterns of indicators</li>
 </ol>
-% latex table generated in R 3.0.2 by xtable 1.7-4 package % Wed Nov 19 12:21:57 2014
-
 </div>
 
 
