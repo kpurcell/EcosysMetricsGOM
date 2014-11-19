@@ -12,20 +12,20 @@ Two primary sources for metric obtions and preliniary metric response are [Shin 
 
 ## Methods
 
-1. Bring in size frequency data
-2. Attached locations or sampling sites to size based data
-3. Derive size based indicators from initial size sampling data
-4. Evaluate temporal patterns of indicators
-
-
+1. Bring in size frequency and supporting data
 ```{r dataImport, echo=FALSE}
+#Import Size frequency table from SEAMAP_2013 DB
 sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
                     header = TRUE, sep = ",")
 
+#Import station table from SEAMAP_2013 DB
 stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
                     header = TRUE, sep = ",")
-```
 
+#Import the Taxonomy data from SEAMAP_2013 DB
+taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", 
+                    header = TRUE, sep = ",")
+```
 
 
 ```{r sfTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE}
@@ -54,10 +54,44 @@ colnames(metadataBound) <- c("Parameter", "Description")
 metadataTable <- xtable::xtable(metadataBound, 
                                 align="lcc",
                                 caption="Data variables and description") 
-Metadata <- xtable::print.xtable(metadataTable, type="html")
+Metadata <- xtable::print.xtable(metadataTable, type="latex")
+```
+
+
+2. Attached locations or sampling sites to size based data
+```{r}
+sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = NULL, copy = FALSE)
+```
+
+
+3. Limit the dataset based on the 64 species used in the study
+```{r}
+#Import list of study species
+studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")
+#studySpecies$keep <- NULL
+colnames(studySpecies)[1] <- "BIO_GLF"
+
+#return all rows from x where there are matching values in y, keeping just columns from x. 
+sbiDat2 <- dplyr::inner_join(sbiDat2, studySpecies, by = NULL, copy = FALSE)
+```
+
+4. Attach taxonomic info to the database
+```{r}
+#change the column name in taxDat to BIO_GLF
+colnames(taxDat)[3] <- "BIO_GLF"
+
+#join taxonomy data to database
+sbiDat3 <- dplyr::inner_join(sbiDat, taxDat, by = NULL, copy = FALSE)
+
+# #Isolate the biocodes
+# tsnDat <- unique(sbiDat3$tsn)
+# #Pull taxonmic data from ITIS???
+# taxInfo <- taxize::classification(tsnDat, db = 'itis')
 ```
 
 
 
+3. Derive size based indicators from initial size sampling data
+4. Evaluate temporal patterns of indicators
 
 
