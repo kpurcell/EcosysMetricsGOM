@@ -23,13 +23,49 @@ will also be generated and trends over the survey period will be assessed.
 
 1. Bring in size frequency and supporting data
 ```{r dataImport, echo=FALSE}
+library(magrittr)
+library(dplyr)
 #Import Size frequency table from SEAMAP_2013 DB
-sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+#sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+#                    header = TRUE, sep = ",")
+sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC2.csv", 
                     header = TRUE, sep = ",")
+sfDat$meas_typ <- sfDat$MEASCD_GLF
+
+
+sfDat$meas_typ[sfDat$meas_typ==1] <- "FL"
+sfDat$meas_typ[sfDat$meas_typ==2] <- "SL"
+sfDat$meas_typ[sfDat$meas_typ==3] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==4] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==5] <- "WD"
+sfDat$meas_typ[sfDat$meas_typ==6] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==8] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==10] <- "WD"
+sfDat$meas_typ[sfDat$meas_typ==11] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==12] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==13] <- "ML"
+sfDat$meas_typ[sfDat$meas_typ==14] <- "WD"
+sfDat$meas_typ[sfDat$meas_typ==15] <- "TRD"
+sfDat$meas_typ[sfDat$meas_typ==16] <- "WD"
+sfDat$meas_typ[sfDat$meas_typ==17] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==18] <- "TL"
+sfDat$meas_typ[sfDat$meas_typ==19] <- "UNKNOWN"
+sfDat$meas_typ[sfDat$meas_typ==20] <- "OTHER"
+sfDat$meas_typ[sfDat$meas_typ==22] <- "WD"
+sfDat$meas_typ[sfDat$meas_typ==23] <- "SA"
+
 
 #Import station table from SEAMAP_2013 DB
 stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
                     header = TRUE, sep = ",")
+
+#create a yr and month variable
+stDat$date<-stDat$MO_DAY_YR
+stDat$date<-as.Date(stDat$date, "%m/%d/%Y")
+stDat$month<-format(stDat$date, format="%m")
+stDat$YR<-format(stDat$date, format="%Y")
+stDat$YR<-as.numeric(stDat$YR)
+stDat$month<-as.numeric(stDat$month)
 
 #Import the Taxonomy data from SEAMAP_2013 DB
 taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", 
@@ -39,37 +75,38 @@ taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.
 
 ```{r sfTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
-shortnames=names(sfDat)
-#create variable descriptions
-description <- c("unique integer (int) entry id",
-                 "unique int for ea. entry in CRUSIES table",
-                 "Unique int for ea. entry in BGSREC table",
-                 "unique int for ea. entry in STAREC table",
-                 "unique int for ea. entry in VESSELS table",
-                 "four character (ch.) string format YYXX",
-                 "five ch. string for Pascagoula Station No.",
-                 "9 digit field for Genus species biocode",
-                 "no current used",
-                 "7 ch. field for Genus",
-                 "6 ch. field for species",
-                 "4 digit XXX.X field for weight (kg)",
-                 "2 ch. field containing measurement code",
-                 "4 ch. field (numeric) of length (mm)",
-                 "1 ch. field representing sex (M, F, U) can be blank",
-                 "1 ch. field representing maturity code")
-
-metadataBound <- cbind(shortnames, description)
-colnames(metadataBound) <- c("Parameter", "Description")
-metadataTable <- xtable::xtable(metadataBound, 
-                                align="lll",
-                                caption="Data variables and description") 
-Metadata <- xtable::print.xtable(metadataTable, type="html", comment=FALSE)
+# shortnames=names(sfDat)
+# #create variable descriptions
+# description <- c("unique integer (int) entry id",
+#                  "unique int for ea. entry in CRUSIES table",
+#                  "Unique int for ea. entry in BGSREC table",
+#                  "unique int for ea. entry in STAREC table",
+#                  "unique int for ea. entry in VESSELS table",
+#                  "four character (ch.) string format YYXX",
+#                  "five ch. string for Pascagoula Station No.",
+#                  "9 digit field for Genus species biocode",
+#                  "no current used",
+#                  "7 ch. field for Genus",
+#                  "6 ch. field for species",
+#                  "4 digit XXX.X field for weight (kg)",
+#                  "2 ch. field containing measurement code",
+#                  "4 ch. field (numeric) of length (mm)",
+#                  "1 ch. field representing sex (M, F, U) can be blank",
+#                  "1 ch. field representing maturity code")
+# 
+# metadataBound <- cbind(shortnames, description)
+# colnames(metadataBound) <- c("Parameter", "Description")
+# metadataTable <- xtable::xtable(metadataBound, 
+#                                 align="lll",
+#                                 caption="Data variables and description") 
+# Metadata <- xtable::print.xtable(metadataTable, type="html", comment=FALSE)
 ```
 
 
 2. Attached locations or sampling sites to size based data
 ```{r}
-sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = NULL, copy = FALSE)
+sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = "STATIONID", copy = FALSE)
+
 ```
 
 
@@ -98,7 +135,30 @@ sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
 # taxInfo <- taxize::classification(tsnDat, db = 'itis')
 ```
 
+
+6. Calculate the global community Mean length metric by year for TL
+```{r}
+yrComm <- dplyr::group_by(sbiDat3, YR)
+heameanComm <- sbiDat3 %>%
+  filter(meas_typ=="TL") %>%
+  group_by(YR) %>%
+  transmute(
+    meanL = mean(LEN_GLF, na.rm = TRUE),
+    meanW = mean(INDVL_WT, na.rm = TRUE)
+  )
+names(sbiDat3)
+```
+
+
+
 3. Derive size based indicators from initial size sampling data
+```{r}
+meanLen <- sum()
+
+
+```
+
+
 
 
 4. Evaluate temporal patterns of indicators
