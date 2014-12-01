@@ -23,7 +23,7 @@ will also be generated and trends over the survey period will be assessed.
 
 1. Bring in size frequency and supporting data
 ```{r dataImport, echo=FALSE}
-library(magrittr)
+#library(magrittr)
 library(dplyr)
 #Import Size frequency table from SEAMAP_2013 DB
 #sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
@@ -68,8 +68,7 @@ stDat$YR<-as.numeric(stDat$YR)
 stDat$month<-as.numeric(stDat$month)
 
 #Import the Taxonomy data from SEAMAP_2013 DB
-taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", 
-                    header = TRUE, sep = ",")
+taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", header = TRUE, sep = ",")
 ```
 
 
@@ -138,15 +137,30 @@ sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
 
 6. Calculate the global community Mean length metric by year for TL
 ```{r}
-yrComm <- dplyr::group_by(sbiDat3, YR)
-heameanComm <- sbiDat3 %>%
-  filter(meas_typ=="TL") %>%
-  group_by(YR) %>%
-  transmute(
-    meanL = mean(LEN_GLF, na.rm = TRUE),
-    meanW = mean(INDVL_WT, na.rm = TRUE)
-  )
-names(sbiDat3)
+#length by year
+#sum by yeara
+#generate mean length by year
+df1 <- sbiDat3[c(67,17,14)] 
+df2 <- subset(df1, df1$meas_typ=="TL")
+mean_len <- aggregate(LEN_GLF ~ YR, data=df2, mean)
+colnames(mean_len)[2] <- "meanLen"
+sd_len <- aggregate(LEN_GLF ~ YR, data=df2, sd)
+colnames(sd_len)[2] <- "sd"
+mean_len <- merge(mean_len, sd_len, by="YR")
+ggplot2::qplot(YR, meanLen, data=mean_len) +
+  geom_point()
+, geom=c("point", "smooth"))
+
+ggplot2::ggplot(mean_len, aes(x=YR, y=meanLen)) + 
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin=meanLen-sd, ymax=meanLen+sd), width=.1)
+   
+# Mean weight calculation
+#df3 <- sbiDat3[c(67,12)]
+#mean_wt <- aggregate(INDVL_WT ~ YR, data=df3, mean)
+#%%%%%%%%%%%%%%%% NOT POSSIBLE DUE TO NAs %%%%%%%%%%%%%%%%%%%%%%#
+
 ```
 
 
