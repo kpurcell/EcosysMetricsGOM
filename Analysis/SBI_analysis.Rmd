@@ -21,18 +21,24 @@ will also be generated and trends over the survey period will be assessed.
 
 ## Methods
 
-1. Bring in size frequency and supporting data
+1. Bring in size frequency and supporting SEAMAP data
 ```{r dataImport, echo=FALSE}
 #library(magrittr)
 library(dplyr)
-#Import Size frequency table from SEAMAP_2013 DB
-#sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
+library(stargazer)
+# Import Size frequency table from SEAMAP_2013 DB
+# sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
 #                    header = TRUE, sep = ",")
+
 sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC2.csv", 
                     header = TRUE, sep = ",")
+# GLFREC2.csv was the second attempt to extract the data from the Access DB.
+# The initial export (ie GLFREC.csv) only exported around 1M values as opposed
+
+# create a new variable to be a factor for measurement type
 sfDat$meas_typ <- sfDat$MEASCD_GLF
 
-
+# Recode the new variable to letter designations for filtering
 sfDat$meas_typ[sfDat$meas_typ==1] <- "FL"
 sfDat$meas_typ[sfDat$meas_typ==2] <- "SL"
 sfDat$meas_typ[sfDat$meas_typ==3] <- "TL"
@@ -55,11 +61,11 @@ sfDat$meas_typ[sfDat$meas_typ==22] <- "WD"
 sfDat$meas_typ[sfDat$meas_typ==23] <- "SA"
 
 
-#Import station table from SEAMAP_2013 DB
+# Import station table from SEAMAP_2013 DB
 stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
                     header = TRUE, sep = ",")
 
-#create a yr and month variable
+# Create a yr and month variable
 stDat$date<-stDat$MO_DAY_YR
 stDat$date<-as.Date(stDat$date, "%m/%d/%Y")
 stDat$month<-format(stDat$date, format="%m")
@@ -72,54 +78,60 @@ taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.
 
 # Import BGSREC table
 bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", header = TRUE, sep = ",")
+
 # Filter only needed columns
-names(bgsDat)
-head(bgsDat)
-bgsDat1 <- select(bgsDat, STATIONID, CNTEXP, BIO_BGS, IS_SAMPLE)
+# names(bgsDat)
+# head(bgsDat)
 
+# bgsDat1 <- select(bgsDat, STATIONID, CNTEXP, BIO_BGS, IS_SAMPLE)
+# head(sbiDat3)
 
+# lenCount <- sbiDat3 %>%
+#   filter(STATIONID==4) %>%
+#   group_by(BIO_GLF, common_name) %>%
+#   summarize(spcCnt=n(), meanL)
 
 ```
 
 
 ```{r sfTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
-# shortnames=names(sfDat)
-# #create variable descriptions
-# description <- c("unique integer (int) entry id",
-#                  "unique int for ea. entry in CRUSIES table",
-#                  "Unique int for ea. entry in BGSREC table",
-#                  "unique int for ea. entry in STAREC table",
-#                  "unique int for ea. entry in VESSELS table",
-#                  "four character (ch.) string format YYXX",
-#                  "five ch. string for Pascagoula Station No.",
-#                  "9 digit field for Genus species biocode",
-#                  "no current used",
-#                  "7 ch. field for Genus",
-#                  "6 ch. field for species",
-#                  "4 digit XXX.X field for weight (kg)",
-#                  "2 ch. field containing measurement code",
-#                  "4 ch. field (numeric) of length (mm)",
-#                  "1 ch. field representing sex (M, F, U) can be blank",
-#                  "1 ch. field representing maturity code")
-# 
-# metadataBound <- cbind(shortnames, description)
-# colnames(metadataBound) <- c("Parameter", "Description")
-# metadataTable <- xtable::xtable(metadataBound, 
-#                                 align="lll",
-#                                 caption="Data variables and description") 
-# Metadata <- xtable::print.xtable(metadataTable, type="html", comment=FALSE)
+shortnames=names(sfDat)
+#create variable descriptions
+description <- c("unique integer (int) entry id",
+                 "unique int for ea. entry in CRUSIES table",
+                 "Unique int for ea. entry in BGSREC table",
+                 "unique int for ea. entry in STAREC table",
+                 "unique int for ea. entry in VESSELS table",
+                 "four character (ch.) string format YYXX",
+                 "five ch. string for Pascagoula Station No.",
+                 "9 digit field for Genus species biocode",
+                 "no current used",
+                 "7 ch. field for Genus",
+                 "6 ch. field for species",
+                 "4 digit XXX.X field for weight (kg)",
+                 "2 ch. field containing measurement code",
+                 "4 ch. field (numeric) of length (mm)",
+                 "1 ch. field representing sex (M, F, U) can be blank",
+                 "1 ch. field representing maturity code")
+
+metadataBound <- cbind(shortnames, description)
+colnames(metadataBound) <- c("Parameter", "Description")
+stargazer(metadataBound, type = "text", summary = FALSE)
 ```
 
 
 2. Attached locations or sampling sites to size based data
 ```{r}
+# Do this later to avoid choking on data
+
 sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = "STATIONID", copy = FALSE)
 
 ```
 
 
-3. Limit the dataset based on the 64 species used in the study
+3. Limit the dataset based on the 65 species used in the study
+Follow up on other sections to verify the number of species.
 ```{r}
 #Import list of study species
 studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")
@@ -127,7 +139,13 @@ studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_ke
 colnames(studySpecies)[1] <- "BIO_GLF"
 
 #return all rows from x where there are matching values in y, keeping just columns from x. 
+# Essentially filter data to only Species in our "LIST"
 sbiDat2 <- dplyr::inner_join(sbiDat1, studySpecies, by = NULL, copy = FALSE)
+names(sbiDat2)
+# check
+length(unique(sbiDat2$BIO_GLF))
+
+
 ```
 
 4. Attach taxonomic info to the database
@@ -138,11 +156,52 @@ colnames(taxDat)[3] <- "BIO_GLF"
 #join taxonomy data to database
 sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
 
-# #Isolate the biocodes
-# tsnDat <- unique(sbiDat3$tsn)
-# #Pull taxonmic data from ITIS???
-# taxInfo <- taxize::classification(tsnDat, db = 'itis')
+# species table
+specTable <- dplyr::inner_join(studySpecies, taxDat, by = NULL, copy = FALSE) %>%
+  select(BIO_GLF, TAXONOMIC, common_name)
+colnames(specTable)[1] <- "Code"
+colnames(specTable)[2] <- "Genus species"
+colnames(specTable)[3] <- "Common name"
+
+stargazer(specTable, type = "text", summary = FALSE, digit.separator = "")
+
 ```
+
+5. Attach station count data to allow for weighted averaging
+```{r}
+#sbiDat4 <- dplyr::inner_join(sbiDat3, bgsDat1, by = NULL, copy = FALSE)
+
+
+```
+
+
+6. Reduce the GLFREC DB first
+```{r}
+head(sfDat)
+# First calculate the number measured and sum of the lengths
+# for each species at each station
+glfRed <- sfDat %>%
+  inner_join(sfDat, studySpecies, by = NULL, copy = FALSE)
+  filter(meas_typ=="TL") %>%
+  group_by(STATIONID, BIO_GLF) %>%
+  summarize(msrCnt=n(), 
+            sumL=sum(LEN_GLF))
+
+# Tests to verify counts
+head(glfRed)
+glfRedTest <- sfDat %>%
+  filter(BIO_GLF==108021802, STATIONID==4)
+  
+```
+
+7. Summarize and calculate the cntexp
+```{r}
+names(bgsDat)
+bgsRed <- bgsDat %>%
+  group_by(STATIONID, BIO_BGS) %>%
+  summarize(totCatch=sum(CNTEXP))
+```
+
 
 
 6. Calculate the global community Mean length metric by year for TL
