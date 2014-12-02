@@ -69,6 +69,16 @@ stDat$month<-as.numeric(stDat$month)
 
 #Import the Taxonomy data from SEAMAP_2013 DB
 taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", header = TRUE, sep = ",")
+
+# Import BGSREC table
+bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", header = TRUE, sep = ",")
+# Filter only needed columns
+names(bgsDat)
+head(bgsDat)
+bgsDat1 <- select(bgsDat, STATIONID, CNTEXP, BIO_BGS, IS_SAMPLE)
+
+
+
 ```
 
 
