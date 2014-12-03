@@ -10,9 +10,6 @@ Identify and calculate size-based indicator (SBI) time series for the Gulf of Me
 
 $ \bar{L}=\frac{\sum\limits_{N}L}{N} $  
 
-Additionally, a community estimate of mean weight:
-
-$ \bar{W}=\frac{B}{N} $  
 
 will also be generated and trends over the survey period will be assessed.
 
@@ -21,7 +18,6 @@ will also be generated and trends over the survey period will be assessed.
 
 ## Methods
 
-1. Bring in size frequency and supporting SEAMAP data
 ```{r dataImport, echo=FALSE}
 #library(magrittr)
 library(dplyr)
@@ -60,6 +56,10 @@ sfDat$meas_typ[sfDat$meas_typ==20] <- "OTHER"
 sfDat$meas_typ[sfDat$meas_typ==22] <- "WD"
 sfDat$meas_typ[sfDat$meas_typ==23] <- "SA"
 
+names(sfDat)
+# Rename BIO_GLF to BIO_CODE
+colnames(sfDat)[8] <- "BIO_CODE"
+
 
 # Import station table from SEAMAP_2013 DB
 stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
@@ -73,8 +73,20 @@ stDat$YR<-format(stDat$date, format="%Y")
 stDat$YR<-as.numeric(stDat$YR)
 stDat$month<-as.numeric(stDat$month)
 
+names(stDat)
+
+stDat <- select(stDat, STATIONID, month, YR)
+
 #Import the Taxonomy data from SEAMAP_2013 DB
 taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", header = TRUE, sep = ",")
+
+# This file had info on a much larger number of species from the GOM
+#
+# specinfo.dat<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/spec_info_summary.csv")
+# colnames(specinfo.dat)[1]<-'BIO_BGS'
+
+# Import the study species list with taxonomy, TL, Habitat, and Bycatch designations
+info.dat <- read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/matrix_plot/infoDat.csv")
 
 # Import BGSREC table
 bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", header = TRUE, sep = ",")
@@ -86,15 +98,16 @@ bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", he
 # bgsDat1 <- select(bgsDat, STATIONID, CNTEXP, BIO_BGS, IS_SAMPLE)
 # head(sbiDat3)
 
+
+#Import list of study species
+studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")
+#studySpecies$keep <- NULL
+colnames(studySpecies)[1] <- "BIO_GLF"
 # lenCount <- sbiDat3 %>%
 #   filter(STATIONID==4) %>%
 #   group_by(BIO_GLF, common_name) %>%
 #   summarize(spcCnt=n(), meanL)
 
-```
-
-
-```{r sfTable, echo=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
 shortnames=names(sfDat)
 #create variable descriptions
@@ -118,43 +131,28 @@ description <- c("unique integer (int) entry id",
 metadataBound <- cbind(shortnames, description)
 colnames(metadataBound) <- c("Parameter", "Description")
 stargazer(metadataBound, type = "text", summary = FALSE)
-```
 
-
-2. Attached locations or sampling sites to size based data
-```{r}
 # Do this later to avoid choking on data
 
-sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = "STATIONID", copy = FALSE)
-
-```
+#sbiDat1 <- dplyr::inner_join(sfDat, stDat, by = "STATIONID", copy = FALSE)
 
 
-3. Limit the dataset based on the 65 species used in the study
-Follow up on other sections to verify the number of species.
-```{r}
-#Import list of study species
-studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")
-#studySpecies$keep <- NULL
-colnames(studySpecies)[1] <- "BIO_GLF"
+
 
 #return all rows from x where there are matching values in y, keeping just columns from x. 
 # Essentially filter data to only Species in our "LIST"
-sbiDat2 <- dplyr::inner_join(sbiDat1, studySpecies, by = NULL, copy = FALSE)
-names(sbiDat2)
-# check
-length(unique(sbiDat2$BIO_GLF))
+# sbiDat2 <- dplyr::inner_join(sbiDat1, studySpecies, by = NULL, copy = FALSE)
+# names(sbiDat2)
+# # check
+# length(unique(sbiDat2$BIO_GLF))
 
 
-```
 
-4. Attach taxonomic info to the database
-```{r}
 #change the column name in taxDat to BIO_GLF
 colnames(taxDat)[3] <- "BIO_GLF"
 
 #join taxonomy data to database
-sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
+#sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
 
 # species table
 specTable <- dplyr::inner_join(studySpecies, taxDat, by = NULL, copy = FALSE) %>%
@@ -165,23 +163,17 @@ colnames(specTable)[3] <- "Common name"
 
 stargazer(specTable, type = "text", summary = FALSE, digit.separator = "")
 
-```
 
-5. Attach station count data to allow for weighted averaging
-```{r}
 #sbiDat4 <- dplyr::inner_join(sbiDat3, bgsDat1, by = NULL, copy = FALSE)
 
 
-```
-
-
-6. Reduce the GLFREC DB first
-```{r}
 head(sfDat)
+head(studySpecies)
+
 # First calculate the number measured and sum of the lengths
 # for each species at each station
 glfRed <- sfDat %>%
-  inner_join(sfDat, studySpecies, by = NULL, copy = FALSE)
+  inner_join(sfDat, studySpecies, by = "BIO_GLF" , copy = FALSE) %>%
   filter(meas_typ=="TL") %>%
   group_by(STATIONID, BIO_GLF) %>%
   summarize(msrCnt=n(), 
@@ -192,20 +184,12 @@ head(glfRed)
 glfRedTest <- sfDat %>%
   filter(BIO_GLF==108021802, STATIONID==4)
   
-```
 
-7. Summarize and calculate the cntexp
-```{r}
 names(bgsDat)
 bgsRed <- bgsDat %>%
   group_by(STATIONID, BIO_BGS) %>%
   summarize(totCatch=sum(CNTEXP))
-```
 
-
-
-6. Calculate the global community Mean length metric by year for TL
-```{r}
 #length by year
 #sum by yeara
 #generate mean length by year
@@ -230,20 +214,30 @@ ggplot2::ggplot(mean_len, aes(x=YR, y=meanLen)) +
 #mean_wt <- aggregate(INDVL_WT ~ YR, data=df3, mean)
 #%%%%%%%%%%%%%%%% NOT POSSIBLE DUE TO NAs %%%%%%%%%%%%%%%%%%%%%%#
 
+
+
+
+# First create a data set and calculations for non-weighted mean length 
+# based on the entire commmunity
+
+# Plot of non-weighted trends
+
+# Create a data set of weighted mean length measurements
+
+# Plot the weighted mean length time-series
+
+
+# Create weighted mean length calculations grouped by bycatch relationship
+
+# plot those trends
+
+
+
+
+
 ```
 
 
 
-3. Derive size based indicators from initial size sampling data
-```{r}
-meanLen <- sum()
-
-
-```
-
-
-
-
-4. Evaluate temporal patterns of indicators
 
 
