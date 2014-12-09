@@ -19,6 +19,10 @@ will also be generated and trends over the survey period will be assessed.
 ## Methods
 
 ```{r dataImport, echo=FALSE}
+#Clear the junk
+graphics.off()
+rm(list=ls(all=TRUE))
+
 #library(magrittr)
 library(dplyr)
 library(stargazer)
@@ -168,16 +172,51 @@ stargazer(specTable, type = "text", summary = FALSE, digit.separator = "")
 
 
 head(sfDat)
-head(studySpecies)
+head(info.dat)
+colnames(info.dat)[2] <- "BIO_CODE"
 
+# First create a data set and calculations for non-weighted mean length 
+# based on the entire commmunity
 # First calculate the number measured and sum of the lengths
 # for each species at each station
-glfRed <- sfDat %>%
-  inner_join(sfDat, studySpecies, by = "BIO_GLF" , copy = FALSE) %>%
-  filter(meas_typ=="TL") %>%
-  group_by(STATIONID, BIO_GLF) %>%
-  summarize(msrCnt=n(), 
-            sumL=sum(LEN_GLF))
+
+info.dat2 <- select(info.dat, BIO_CODE, common_name, bycatch)
+
+head(bgsDat)
+colnames(bgsDat)[15] <- "BIO_CODE"
+bgsDat2 <- select(bgsDat, STATIONID, BIO_CODE, CNTEXP)
+
+head(sfDat)
+sfDat <- filter(sfDat, meas_typ=="TL")
+sfDat2 <- select(sfDat, STATIONID, BIO_CODE, LEN_GLF)
+sfDat2 <- inner_join(sfDat2, stDat, by= "STATIONID", copy=FALSE)
+
+# SBI data for the entire GOM
+SBIDAT.ALLSPEC <- inner_join(sfDat2, info.dat2, by = "BIO_CODE" , copy = FALSE)
+SBIDAT.ALLSPEC <- inner_join(SBIDAT.ALLSPEC, bgsDat2, by = c("STATIONID","BIO_CODE") , copy = FALSE)
+
+SBIDAT.ALLSPEC <- filter(SBIDAT.ALLSPEC, LEN_GLF>=0 & LEN_GLF<300)
+SBIDAT.ALLSPEC$wLen <- SBIDAT.ALLSPEC$LEN_GLF*SBIDAT.ALLSPEC$CNTEXP
+SBIDAT.ALLSPEC <- filter(SBIDAT.ALLSPEC, wLen>0)
+
+
+
+SBIDAT.ALLSPEC2 <- SBIDAT.ALLSPEC %>%
+  group_by(YR) %>%
+  summarize(wLensum=sum(wLen), cntsum=sum(CNTEXP))
+
+SBIDAT.ALLSPEC2$WmeanL <- SBIDAT.ALLSPEC2$wLensum/SBIDAT.ALLSPEC2$cntsum
+
+
+
+# Plot of non-weighted trends
+ggplot2::qplot(YR, WmeanL, data=SBIDAT.ALLSPEC2, geom=c("point", "smooth"))
+
+
+
+
+
+
 
 # Tests to verify counts
 head(glfRed)
@@ -200,9 +239,7 @@ colnames(mean_len)[2] <- "meanLen"
 sd_len <- aggregate(LEN_GLF ~ YR, data=df2, sd)
 colnames(sd_len)[2] <- "sd"
 mean_len <- merge(mean_len, sd_len, by="YR")
-ggplot2::qplot(YR, meanLen, data=mean_len) +
-  geom_point()
-, geom=c("point", "smooth"))
+
 
 ggplot2::ggplot(mean_len, aes(x=YR, y=meanLen)) + 
   geom_point() +
@@ -217,10 +254,9 @@ ggplot2::ggplot(mean_len, aes(x=YR, y=meanLen)) +
 
 
 
-# First create a data set and calculations for non-weighted mean length 
-# based on the entire commmunity
 
-# Plot of non-weighted trends
+
+
 
 # Create a data set of weighted mean length measurements
 
