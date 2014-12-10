@@ -8,7 +8,7 @@ output: html_document
 ## Objectives
 Identify and calculate size-based indicator (SBI) time series for the Gulf of Mexico based on the length-frequency data collected by [SEAMAP]() for our focal species.  Indicatory identification is derived from two primary sources [Shin et al. 2005](http://icesjms.oxfordjournals.org/content/62/3/384) and [Rochet and Trinkle 2003](http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164).  Initially a global time series will be developed for community-wide metrics of mean length:
 
-$ \bar{L}=\frac{\sum\limits_{N}L}{N} $  
+$$\bar{L}=\frac{\sum\limits_{N}L}{N}$$  
 
 
 will also be generated and trends over the survey period will be assessed.
@@ -18,25 +18,35 @@ will also be generated and trends over the survey period will be assessed.
 
 ## Methods
 
-```{r dataImport, echo=FALSE}
+```{r envSetup, echo=FALSE, warning=FALSE, message=FALSE}
 #Clear the junk
 graphics.off()
 rm(list=ls(all=TRUE))
+
 
 #library(magrittr)
 library(dplyr)
 library(stargazer)
 library(ggplot2)
+```
+
+
+
+
+```{r dataImport, echo=FALSE}
 # Import Size frequency table from SEAMAP_2013 DB
 # sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
 #                    header = TRUE, sep = ",")
 
 sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC2.csv", 
                     header = TRUE, sep = ",")
+
 # GLFREC2.csv was the second attempt to extract the data from the Access DB.
 # The initial export (ie GLFREC.csv) only exported around 1M values as opposed
+# the ~3M in the database.
 
-# create a new variable to be a factor for measurement type
+# Making a measurement type factor to make sorting easier
+# create a new variable in df
 sfDat$meas_typ <- sfDat$MEASCD_GLF
 
 # Recode the new variable to letter designations for filtering
@@ -61,16 +71,18 @@ sfDat$meas_typ[sfDat$meas_typ==20] <- "OTHER"
 sfDat$meas_typ[sfDat$meas_typ==22] <- "WD"
 sfDat$meas_typ[sfDat$meas_typ==23] <- "SA"
 
-names(sfDat)
+
 # Rename BIO_GLF to BIO_CODE
+# BIO_CODE will become the standard for df merging
 colnames(sfDat)[8] <- "BIO_CODE"
 
 
 # Import station table from SEAMAP_2013 DB
+# This data is primarily for data info by station
 stDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/STAREC.csv", 
                     header = TRUE, sep = ",")
 
-# Create a yr and month variable
+# Create a yr and month variable from MO_DAY_YR field
 stDat$date<-stDat$MO_DAY_YR
 stDat$date<-as.Date(stDat$date, "%m/%d/%Y")
 stDat$month<-format(stDat$date, format="%m")
@@ -78,22 +90,27 @@ stDat$YR<-format(stDat$date, format="%Y")
 stDat$YR<-as.numeric(stDat$YR)
 stDat$month<-as.numeric(stDat$month)
 
-names(stDat)
+# Limit df to necessary values
+stDat <- dplyr::select(stDat, STATIONID, month, YR)
 
-stDat <- select(stDat, STATIONID, month, YR)
 
-#Import the Taxonomy data from SEAMAP_2013 DB
+
+# Import the Taxonomy data from SEAMAP_2013 DB
+#**** Commented out due to better data in "info.dat" file ****#
+
 taxDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/NEWBIOCODESBIG.csv", header = TRUE, sep = ",")
 
 # This file had info on a much larger number of species from the GOM
-#
 # specinfo.dat<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/spec_info_summary.csv")
 # colnames(specinfo.dat)[1]<-'BIO_BGS'
 
+
 # Import the study species list with taxonomy, TL, Habitat, and Bycatch designations
+# Primiarily favored this because it is only our 65 study species and includes bycatch designations
 info.dat <- read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/matrix_plot/infoDat.csv")
 
-# Import BGSREC table
+
+# Import BGSREC table for the station by species specific count data
 bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", header = TRUE, sep = ",")
 
 # Filter only needed columns
@@ -106,13 +123,17 @@ bgsDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/BGSREC.csv", he
 
 #Import list of study species
 studySpecies<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/seamap_keepers_comm_analysis.csv")
-#studySpecies$keep <- NULL
+studySpecies$keep <- NULL
 colnames(studySpecies)[1] <- "BIO_GLF"
 # lenCount <- sbiDat3 %>%
 #   filter(STATIONID==4) %>%
 #   group_by(BIO_GLF, common_name) %>%
 #   summarize(spcCnt=n(), meanL)
+```
 
+
+
+```{r dataTabl1, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='asis'}
 
 shortnames=names(sfDat)
 #create variable descriptions
@@ -135,7 +156,7 @@ description <- c("unique integer (int) entry id",
 
 metadataBound <- cbind(shortnames, description)
 colnames(metadataBound) <- c("Parameter", "Description")
-stargazer(metadataBound, type = "text", summary = FALSE)
+stargazer(metadataBound, type = "html", summary = FALSE)
 
 # Do this later to avoid choking on data
 
@@ -158,7 +179,12 @@ colnames(taxDat)[3] <- "BIO_GLF"
 
 #join taxonomy data to database
 #sbiDat3 <- dplyr::inner_join(sbiDat2, taxDat, by = NULL, copy = FALSE)
+```
 
+
+
+
+```{r dataTabl2, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='asis'}
 # species table
 specTable <- dplyr::inner_join(studySpecies, taxDat, by = NULL, copy = FALSE) %>%
   select(BIO_GLF, TAXONOMIC, common_name)
@@ -166,14 +192,14 @@ colnames(specTable)[1] <- "Code"
 colnames(specTable)[2] <- "Genus species"
 colnames(specTable)[3] <- "Common name"
 
-stargazer(specTable, type = "text", summary = FALSE, digit.separator = "")
+stargazer(specTable, type = "html", summary = FALSE, digit.separator = "")
+```
 
 
-#sbiDat4 <- dplyr::inner_join(sbiDat3, bgsDat1, by = NULL, copy = FALSE)
+```{r dataMung, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
 
-
-head(sfDat)
-head(info.dat)
+# Rename column for merging
+#head(info.dat)
 colnames(info.dat)[2] <- "BIO_CODE"
 
 # First create a data set and calculations for non-weighted mean length 
@@ -181,7 +207,10 @@ colnames(info.dat)[2] <- "BIO_CODE"
 # First calculate the number measured and sum of the lengths
 # for each species at each station
 
+# Limit species data to only neccessary 
 info.dat2 <- select(info.dat, BIO_CODE, common_name, bycatch)
+names(info.dat2)
+
 
 head(bgsDat)
 colnames(bgsDat)[15] <- "BIO_CODE"
@@ -199,8 +228,9 @@ SBIDAT.ALLSPEC <- inner_join(SBIDAT.ALLSPEC, bgsDat2, by = c("STATIONID","BIO_CO
 SBIDAT.ALLSPEC <- filter(SBIDAT.ALLSPEC, LEN_GLF>=0 & LEN_GLF<300)
 SBIDAT.ALLSPEC$wLen <- SBIDAT.ALLSPEC$LEN_GLF*SBIDAT.ALLSPEC$CNTEXP
 SBIDAT.ALLSPEC <- filter(SBIDAT.ALLSPEC, wLen>0)
+```
 
-
+```{r dataPlot, echo=FALSE, warning=FALSE, error=FALSE, fig.align='center'}
 
 SBIDAT.ALLSPEC2 <- SBIDAT.ALLSPEC %>%
   group_by(YR) %>%
@@ -208,10 +238,11 @@ SBIDAT.ALLSPEC2 <- SBIDAT.ALLSPEC %>%
 
 SBIDAT.ALLSPEC2$WmeanL <- SBIDAT.ALLSPEC2$wLensum/SBIDAT.ALLSPEC2$cntsum
 
-
-
 # Plot of non-weighted trends
-plot1 <- ggplot(data=SBIDAT.ALLSPEC2, aes(x=YR, y=WmeanL)) + geom_line() + geom_point()
+ggplot(data=SBIDAT.ALLSPEC2, aes(x=YR, y=WmeanL)) + 
+  geom_line() + 
+  geom_point() + 
+  theme_bw()
 
 
 # Look at trends by bycatch designation group
@@ -222,8 +253,10 @@ SBIDAT.ALLSPEC3 <- SBIDAT.ALLSPEC %>%
 SBIDAT.ALLSPEC3$WmeanL <- SBIDAT.ALLSPEC3$wLensum/SBIDAT.ALLSPEC3$cntsum
 
 
-plot2 <- ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch, colour=bycatch)) + geom_line() + geom_point()
-
+ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch, colour=bycatch)) + 
+  geom_line() + 
+  geom_point() + 
+  theme_bw()
 
 ```
 
