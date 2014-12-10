@@ -240,11 +240,7 @@ SBIDAT.ALLSPEC2 <- SBIDAT.ALLSPEC %>%
 SBIDAT.ALLSPEC2$WmeanL <- SBIDAT.ALLSPEC2$wLensum/SBIDAT.ALLSPEC2$cntsum
 
 # Plot of non-weighted trends
-ggplot(data=SBIDAT.ALLSPEC2, aes(x=YR, y=WmeanL)) + 
-  geom_line() + 
-  geom_point() + 
-  theme_bw()
-
+w
 
 # Look at trends by bycatch designation group
 
