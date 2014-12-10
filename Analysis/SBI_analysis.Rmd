@@ -28,6 +28,7 @@ rm(list=ls(all=TRUE))
 library(dplyr)
 library(stargazer)
 library(ggplot2)
+library(ggthemes)
 ```
 
 
@@ -253,10 +254,16 @@ SBIDAT.ALLSPEC3 <- SBIDAT.ALLSPEC %>%
 SBIDAT.ALLSPEC3$WmeanL <- SBIDAT.ALLSPEC3$wLensum/SBIDAT.ALLSPEC3$cntsum
 
 
-ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch, colour=bycatch)) + 
-  geom_line() + 
-  geom_point() + 
-  theme_bw()
+# ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch, colour=bycatch)) + 
+#   geom_smooth(method = "lm", se = FALSE) + 
+#   geom_point(aes(shape=bycatch)) + 
+#   theme_bw()
+
+ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch)) + 
+  #geom_smooth(aes(linetype=bycatch)) + 
+  geom_line(aes(linetype=bycatch)) +
+  geom_point(aes(shape=bycatch, se=FALSE)) + 
+  theme_wsj()
 
 ```
 
