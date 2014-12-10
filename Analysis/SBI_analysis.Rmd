@@ -26,6 +26,7 @@ rm(list=ls(all=TRUE))
 #library(magrittr)
 library(dplyr)
 library(stargazer)
+library(ggplot2)
 # Import Size frequency table from SEAMAP_2013 DB
 # sfDat <- read.csv("C:/Users/Kevin.Purcell/Documents/seamap_2013/GLFREC.csv", 
 #                    header = TRUE, sep = ",")
@@ -210,65 +211,18 @@ SBIDAT.ALLSPEC2$WmeanL <- SBIDAT.ALLSPEC2$wLensum/SBIDAT.ALLSPEC2$cntsum
 
 
 # Plot of non-weighted trends
-ggplot2::qplot(YR, WmeanL, data=SBIDAT.ALLSPEC2, geom=c("point", "smooth"))
+plot1 <- ggplot(data=SBIDAT.ALLSPEC2, aes(x=YR, y=WmeanL)) + geom_line() + geom_point()
 
 
+# Look at trends by bycatch designation group
+
+SBIDAT.ALLSPEC3 <- SBIDAT.ALLSPEC %>%
+  group_by(YR, bycatch) %>%
+  summarize(wLensum=sum(wLen), cntsum=sum(CNTEXP))
+SBIDAT.ALLSPEC3$WmeanL <- SBIDAT.ALLSPEC3$wLensum/SBIDAT.ALLSPEC3$cntsum
 
 
-
-
-
-# Tests to verify counts
-head(glfRed)
-glfRedTest <- sfDat %>%
-  filter(BIO_GLF==108021802, STATIONID==4)
-  
-
-names(bgsDat)
-bgsRed <- bgsDat %>%
-  group_by(STATIONID, BIO_BGS) %>%
-  summarize(totCatch=sum(CNTEXP))
-
-#length by year
-#sum by yeara
-#generate mean length by year
-df1 <- sbiDat3[c(67,17,14)] 
-df2 <- subset(df1, df1$meas_typ=="TL")
-mean_len <- aggregate(LEN_GLF ~ YR, data=df2, mean)
-colnames(mean_len)[2] <- "meanLen"
-sd_len <- aggregate(LEN_GLF ~ YR, data=df2, sd)
-colnames(sd_len)[2] <- "sd"
-mean_len <- merge(mean_len, sd_len, by="YR")
-
-
-ggplot2::ggplot(mean_len, aes(x=YR, y=meanLen)) + 
-  geom_point() +
-  geom_line() +
-  geom_errorbar(aes(ymin=meanLen-sd, ymax=meanLen+sd), width=.1)
-   
-# Mean weight calculation
-#df3 <- sbiDat3[c(67,12)]
-#mean_wt <- aggregate(INDVL_WT ~ YR, data=df3, mean)
-#%%%%%%%%%%%%%%%% NOT POSSIBLE DUE TO NAs %%%%%%%%%%%%%%%%%%%%%%#
-
-
-
-
-
-
-
-
-# Create a data set of weighted mean length measurements
-
-# Plot the weighted mean length time-series
-
-
-# Create weighted mean length calculations grouped by bycatch relationship
-
-# plot those trends
-
-
-
+plot2 <- ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch, colour=bycatch)) + geom_line() + geom_point()
 
 
 ```
