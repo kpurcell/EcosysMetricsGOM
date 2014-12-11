@@ -5,19 +5,6 @@ date: "Tuesday, November 18, 2014"
 output: html_document
 ---
 
-## Objectives
-Identify and calculate size-based indicator (SBI) time series for the Gulf of Mexico based on the length-frequency data collected by [SEAMAP]() for our focal species.  Indicatory identification is derived from two primary sources [Shin et al. 2005](http://icesjms.oxfordjournals.org/content/62/3/384) and [Rochet and Trinkle 2003](http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164).  Initially a global time series will be developed for community-wide metrics of mean length:
-
-$$\bar{L}=\frac{\sum\limits_{N}L}{N}$$  
-
-
-will also be generated and trends over the survey period will be assessed.
-
-
-
-
-## Methods
-
 ```{r envSetup, echo=FALSE, warning=FALSE, message=FALSE}
 #Clear the junk
 graphics.off()
@@ -132,8 +119,6 @@ colnames(studySpecies)[1] <- "BIO_GLF"
 #   summarize(spcCnt=n(), meanL)
 ```
 
-
-
 ```{r dataTabl1, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='asis'}
 
 shortnames=names(sfDat)
@@ -183,8 +168,6 @@ colnames(taxDat)[3] <- "BIO_GLF"
 ```
 
 
-
-
 ```{r dataTabl2, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='asis'}
 # species table
 specTable <- dplyr::inner_join(studySpecies, taxDat, by = NULL, copy = FALSE) %>%
@@ -231,22 +214,45 @@ SBIDAT.ALLSPEC$wLen <- SBIDAT.ALLSPEC$LEN_GLF*SBIDAT.ALLSPEC$CNTEXP
 SBIDAT.ALLSPEC <- filter(SBIDAT.ALLSPEC, wLen>0)
 ```
 
+
+## Objectives
+Identify and calculate size-based indicator (SBI) time series for the Gulf of Mexico based on the length-frequency data collected by [SEAMAP]() for our focal species.  Indicatory identification is derived from two primary sources [Shin et al. 2005](http://icesjms.oxfordjournals.org/content/62/3/384) and [Rochet and Trinkle 2003](http://www.nrcresearchpress.com/doi/abs/10.1139/f02-164).  Initially a global time series will be developed for community-wide metrics of mean length:
+
+$$\bar{L}=\frac{\sum\limits_{N}L}{N}$$  
+
+
+will also be generated and trends over the survey period will be assessed.
+
+
+
+
+## Methods
+
+To evaluate temporal patterns in the mean length of the community we evaluated an overall time-series for all 65 taxonomic entities involved in our study, as well as time-series for our four bycatch categories (Catch, High, Rare, Never).  All calculations were conducted on post-1987 data due to previously stated inconsistencies in sampling protocols, and only measurements in which total length (TL) were preformed (`r (length(sfDat$meas_typ[sfDat$meas_typ=="TL"])/length(sfDat$meas_typ))*100`% of observations).  
+
+
 ```{r dataPlot, echo=FALSE, warning=FALSE, error=FALSE, fig.align='center'}
 
 SBIDAT.ALLSPEC2 <- SBIDAT.ALLSPEC %>%
+  filter(YR >= 1987) %>%
   group_by(YR) %>%
   summarize(wLensum=sum(wLen), cntsum=sum(CNTEXP))
 
 SBIDAT.ALLSPEC2$WmeanL <- SBIDAT.ALLSPEC2$wLensum/SBIDAT.ALLSPEC2$cntsum
 
 # Plot of non-weighted trends
-w
+ggplot(data=SBIDAT.ALLSPEC2, aes(x=YR, y=WmeanL)) + 
+  geom_line() +
+  geom_point() + 
+  theme_wsj()
 
 # Look at trends by bycatch designation group
 
 SBIDAT.ALLSPEC3 <- SBIDAT.ALLSPEC %>%
+  filter(YR >= 1987) %>%
   group_by(YR, bycatch) %>%
   summarize(wLensum=sum(wLen), cntsum=sum(CNTEXP))
+
 SBIDAT.ALLSPEC3$WmeanL <- SBIDAT.ALLSPEC3$wLensum/SBIDAT.ALLSPEC3$cntsum
 
 
