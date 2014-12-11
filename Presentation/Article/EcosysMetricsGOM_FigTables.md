@@ -6,8 +6,9 @@
 
 **Figure 3:** Trend patterns for diversity metric time series based on SEAMAP survey catch.  Lines represent loess smooth trends for each of the calculated diversity metrics.  Vertical line represents breakpoints for environmental drivers: hypoxia (1996) and fishing effort (2003).  Shaded regions represent breakpoint ranges for each region and season based on piecewise regression analysis.  
 
-**Figure 4:** Pelagic: Demersal (P:D) ratio based on SEAMAP survey catch.  Symbols represent yearly P:D ratio for stations in the entire GOM (circles) along the Louisiana (pyramids) and Texas (plus) shelves.  Lines represent loess smooth trends for the GOM (solid), Louisiana (dashed) and Texas (dot-dash) shelves.  
-Figure 5: Warwick Statistics time series for Louisiana (square) and Texas (pyramid) coastal shelves.  Gray area represents fishing effort from the shrimp trawl fishery.  Lines are 3rd order polynomial regression lines for Louisiana (dashed) and Texas (solid).  
+**Figure 4:** Pelagic: Demersal (P:D) ratio based on SEAMAP survey catch.  Symbols represent yearly P:D ratio for stations in the entire GOM (circles) along the Louisiana (pyramids) and Texas (plus) shelves.  Lines represent loess smooth trends for the GOM (solid), Louisiana (dashed) and Texas (dot-dash) shelves.
+
+**Figure 5:** Warwick Statistics time series for Louisiana (square) and Texas (pyramid) coastal shelves.  Gray area represents fishing effort from the shrimp trawl fishery.  Lines are 3rd order polynomial regression lines for Louisiana (dashed) and Texas (solid).  
 
 
 ##Table 1:   
