@@ -1,0 +1,299 @@
+Matrix Plot Analysis
+========================================================
+```{r, echo=FALSE}
+#Clear the junk
+graphics.off()
+rm(list=ls(all=TRUE))
+
+library(knitcitations)
+```
+* Bycatch designations were identified using Elizabeth Scott Dentons paper 
+
+```
+@article{foster2004status,
+  title={Status of bycatch reduction device performance and research in North--Central and Western Gulf of Mexico},
+  author={Foster, DG and Scott-Denton, E},
+  journal={Gulf of Mexico Fishery Management Council, The Commons at Rivergate, Tampa, FL},
+  year={2004}
+}
+```
+
+Setup for this analysis was examined in a preliminary excel file [```abun_table_ANALYAIA.xlsx```](C:\Users\kevin.purcell\Documents\comm_analysis\matrix_plot\abun_table_ANALYAIA.xlsx)
+```
+
+```{r}
+# biomass.plot<-aggregate(ST_SELECT_BGS ~ YR, data=bgsrec.dat2, FUN=mean)
+# with(biomass.plot, {
+#      plot(ST_SELECT_BGS ~ YR,
+#           ylab="Biomass",
+#           main="Biomass Trends over SEAMAP survey")
+#     lines(lowess(ST_SELECT_BGS~YR, f=.2))
+# })
+```
+
+
+
+
+```{r Setup+Data, echo=FALSE}
+#load packages
+library(reshape)
+library(lattice)
+library(MASS)
+library(mvtsplot)
+library(ggplot2)
+library(dplyr)
+
+
+load("C:/Users/kevin.purcell/Documents/comm_analysis/matrix_plot_update/matrix_data_2013-7-3.RData")
+
+eff.dat<-read.csv("C:/Users/kevin.purcell/Documents/comm_analysis/offshore_6011.csv")
+```
+
+Using the data created from the [```matrix_plot_data_prep_2013-7-3.R```](C:\Users\kevin.purcell\Documents\comm_analysis\matrix_plot\matrix_plot_data_prep2013-5-24.R) script.
+
+```{r biomass plot,fig.align='center', echo=FALSE}
+# Make a yearly data set
+biomass.plot<-aggregate(ST_SELECT_BGS ~ YR, data=bgsrec.dat2, FUN=mean)
+abundance.plot<-aggregate(ST_CNTEXP ~ YR, data=bgsrec.dat2, FUN=mean)
+eff.plot<-aggregate(effort ~ yr, data=eff.dat, FUN=sum)
+
+
+#One multiplot version
+# with(biomass.plot, {par(mar=c(5,4,4,5)+.1)
+#      plot(ST_SELECT_BGS ~ YR,
+#           ylab="Biomass",
+#           main="Biomass Trends over SEAMAP survey")
+#     lines(lowess(ST_SELECT_BGS~YR, f=.2))
+# })
+
+
+qplot(YR,ST_SELECT_BGS, data=biomass.plot,
+      geom=c("point","smooth"),
+      ylab="Average Biomass (kg)",
+      xlab="Year",
+      main="Average Biomass timeseries for Standard SEAMAP trawl")
+qplot(yr, effort, data=eff.plot,
+      geom=c("point", "smooth"),
+      ylab="Fishing Effort",
+      xlab="Year",
+      main="Total shrimping effort timeseries for nwGOM")
+qplot(YR,ST_CNTEXP, data=abundance.plot,
+      geom=c("point","smooth"),
+      ylab="Average Abundance",
+      xlab="Year",
+      main="Average Abundnace timeseries for Standard SEAMAP trawl")
+
+```
+
+```{r fig.width=9, fig.height=7}
+catch.dat<-subset(bgsrec.dat2, bgsrec.dat2$bycatch=='catch')
+high.dat<-subset(bgsrec.dat2, bgsrec.dat2$bycatch=='high')
+rare.dat<-subset(bgsrec.dat2, bgsrec.dat2$bycatch=='rare')
+never.dat<-subset(bgsrec.dat2, bgsrec.dat2$bycatch=='never')
+
+#catch table
+catch.table<-catch.dat[,c("TAXONOMIC", "YR","ST_SELECT_BGS")]
+
+catch.table<-aggregate(ST_SELECT_BGS ~ TAXONOMIC + YR, data=catch.table, FUN=mean)
+
+catch.table2 <- reshape(catch.table, idvar="YR", timevar="TAXONOMIC", direction="wide")
+catch.table2[is.na(catch.table2)] <- 0
+
+catch.table3<-sub("ST_SELECT_BGS.", "", names(catch.table2))
+
+
+catch.matrix<- catch.table2[,c(2:4)]   
+yrs <- 1987:2011 
+
+windows(height=2, width=7)
+mvtsplot(catch.matrix, xtime=yrs, margin=F,sort=sum, levels=4,
+         palette="RdYlGn",main="Catch Species Matrix")
+
+#high table
+high.table<-high.dat[,c("TAXONOMIC", "YR","ST_SELECT_BGS")]
+
+high.table<-aggregate(ST_SELECT_BGS ~ TAXONOMIC + YR, data=high.table, FUN=mean)
+
+high.table2 <- reshape(high.table, idvar="YR", timevar="TAXONOMIC", direction="wide")
+high.table2[is.na(high.table2)] <- 0
+
+high.table3<-sub("ST_SELECT_BGS.", "", names(high.table2))
+
+names(high.table2) <- c(high.table3)
+
+high.matrix<- high.table2[,c(2:17)]   
+yrs <- 1987:2011 
+
+windows(height=7, width=7)
+mvtsplot(high.matrix, xtime=yrs, margin=F,sort=sum, levels=4,
+         palette="RdYlGn",main="Catch Species Matrix")
+
+
+#rare table
+rare.table<-rare.dat[,c("TAXONOMIC", "YR","ST_SELECT_BGS")]
+
+rare.table<-aggregate(ST_SELECT_BGS ~ TAXONOMIC + YR, data=rare.table, FUN=mean)
+
+rare.table2 <- reshape(rare.table, idvar="YR", timevar="TAXONOMIC", direction="wide")
+rare.table2[is.na(rare.table2)] <- 0
+
+rare.table3<-sub("ST_SELECT_BGS.", "", names(rare.table2))
+
+names(rare.table2) <- c(rare.table3)
+
+
+
+
+rare.matrix<- rare.table2[,c(2:17)]   
+yrs <- 1987:2011 
+
+windows(height=7, width=7)
+mvtsplot(rare.matrix, xtime=yrs, margin=F,sort=sum, levels=4,
+         palette="RdYlGn", main="Catch Species Matrix")
+
+
+#never table
+never.table<-never.dat[,c("common_name", "YR","ST_SELECT_BGS")]
+
+never.table<-aggregate(ST_SELECT_BGS ~ common_name + YR, data=never.table, FUN=mean)
+
+never.table2 <- reshape(never.table, idvar="YR", timevar="common_name", direction="wide")
+never.table2[is.na(never.table2)] <- 0
+
+never.table3<-sub("ST_SELECT_BGS.", "", names(rare.table2))
+
+names(never.table2) <- c(never.table3)
+
+never.matrix<- never.table2[,c(2:17)]   
+yrs <- 1987:2011 
+
+windows(height=7, width=7)
+mvtsplot(never.matrix, xtime=yrs, margin=F,sort=sum, levels=4,
+         palette="RdYlGn",main="Catch Species Matrix")
+
+
+#### Abundance Table
+abun.table<-bgsrec.dat2[,c("TAXONOMIC", "YR","ST_SELECT_BGS")]
+
+abun.table<-aggregate(ST_SELECT_BGS ~ TAXONOMIC + YR, data=abun.table, FUN=mean)
+
+abun.table2 <- reshape(abun.table, idvar="YR", timevar="TAXONOMIC", direction="wide")
+abun.table2[is.na(abun.table2)] <- 0
+
+abun.table3<-sub("ST_SELECT_BGS.", "", names(abun.table2))
+
+names(abun.table2) <- c(abun.table3)
+#df2[,c(1,3,2,4)]
+
+#opposite order
+#abun.table2<-abun.table2[,c("PENAEUS AZTECUS","PENAEUS SETIFERUS","PENAEUS DUORARUM","MICROPOGONIAS UNDULATUS","POGONIAS CROMIS","LEIOSTOMUS XANTHURUS","STENOTOMUS CAPRINUS","PEPRILUS BURTI","RHIZOPRIONODON TERRAENOVAE","CYNOSCION NOTHUS","TRICHIURUS LEPTURUS","SYNODUS FOETENS","LAGODON RHOMBOIDES","SYACIUM PAPILLOSUM","CALLINECTES SAPIDUS","SCOMBEROMORUS MACULATUS","STELLIFER LANCEOLATUS","LUTJANUS CAMPECHANUS","CYNOSCION","ARIUS FELIS","RHINOPTERA BONASUS","CHLOROSCOMBRUS CHRYSURUS","SPHYRNA TIBURO","BREVOORTIA PATRONUS","PRISTIPOMOIDES AQUILONARIS","LARIMUS FASCIATUS","PRIONOTUS LONGISPINOSUS","ANCHOA HEPSETUS","UPENEUS PARVUS","CENTROPRISTIS PHILADELPHICUS","SICYONIA BREVIROSTRIS","PORTUNUS SPINICARPUS","AMUSIUM PAPYRACEUM","DIPLECTRUM BIVITTATUM","ETROPUS CROSSOTUS","CYNOSCION ARENARIUS","TRACHURUS LATHAMI","STEINDACHNERIA ARGENTEA","HARENGULA JAGUANA","LOLIGO PLEII","CALLINECTES SIMILIS","ETRUMEUS TERES","POLYDACTYLUS OCTONEMUS","LOLIGO PEALEII","TRACHYPENEUS SIMILIS","LOLIGO","CALAPPA SULCATA","CARANX CRYSOS","SERRANUS ATROBRANCHUS","PRIONOTUS PARALATUS","SQUILLA EMPUSA","TRACHYPENEUS","SYACIUM GUNTERI","LOLLIGUNCULA BREVIS","LEPOPHIDIUM BREVIBARBE","TRACHYPENEUS CONSTRICTUS","PRIONOTUS STEARNSI","SAURIDA BRASILIENSIS","SQUILLA","PORTUNUS GIBBESII","ANCHOA MITCHILLI","SICYONIA DORSALIS","SPHOEROIDES PARVUS","HALIEUTICHTHYS ACULEATUS","SOLENOCERA")]
+
+abun.table2<-abun.table2[,c("YR","SOLENOCERA","HALIEUTICHTHYS ACULEATUS","SPHOEROIDES PARVUS","SICYONIA DORSALIS","ANCHOA MITCHILLI","PORTUNUS GIBBESII","SQUILLA","SAURIDA BRASILIENSIS","PRIONOTUS STEARNSI","TRACHYPENEUS CONSTRICTUS","LEPOPHIDIUM BREVIBARBE","LOLLIGUNCULA BREVIS","SYACIUM GUNTERI","TRACHYPENEUS","SQUILLA EMPUSA","PRIONOTUS PARALATUS","SERRANUS ATROBRANCHUS","CARANX CRYSOS","CALAPPA SULCATA","LOLIGO","TRACHYPENEUS SIMILIS","LOLIGO PEALEII","POLYDACTYLUS OCTONEMUS","ETRUMEUS TERES","CALLINECTES SIMILIS","LOLIGO PLEII","HARENGULA JAGUANA","STEINDACHNERIA ARGENTEA","TRACHURUS LATHAMI","CYNOSCION ARENARIUS","ETROPUS CROSSOTUS","DIPLECTRUM BIVITTATUM","AMUSIUM PAPYRACEUM","PORTUNUS SPINICARPUS","SICYONIA BREVIROSTRIS","CENTROPRISTIS PHILADELPHICUS","UPENEUS PARVUS","ANCHOA HEPSETUS","PRIONOTUS LONGISPINOSUS","LARIMUS FASCIATUS","PRISTIPOMOIDES AQUILONARIS","BREVOORTIA PATRONUS","SPHYRNA TIBURO","CHLOROSCOMBRUS CHRYSURUS","RHINOPTERA BONASUS","ARIUS FELIS","CYNOSCION","LUTJANUS CAMPECHANUS","STELLIFER LANCEOLATUS","SCOMBEROMORUS MACULATUS","CALLINECTES SAPIDUS","SYACIUM PAPILLOSUM","LAGODON RHOMBOIDES","SYNODUS FOETENS","TRICHIURUS LEPTURUS","CYNOSCION NOTHUS","RHIZOPRIONODON TERRAENOVAE","PEPRILUS BURTI","STENOTOMUS CAPRINUS","LEIOSTOMUS XANTHURUS","POGONIAS CROMIS","MICROPOGONIAS UNDULATUS","PENAEUS DUORARUM","PENAEUS SETIFERUS","PENAEUS AZTECUS")]
+  
+abun.matrix<- abun.table2[,c(2:66)]   
+
+yrs <- 1987:2011 
+
+windows(height=7, width=7)
+mvtsplot(abun.matrix, xtime=yrs, margin=F,levels=4,
+         palette="RdYlGn",main="BIOMASS Matrix - sorted")
+
+mvtsplot(abun.matrix, xtime=yrs, margin=T,levels=4,
+         main="BIOMASS Matrix - sorted")
+
+### Causal Impact trial ######
+# using library(causalImpact)
+#
+# Catch
+catchCI  <- catch.dat %>%
+  group_by(YR) %>%
+  summarize(y=sum(ST_SELECT_BGS))
+
+neverCI  <- never.dat %>%
+  group_by(YR) %>%
+  summarize(x1=sum(ST_SELECT_BGS))
+x1 <- neverCI$x1
+y <- catchCI$y
+
+data <- cbind(y, x1)
+head(data)
+pre.period <- c(1, 14)
+post.period <- c(15, 25)
+
+catch.impact <- CausalImpact(data, pre.period, post.period)
+
+plot(catch.impact)
+summary(catch.impact)
+
+
+# High
+highCI  <- high.dat %>%
+  group_by(YR) %>%
+  summarize(y=sum(ST_SELECT_BGS))
+
+x1 <- neverCI$x1
+y <- highCI$y
+
+data <- cbind(y, x1)
+head(data)
+pre.period <- c(1, 14)
+post.period <- c(15, 25)
+
+high.impact <- CausalImpact(data, pre.period, post.period)
+
+plot(high.impact)
+summary(high.impact)
+
+
+# Rare
+rareCI  <- rare.dat %>%
+  group_by(YR) %>%
+  summarize(y=sum(ST_SELECT_BGS))
+
+x1 <- neverCI$x1
+y <- rareCI$y
+
+data <- cbind(y, x1)
+head(data)
+pre.period <- c(1, 14)
+post.period <- c(15, 25)
+
+rare.impact <- CausalImpact(data, pre.period, post.period)
+
+plot(rare.impact)
+summary(rare.impact)
+
+
+
+
+#######
+
+
+
+names(abun.table2)
+
+colnames(biomass.plot)[1]<-"yr"
+excel.dat<-merge(biomass.plot, eff.plot, by="yr")
+eff.plot<-subset(eff.plot, eff.plot$yr>=1987)
+biomass.plot<-subset(biomass.plot, biomass.plot$YR<=2011)  
+      
+#One multiplot version
+with(biomass.plot, {par(mar=c(5,4,4,5)+.1)
+     plot(ST_SELECT_BGS ~ YR,
+          ylab="Biomass",
+          main="Biomass Trends over SEAMAP survey")
+    lines(lowess(ST_SELECT_BGS~YR, f=.2))
+})
+par(new=TRUE)
+plot(biomass.plot$YR, eff.plot$effort,type="S",xaxt="n",yaxt="n",xlab="",ylab="")
+plot(biomass.plot$YR, eff.plot$effort,type="h")
+axis(4)
+mtext("Days Fished",side=4,line=3)
+#legend("topleft",col=c("red","blue"),lty=1,legend=c("y1","y2"))      
+      
+      
+      
+write.csv(abun.table2, "C:/Users/kevin.purcell/Documents/comm_analysis/abun_table2.csv")
+```
+
+
