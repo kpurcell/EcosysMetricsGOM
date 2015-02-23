@@ -1,16 +1,3 @@
-## Figure Legends  
-
-**Figure 1:**  Time series plots for average annual biomass CPUE (A) and abundance CPUE (B) based on the SEAMAP fishery-independent landings from 1987-2011.  Additionally, time series for two primary ecosystem stressors: annual shrimping effort (C) based on fishery-dependent data and the annual aerial extent of bottom water hypoxia (D) derived from the annual LUMCON survey.    
-
-**Figure 2:** Matrix plot of CPUE (biomass) time series for dominant members of SEAMAP catch.  Green (higher) and red (lower) colors represent mean abundance values for each survey year.  Panel groupings are based on catch relationship with fishery: target catches (A), high incidence bycatch species (B), rare bycatch species (C), and species not reported in bycatch (D).  
-
-**Figure 3:** Trend patterns for diversity metric time series based on SEAMAP survey catch.  Lines represent loess smooth trends for each of the calculated diversity metrics.  Vertical line represents breakpoints for environmental drivers: hypoxia (1996) and fishing effort (2003).  Shaded regions represent breakpoint ranges for each region and season based on piecewise regression analysis.  
-
-**Figure 4:** Pelagic: Demersal (P:D) ratio based on SEAMAP survey catch.  Symbols represent yearly P:D ratio for stations in the entire GOM (circles) along the Louisiana (pyramids) and Texas (plus) shelves.  Lines represent loess smooth trends for the GOM (solid), Louisiana (dashed) and Texas (dot-dash) shelves.
-
-**Figure 5:** Warwick Statistics time series for Louisiana (square) and Texas (pyramid) coastal shelves.  Gray area represents fishing effort from the shrimp trawl fishery.  Lines are 3rd order polynomial regression lines for Louisiana (dashed) and Texas (solid).  
-
-
 ##Table 1:   
 |   mod   |  stat  |  alpha  |   p.Val   |  r.Sqr  |
 |:-------:|:------:|:-------:|:---------:|:-------:|
@@ -45,3 +32,16 @@
 
 
 Table 1: Breakpoints derived from loess smooth trend lines for each diversity metric time series.  Metric time series are based on SEAMAP survey catch data.  The alpha scores represent the temporal "breakpoint" within each time series based on lowest MSE.  Model (r^2) values represent pairwise regression model fits based on the stated alpha breakpoints.
+
+
+## Figure Legends  
+
+**Figure 1:**  Time series plots for average annual biomass CPUE (A) and abundance CPUE (B) based on the SEAMAP fishery-independent landings from 1987-2011.  Additionally, time series for two primary ecosystem stressors: annual shrimping effort (C) based on fishery-dependent data and the annual aerial extent of bottom water hypoxia (D) derived from the annual LUMCON survey.    
+
+**Figure 2:** Matrix plot of CPUE (biomass) time series for dominant members of SEAMAP catch.  Green (higher) and red (lower) colors represent mean abundance values for each survey year.  Panel groupings are based on catch relationship with fishery: target catches (A), high incidence bycatch species (B), rare bycatch species (C), and species not reported in bycatch (D).  
+
+**Figure 3:** Trend patterns for diversity metric time series based on SEAMAP survey catch.  Lines represent loess smooth trends for each of the calculated diversity metrics.  Vertical line represents breakpoints for environmental drivers: hypoxia (1996) and fishing effort (2003).  Shaded regions represent breakpoint ranges for each region and season based on piecewise regression analysis.  
+
+**Figure 4:** Pelagic: Demersal (P:D) ratio based on SEAMAP survey catch.  Symbols represent yearly P:D ratio for stations in the entire GOM (circles) along the Louisiana (pyramids) and Texas (plus) shelves.  Lines represent loess smooth trends for the GOM (solid), Louisiana (dashed) and Texas (dot-dash) shelves.
+
+**Figure 5:** Warwick Statistics time series for Louisiana (square) and Texas (pyramid) coastal shelves.  Gray area represents fishing effort from the shrimp trawl fishery.  Lines are 3rd order polynomial regression lines for Louisiana (dashed) and Texas (solid).  

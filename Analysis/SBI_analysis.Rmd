@@ -119,6 +119,8 @@ colnames(studySpecies)[1] <- "BIO_GLF"
 #   summarize(spcCnt=n(), meanL)
 ```
 
+
+
 ```{r dataTabl1, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, results='asis'}
 
 shortnames=names(sfDat)
@@ -263,9 +265,10 @@ SBIDAT.ALLSPEC3$WmeanL <- SBIDAT.ALLSPEC3$wLensum/SBIDAT.ALLSPEC3$cntsum
 
 ggplot(data=SBIDAT.ALLSPEC3, aes(x=YR, y=WmeanL, group=bycatch)) + 
   #geom_smooth(aes(linetype=bycatch)) + 
+  labs(x="Year", y = "Mean Length") +
   geom_line(aes(linetype=bycatch)) +
   geom_point(aes(shape=bycatch, se=FALSE)) + 
-  theme_wsj()
+  theme_tufte()
 
 ```
 
